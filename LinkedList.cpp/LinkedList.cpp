@@ -26,10 +26,9 @@ template <typename T> class LinkedList {
 		void push(T value, int pos = 0) {
 			if (pos > size) return;
 			
-			Node<T>* curr = new Node<T>();
+			Node<T>* curr = head;
 			Node<T>* newNode = new Node<T>();
 			newNode->data = value;
-			curr = head;
 			size++;
 			
 			for (int i = 0; i < pos; i++) 
@@ -43,10 +42,8 @@ template <typename T> class LinkedList {
 		T pop(int pos = 0) {
 			if (pos > size) return -1;
 			
-			Node<T>* curr = new Node<T>();
-			Node<T>* prev = new Node<T>();
-			curr = head->next;
-			prev = head;
+			Node<T>* curr = head->next;
+			Node<T>* prev = head;
 			size--;
 			
 			for (int i = 0; i < pos; i++) {
@@ -61,8 +58,7 @@ template <typename T> class LinkedList {
 		}
 		
 		void print() {
-			Node<T>* curr = new Node<T>();
-			curr = head->next;
+			Node<T>* curr = head->next;
 			while(curr != tail) {
 				std::cout<<curr->data<<' ';
 				curr = curr->next;
@@ -71,10 +67,9 @@ template <typename T> class LinkedList {
 		}
 		
 		void deleteAll() {
-			Node<T>* curr = new Node<T>();
-			Node<T>* prev = new Node<T>();
-			curr = head->next;
-			prev = head;
+			Node<T>* curr = head->next;
+			Node<T>* prev = head;
+
 			while (curr != tail) {
 				prev = curr;
 				curr = curr->next;
@@ -86,6 +81,8 @@ template <typename T> class LinkedList {
 		
 		~LinkedList() {
 			deleteAll();
+			delete head;
+			delete tail;
 		}
 };
 
