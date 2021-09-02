@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{}%
+\contentsline {section}{\numberline {2}Four Initiatives}{2}{}%
+\contentsline {section}{\numberline {3}Role Model}{3}{}%
+\contentsline {section}{\numberline {4}Personal Values and Academic Integrity Violations}{3}{}%
+\contentsline {section}{\numberline {5}Learning Outcomes}{4}{}%
+\contentsline {section}{\numberline {6}Citing Sources}{5}{}%
+\contentsline {section}{\numberline {7}Reporting Violations}{5}{}%
+\contentsline {section}{\numberline {8}Collaboration on Homework}{6}{}%
+\contentsline {section}{\numberline {9}Receiving Help on Homework}{6}{}%
+\contentsline {section}{\numberline {10}Conclusion}{7}{}%
