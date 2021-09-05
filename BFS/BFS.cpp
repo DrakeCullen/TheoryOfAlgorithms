@@ -212,7 +212,7 @@ int main() {
     g.addEdge(1, 8);
     g.addEdge(9, 8);
     g.addEdge(8, 7);
-    //g.addEdge(7, 10);
+    g.addEdge(7, 10);
     g.addEdge(7, 11);
     g.addEdge(7, 3);
     g.addEdge(7, 6);
