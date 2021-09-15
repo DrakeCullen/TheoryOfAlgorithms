@@ -3,21 +3,22 @@
 
 #include "PriorityQueue.h"
 #include "PriorityQueue.cpp"
-#include "ResizableArray.h"
-#include "ResizableArray.cpp"
+#include "AdjacencyList.h"
+#include "AdjacencyList.cpp"
 
 template <typename T> class Graph {
 private:
 	bool* visited;
-	ResizableArray<LinkedList<T>> adj;
+	AdjacencyList<T> adj;
     int size;
 	
 public:
     Graph(int newSize);
 
-	void addEdge(int v1, int v2, int w=0);
+	void addEdge(int vertex1, int vertex2, int weight = 0);
 	
     void print();
+
 };
 
 #endif

@@ -7,23 +7,18 @@ Graph<T>::Graph(int newSize) {
 }
 
 template<typename T> 
-void Graph<T>::addEdge(int v1, int v2, int w) 
+void Graph<T>::addEdge(int vertex1, int vertex2, int weight) 
 { 
 	Node<T>* newNode = new Node<T>;
-	newNode->data = v2;
-	//newNode->weight = w;
-	adj.appendNode(0, newNode);
-	//l.print();
-	//adj.getAddress(0).push(2,1); 
-	//adj[0]->print();//.push(newNode, 0); 
+	newNode->data = vertex2;
+	newNode->weight = weight;
+	adj.calculateSize(vertex1, vertex2);
+	adj.addEdge(vertex1, newNode);
 }
 
 template<typename T> 
 void Graph<T>::print() 
 {
-	for (int i = 0; i < size; i++) 
-	{
-		cout<<i<<": ";
-		adj.getAddress(i).print();
-	}
+	adj.print();
 }
+

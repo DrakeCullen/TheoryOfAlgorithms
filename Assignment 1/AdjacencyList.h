@@ -1,33 +1,37 @@
-#ifndef RESIZABLEARRAY_H
-#define RESIZABLEARRAY_H
+#ifndef ADJACENCYLIST_H
+#define ADJACENCYLIST_H
 
 #include "LinkedList.h"
 #include "LinkedList.cpp"
 
 template <typename T>
-class ResizableArray
+class AdjacencyList
 {
     private:
         int maxSize;
         int currentSize;
-        T* array;
+        LinkedList<T>* array;
 
         void enlargeArray();
 
     public:
-        ResizableArray(int newSize = 128);
+        AdjacencyList(int newSize = 16);
 
         void push(T newItem);
 
         T operator[](T index);
 
-        void appendNode(int index, Node<T> *newNode);
+        void addEdge(int index, Node<T> *newNode);
 
         void swap(int firstIndex, int secondIndex);
 
         void moveToTop(int lastEntry);
 
-        ~ResizableArray();
+        void calculateSize(int vertex1, int vertex2);
+
+        void print();
+
+        ~AdjacencyList();
 };
 
 #endif

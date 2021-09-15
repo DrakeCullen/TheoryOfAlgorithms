@@ -19,10 +19,8 @@ private:
 		
 		bool isEmpty();
 		
-		void push(T value, int pos = 0);
-		
-		T pop(int pos = 0);
-		
+		void push(Node<T>* newNode);
+				
 		void print();
 		
 		void printReverse();

@@ -23,44 +23,13 @@ bool LinkedList<T>::isEmpty()
 };
 
 template<typename T> 
-void LinkedList<T>::push(T value, int pos) 
+void LinkedList<T>::push(Node<T>* newNode) 
 {
-	if (pos > size) return;
-	
-	Node<T>* curr = head;
-	Node<T>* newNode = new Node<T>();
-	newNode->data = value;
+	newNode->next = head->next;
+	head->next->prev = newNode;
+	newNode->prev = head;
+	head->next = newNode;
 	size++;
-	
-	for (int i = 0; i < pos; i++) 
-		curr = curr->next;
-	
-	curr->next->prev = newNode;
-	newNode->next = curr->next;
-	curr->next = newNode;
-	newNode->prev = curr;
-}
-
-template<typename T> 
-T LinkedList<T>::pop(int pos) 
-{
-	if (pos > size) return -1;
-	
-	Node<T>* curr = head->next;
-	Node<T>* prev = head;
-	size--;
-	
-	for (int i = 0; i < pos; i++) 
-	{
-		curr = curr->next;
-		prev = prev->next;
-	}
-	
-	curr->next->prev = prev;
-	prev->next = curr->next;
-	T value = curr->data;
-	delete curr;
-	return value;
 }
 
 template<typename T> 
@@ -103,6 +72,7 @@ void LinkedList<T>::checkForAllElements(Queue<T> &queue, bool visited[]) {
 template<typename T> 
 void LinkedList<T>::deleteAll() 
 {
+	cout<<"delete";
 	Node<T>* curr = head->next;
 	Node<T>* prev = head;
 
@@ -114,13 +84,15 @@ void LinkedList<T>::deleteAll()
 	head->next = tail;
 	tail->prev = head;
 	size = 0;
+	delete head;
+	delete tail;
 }
 
 template<typename T> 
 LinkedList<T>::~LinkedList() 
 {
-	deleteAll();
-	delete head;
-	delete tail;
+	//deleteAll();
+	//delete head;
+	//delete tail;
 }
 
