@@ -87,8 +87,8 @@ void LinkedList<T>::printReverse()
 	cout<<std::endl;
 }
 
-template<typename T>  
-void Queue<T>::checkForAllElements(Queue<T> &queue, bool visited[]) {
+/*template<typename T>  
+void LinkedList<T>::checkForAllElements(Queue<T> &queue, bool visited[]) {
             Node<T>* curr = head->next;
             while (curr != tail) {
 				if (!visited[curr->value]) {
@@ -98,7 +98,7 @@ void Queue<T>::checkForAllElements(Queue<T> &queue, bool visited[]) {
                 curr = curr->next;
             }
         }
-
+*/
 
 template<typename T> 
 void LinkedList<T>::deleteAll() 

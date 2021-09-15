@@ -27,7 +27,7 @@ private:
 		
 		void printReverse();
 
-         void checkForAllElements(Queue<T> &queue, bool visited[]);
+        //void checkForAllElements(Queue<T> &queue, bool visited[]);
 		
 		void deleteAll();
 		

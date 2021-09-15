@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Sep 12 16:19:55 2021
+# Make data base, printed on Tue Sep 14 21:41:06 2021
 
 # Variables
 
@@ -45,11 +47,11 @@ CURDIR := /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/73
+SNAP_DATA = /var/snap/code/74
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:52652
+JOURNAL_STREAM = 8:55453
 # makefile (from 'Makefile', line 13)
 CFLAGS = -g -Wall
 # environment
@@ -73,15 +75,15 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-_ = /snap/code/73/usr/share/code/code
+_ = /snap/code/74/usr/share/code/code
 # environment
-MANAGERPID = 1763
+MANAGERPID = 2043
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8efd7224-5e82-4bae-824b-ae36826ce620.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c50e6d53-4a6a-42f4-92dc-882dd5b94a4d.sock
 # environment
 VSCODE_CWD = /home/drake
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/73/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/74/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -89,15 +91,15 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/1980,unix/drake-pc:/tmp/.ICE-unix/1980
+SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/2263,unix/drake-pc:/tmp/.ICE-unix/2263
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/drake/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/73
+SNAP = /snap/code/74
 # environment
-SNAP_VERSION = e7d7e9a9
+SNAP_VERSION = 83bd43bc
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -107,9 +109,9 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=32aa8a71-a139-453c-827f-a659ca03bb40&iid=32aa8a71-a139-453c-827f-a659ca03bb40&sid=32aa8a71-a139-453c-827f-a659ca03bb40","uploadToServer":true}
 # environment
-INVOCATION_ID = c6bdea6cf33e47469e13b45bf74e2b7d
+INVOCATION_ID = 4ce2cae999da436c9d39ca24dd58e0b8
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/73/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/74/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -117,7 +119,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 30159
+GIO_LAUNCHED_DESKTOP_FILE_PID = 17184
 # automatic
 %F = $(notdir $%)
 # environment
@@ -131,7 +133,7 @@ PWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1944
+SSH_AGENT_PID = 2226
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -143,7 +145,7 @@ HOME = /home/drake
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/drake/.config/Code/CachedData/e7d7e9a9348e6a8cc8c03f877d39cb72e5dfb1ff
+VSCODE_CODE_CACHE_PATH = /home/drake/.config/Code/CachedData/83bd43bc519d15e50c4272c6cf5c1479df196a4d
 # environment
 LOGNAME = drake
 # environment
@@ -173,7 +175,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/drake/snap/code/73
+SNAP_USER_DATA = /home/drake/snap/code/74
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 12)
@@ -185,7 +187,7 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = drake
 # environment
-SNAP_REVISION = 73
+SNAP_REVISION = 74
 # makefile
 .DEFAULT_GOAL := default
 # environment
@@ -199,7 +201,7 @@ MAKE_COMMAND := make
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-95a7764f-1.60.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-95a7764f-1.60.1-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -233,8 +235,6 @@ SNAP_NAME = code
 # environment
 LC_ALL = C
 # environment
-DBUS_STARTER_BUS_TYPE = session
-# environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
@@ -255,11 +255,9 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 24575
-# environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=01766e2551145faaa51238cf613e1764
+VSCODE_PID = 16608
 # variable set hash-table stats:
-# Load=124/1024=12%, Rehash=0, Collisions=18/149=12%
+# Load=122/1024=12%, Rehash=0, Collisions=18/147=12%
 
 # Pattern-specific Variable Values
 
@@ -267,9 +265,9 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=01766e2551145faaa51238c
 
 # Directories
 
-# . (device 66306, inode 12714738): 18 files, no impossibilities.
+# . (device 66306, inode 12714738): 22 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 22 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -282,6 +280,13 @@ MST.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
+
+# Not a target:
+ResizableArray.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 all:
@@ -290,15 +295,11 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-Queue.o: Queue.cpp Queue.h Node.o
+# Not a target:
+ResizableArray.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
-make: *** No rule to make target 'all'.  Stop.
- 
-#  recipe to execute (from 'Makefile', line 36):
-	$(CC) $(CFLAGS) -c Queue.cpp
 
 # Not a target:
 LinkedList.h:
@@ -319,6 +320,12 @@ LinkedList.cpp:
 #  File has not been updated.
 
 # Not a target:
+PriorityQueue.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 Graph.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -327,9 +334,15 @@ Graph.cpp:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-09-12 15:01:04.708909409
+#  Last modified 2021-09-14 21:40:57.139858687
 #  File has been updated.
 #  Successfully updated.
+
+# Not a target:
+PriorityQueue.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Node.h:
@@ -348,14 +361,15 @@ Node.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-.DEFAULT:
+ResizableArray.o: ResizableArray.cpp ResizableArray.h Node.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+#  recipe to execute (from 'Makefile', line 39):
+	$(CC) $(CFLAGS) -c ResizableArray.cpp
 
 # Not a target:
-Queue.h:
+.DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -364,57 +378,58 @@ LinkedList.o: LinkedList.cpp LinkedList.h Node.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 33):
+#  recipe to execute (from 'Makefile', line 36):
 	$(CC) $(CFLAGS) -c LinkedList.cpp
-
-# Not a target:
-Queue.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 46):
+#  recipe to execute (from 'Makefile', line 48):
 	$(RM) MST *.o *~
 
-Graph.o: Graph.cpp Graph.h LinkedList.o Queue.o
+Graph.o: Graph.cpp Graph.h LinkedList.o PriorityQueue.o ResizableArray.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 30):
+#  recipe to execute (from 'Makefile', line 33):
 	$(CC) $(CFLAGS) -c Graph.cpp
+
+PriorityQueue.o: PriorityQueue.cpp PriorityQueue.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 42):
+	$(CC) $(CFLAGS) -c PriorityQueue.cpp
 
 Node.o: Node.cpp Node.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 39):
+#  recipe to execute (from 'Makefile', line 45):
 	$(CC) $(CFLAGS) -c Node.cpp
 
-MST: MST.o Graph.o
+MST: MST.o Graph.o LinkedList.o PriorityQueue.o ResizableArray.o Node.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 26):
-	$(CC) $(CFLAGS) -o MST MST.o Graph.o
+	$(CC) $(CFLAGS) -o MST MST.o Graph.o LinkedList.o PriorityQueue.o ResizableArray.o Node.o
 
 # files hash-table stats:
-# Load=20/1024=2%, Rehash=0, Collisions=0/50=0%
+# Load=23/1024=2%, Rehash=0, Collisions=0/61=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 225 B / avg = 8 B
-# current buf: size = 8162 B / used = 225 B / count = 26 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 29 / storage = 302 B / avg = 10 B
+# current buf: size = 8162 B / used = 302 B / count = 29 / avg = 10 B
 
-# strcache performance: lookups = 56 / hit rate = 53%
+# strcache performance: lookups = 69 / hit rate = 57%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=1/56=2%
-# Finished Make data base on Sun Sep 12 16:19:55 2021
+# Load=29/8192=0%, Rehash=0, Collisions=1/69=1%
+# Finished Make data base on Tue Sep 14 21:41:06 2021
 
  

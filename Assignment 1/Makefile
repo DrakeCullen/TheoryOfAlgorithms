@@ -22,21 +22,24 @@ default: MST
 # To create the executable file clock we need the object files
 # clockTypeImp.o, main.o:
 #
-MST: MST.o Graph.o LinkedList.o Queue.o Node.o
-	$(CC) $(CFLAGS) -o MST MST.o Graph.o LinkedList.o Queue.o Node.o
+MST: MST.o Graph.o LinkedList.o PriorityQueue.o ResizableArray.o Node.o
+	$(CC) $(CFLAGS) -o MST MST.o Graph.o LinkedList.o PriorityQueue.o ResizableArray.o Node.o
 
 # To create the object file clockTypeImp.o, we need the source
 # files clockTypeImp.cpp, clockType.h:
 #
 
-Graph.o: Graph.cpp Graph.h LinkedList.o Queue.o
+Graph.o: Graph.cpp Graph.h LinkedList.o PriorityQueue.o ResizableArray.o
 	$(CC) $(CFLAGS) -c Graph.cpp
 
 LinkedList.o: LinkedList.cpp LinkedList.h Node.o
 	$(CC) $(CFLAGS) -c LinkedList.cpp
 
-Queue.o: Queue.cpp Queue.h Node.o
-	$(CC) $(CFLAGS) -c Queue.cpp
+ResizableArray.o: ResizableArray.cpp ResizableArray.h Node.o
+	$(CC) $(CFLAGS) -c ResizableArray.cpp
+
+PriorityQueue.o: PriorityQueue.cpp PriorityQueue.h
+	$(CC) $(CFLAGS) -c PriorityQueue.cpp
 
 Node.o: Node.cpp Node.h
 	$(CC) $(CFLAGS) -c Node.cpp

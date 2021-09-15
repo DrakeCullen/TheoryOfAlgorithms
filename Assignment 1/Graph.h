@@ -1,15 +1,15 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include "LinkedList.h"
-#include "LinkedList.cpp"
-#include "Queue.h"
-#include "Queue.cpp"
+#include "PriorityQueue.h"
+#include "PriorityQueue.cpp"
+#include "ResizableArray.h"
+#include "ResizableArray.cpp"
 
 template <typename T> class Graph {
 private:
 	bool* visited;
-	LinkedList<T>* adj;
+	ResizableArray<LinkedList<T>> adj;
     int size;
 	
 public:
@@ -18,8 +18,6 @@ public:
 	void addEdge(int v1, int v2, int w=0);
 	
     void print();
-	
-	void bfs(int s);
 };
 
 #endif
