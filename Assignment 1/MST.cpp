@@ -1,6 +1,11 @@
-#include "Graph.h"
-#include "Graph.cpp"
+/**
+    CSCI-480 - Assignment 1
+    @file MST.cpp
+    @author Drake Cullen
+*/
 
+#include "./include/Graph.h"
+#include "./src/Graph.cpp"
 
 int main() {
     Graph<int> g(13);

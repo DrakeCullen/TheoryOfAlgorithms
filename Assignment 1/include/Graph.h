@@ -2,9 +2,9 @@
 #define GRAPH_H
 
 #include "PriorityQueue.h"
-#include "PriorityQueue.cpp"
+#include "../src/PriorityQueue.cpp"
 #include "AdjacencyList.h"
-#include "AdjacencyList.cpp"
+#include "../src/AdjacencyList.cpp"
 
 template <typename T> class Graph {
 private:

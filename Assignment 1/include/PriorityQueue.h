@@ -11,6 +11,7 @@ class PriorityQueue
     private:
         T* array;
         int currentIndex = 0;
+        int maxSize = 0;
 
         void moveUp();
 
@@ -20,8 +21,12 @@ class PriorityQueue
 
         void moveDown();
 
+        void enlargeArray();
+
+        void swap(int firstIndex, int secondIndex);
+
     public:
-        PriorityQueue(int size);
+        PriorityQueue(int size = 2);
 
         void push(T newItem);
 
@@ -30,6 +35,7 @@ class PriorityQueue
         int getSize();
 
         void print();
+
         ~PriorityQueue();
 };
 

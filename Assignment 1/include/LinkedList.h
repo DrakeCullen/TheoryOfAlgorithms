@@ -16,20 +16,15 @@ private:
 		LinkedList();
 		
 		int getSize();
-		
-		bool isEmpty();
-		
-		void push(Node<T>* newNode);
 				
+		void push(Node<T>* newNode);
+		
+		void deleteAll();
+
+		//Remove after testing
 		void print();
 		
 		void printReverse();
-
-        //void checkForAllElements(Queue<T> &queue, bool visited[]);
-		
-		void deleteAll();
-		
-		~LinkedList();
 };
 
 #endif

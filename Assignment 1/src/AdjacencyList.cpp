@@ -1,4 +1,10 @@
-#include "AdjacencyList.h"
+/**
+    CSCI-480 - Assignment 1
+    @file AdjacencyList.cpp
+    @author Drake Cullen
+*/
+
+#include "../include/AdjacencyList.h"
 
 template<typename T> 
 AdjacencyList<T>::AdjacencyList(int newSize)
@@ -12,16 +18,12 @@ template<typename T>
 void AdjacencyList<T>::enlargeArray() 
 {
     maxSize *= 2;
-    LinkedList<T>* n = array;
     LinkedList<T>* newArray = new LinkedList<T>[maxSize];
     for (int i = 0; i <= currentSize; i++)
         newArray[i] = array[i];
-    cerr<<newArray<<' '<<array<<' '<<n<<endl;
     
     delete[] array;
-    cerr<<newArray<<' '<<array<<endl;
     array = newArray;
-    cerr<<newArray<<' '<<array<<endl;
 }
 
 template<typename T> 
@@ -59,30 +61,5 @@ AdjacencyList<T>::~AdjacencyList()
     array = nullptr;
 }
 
-
-// For priority Queue
-template<typename T> 
-void AdjacencyList<T>::swap(int firstIndex, int secondIndex)
-{
-    T temp = array[firstIndex];
-    array[firstIndex] = array[secondIndex];
-    array[secondIndex] = temp;
-}
-
-template<typename T> 
-void AdjacencyList<T>::moveToTop(int lastEntry)
-{
-    array[0] = array[lastEntry];
-    array[lastEntry] = 100000000;
-}
-
-template<typename T> 
-void AdjacencyList<T>::push(T newItem)
-{
-    if (currentSize + 1 == maxSize)
-        enlargeArray();
-    
-    array[currentSize++] = newItem;
-}
 
 

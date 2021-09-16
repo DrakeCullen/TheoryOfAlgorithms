@@ -1,8 +1,15 @@
-#include "PriorityQueue.h"
+/**
+    CSCI-480 - Assignment 1
+    @file PriorityQueue.cpp
+    @author Drake Cullen
+*/
+
+#include "../include/PriorityQueue.h"
 
 template<typename T> 
 PriorityQueue<T>::PriorityQueue(int size)
 {
+    maxSize = size;
     array = new T[size];
 }
 
@@ -13,7 +20,7 @@ void PriorityQueue<T>::moveUp()
     
     while (array[i] < array[(i - 1) / 2] && i >= 0) 
     {
-        array.swap(i, (i - 1) / 2);
+        swap(i, (i - 1) / 2);
         i = (i - 1) / 2;
     }
 }
@@ -37,6 +44,14 @@ T PriorityQueue<T>::getRightChild(int index)
 }
 
 template<typename T>
+void PriorityQueue<T>::swap(int firstIndex, int secondIndex)
+{
+    T temp = array[firstIndex];
+    array[firstIndex] = array[secondIndex];
+    array[secondIndex] = temp;
+}
+
+template<typename T>
 void PriorityQueue<T>::moveDown()
 {
     int index = 0;
@@ -44,29 +59,43 @@ void PriorityQueue<T>::moveDown()
 
     do
     {
-        T current = array[index];
-        T leftChild = getLeftChild(index);
-        T rightChild = getRightChild(index);
+        current = array[index];
+        leftChild = getLeftChild(index);
+        rightChild = getRightChild(index);
 
         if (leftChild <= rightChild && leftChild < current)
         {
-            array.swap(index, 2 * index + 1);
+            swap(index, 2 * index + 1);
             index = 2 * index + 1;
         }
 
         else if (rightChild < current)
         {
-            array.swap(index, 2 * index + 2);
+            swap(index, 2 * index + 2);
             index = 2 * index + 2;
         }
     }
     while (index * 2 + 1 < currentIndex && (array[index] > getLeftChild(index) || array[index] > getRightChild(index)));
 }
 
+template<typename T> 
+void PriorityQueue<T>::enlargeArray() 
+{
+    maxSize *= 2;
+    T* newArray = new T[maxSize];
+    for (int i = 0; i <= currentIndex; i++)
+        newArray[i] = array[i];
+
+    delete[] array;
+    array = newArray;
+}
+
 template<typename T>
 void PriorityQueue<T>::push(T newItem)
 {
-    array.push(newItem);
+    if (currentIndex + 1 >= maxSize)
+        enlargeArray();
+    array[currentIndex] = newItem;
     moveUp();
     currentIndex++;
 }
@@ -76,7 +105,7 @@ T PriorityQueue<T>::pop()
 {
     T topValue = array[0];
     currentIndex--;
-    array.moveToTop(currentIndex);
+    array[0] = array[currentIndex];
     moveDown();
     return topValue;
 }

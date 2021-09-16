@@ -1,4 +1,10 @@
-#include "Graph.h"
+/**
+    CSCI-480 - Assignment 1
+    @file Graph.cpp
+    @author Drake Cullen
+*/
+
+#include "../include/Graph.h"
 
 template<typename T> 
 Graph<T>::Graph(int newSize) {
