@@ -17,33 +17,17 @@ CFLAGS  = -g -Wall
 # you can name this target entry anything, but "default" or "all"
 # are the most commonly used names by convention
 #
-default: MST
+default: testMain
 
 # To create the executable file clock we need the object files
 # clockTypeImp.o, main.o:
 #
-MST: MST.o Graph.o
-	$(CC) $(CFLAGS) -o MST MST.o Graph.o
+testMain: testMain.o
+	$(CC) $(CFLAGS) -o testMain testMain.o 
 
 # To create the object file clockTypeImp.o, we need the source
 # files clockTypeImp.cpp, clockType.h:
 #
-
-Graph.o: ./src/Graph.cpp ./include/Graph.h LinkedList.o PriorityQueue.o
-	$(CC) $(CFLAGS) -c ./src/Graph.cpp
-
-LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h Node.o
-	$(CC) $(CFLAGS) -c ./src/LinkedList.cpp
-
-AdjacencyList.o: ./src/AdjacencyList.cpp ./include/AdjacencyList.h LinkedList.o
-	$(CC) $(CFLAGS) -c ./src/AdjacencyList.cpp
-
-PriorityQueue.o: ./src/PriorityQueue.cpp ./include/PriorityQueue.h
-	$(CC) $(CFLAGS) -c ./src/PriorityQueue.cpp
-
-Node.o: ./src/Node.cpp ./include/Node.h
-	$(CC) $(CFLAGS) -c ./src/Node.cpp
-
 	
 
 clean:

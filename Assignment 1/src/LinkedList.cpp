@@ -7,11 +7,8 @@
 #include "../include/LinkedList.h"
 
 /**
- * Default Constructor. Allocate memory for the head and tail pointers.
- * Link head and tail.
- *
- * @param none
- * @return none
+ * Default Constructor that allocates memory for the head and tail pointers and links them.
+ * O(1)
  */
 template<typename T> 
 LinkedList<T>::LinkedList() 
@@ -24,7 +21,7 @@ LinkedList<T>::LinkedList()
 }
 
 /**
- * Default Constructor that allocates memory for the head and tail pointers and links them.
+ * Return the size of the linked list.
  * O(1)
  */
 template<typename T> 
@@ -50,6 +47,23 @@ void LinkedList<T>::push(Node<T>* newNode)
 }
 
 /**
+ * Delete the top element from the Linked List.
+ * O(1)
+ */
+template<typename T> 
+T LinkedList<T>::pop() 
+{
+	Node<T>* nodeToDelete = head->next;
+	T data = nodeToDelete->data;
+
+	head->next = nodeToDelete->next;
+	nodeToDelete->next->prev = head;
+	delete nodeToDelete;
+	size--;
+	return data;
+}
+
+/**
  * Delete the allocated memory from the heap. 
  * O(n) where n is the size of the Linked List
  */
@@ -66,8 +80,6 @@ void LinkedList<T>::deleteAll()
 	}
 	size = 0;
 }
-
-
 
 //Remove after testing
 template<typename T> 

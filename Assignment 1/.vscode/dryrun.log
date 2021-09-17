@@ -2,10 +2,9 @@ make --dry-run --keep-going --print-directory
 make: Entering directory '/home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1'
 g++    -c -o MST.o MST.cpp
 g++ -g -Wall -c ./src/Node.cpp
-g++ -g -Wall -c LinkedList.cpp
-g++ -g -Wall -c PriorityQueue.cpp
-g++ -g -Wall -c AdjacencyList.cpp
-g++ -g -Wall -c Graph.cpp
-g++ -g -Wall -o MST MST.o Graph.o LinkedList.o PriorityQueue.o AdjacencyList.o Node.o
+g++ -g -Wall -c ./src/LinkedList.cpp
+g++ -g -Wall -c ./src/PriorityQueue.cpp
+g++ -g -Wall -c ./src/Graph.cpp
+g++ -g -Wall -o MST MST.o Graph.o
 make: Leaving directory '/home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1'
  

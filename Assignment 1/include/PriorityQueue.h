@@ -15,11 +15,11 @@ class PriorityQueue
 
         void moveUp();
 
+        void moveDown();
+
         T getLeftChild(int index);
 
         T getRightChild(int index);
-
-        void moveDown();
 
         void enlargeArray();
 
@@ -33,8 +33,6 @@ class PriorityQueue
         T pop();
 
         int getSize();
-
-        void print();
 
         ~PriorityQueue();
 };

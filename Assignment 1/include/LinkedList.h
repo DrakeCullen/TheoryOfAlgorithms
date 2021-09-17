@@ -18,6 +18,8 @@ private:
 		int getSize();
 				
 		void push(Node<T>* newNode);
+
+		T pop();
 		
 		void deleteAll();
 
