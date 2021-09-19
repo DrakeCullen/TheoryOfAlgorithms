@@ -69,21 +69,22 @@ void Graph<T>::MST(int startIndex)
 	for (unsigned int i = 0; i < currentSize; i++)
 		visited[i] = 0;
 	
-	Node<T> lastCity = cities[startIndex];
-	lastCity.weight = 0;
-	lastCity.from = lastCity.index;
+	Node<T> firstCity = cities[startIndex];
+	firstCity.weight = 0;
+	firstCity.from = firstCity.index;
 
-	pq.push(lastCity);
+	pq.push(firstCity);
 	while (pq.getSize() > 0)
 	{
 		Node<T> currentCity = pq.pop();
-		visited[currentCity.index] = 1;
-		currentCity.from = lastCity.index;
-		totalDistance += currentCity.weight;
-		ordering[i++] = currentCity;
-		lastCity = currentCity;
+		if (!visited[currentCity.index])
+		{
+			visited[currentCity.index] = 1;
+			totalDistance += currentCity.weight;
+			ordering[i++] = currentCity;
 
-		adj.checkNeighbors(visited, pq, currentCity.index);
+			adj.checkNeighbors(visited, pq, currentCity.index);
+		}
 	}
 	cout<<"The total distance is: "<<totalDistance<<endl;
 	printMST(ordering);
@@ -95,6 +96,65 @@ void Graph<T>::printMST(Node<T> ordering[])
 	for (unsigned int i = 0; i < currentSize; i++)
 		cout<<cities[ordering[i].from].data<<" to "<<ordering[i].data<<" \"distance = "<<ordering[i].weight<<'"'<<endl;
 
+}
+
+template<typename T> 
+void Graph<T>::dijkstra(int startIndex, int endIndex)
+{
+	const int INF = 2147483646;
+	int distance[currentSize];
+	bool visited[currentSize];
+	int prev[currentSize];
+	PriorityQueue<Node<T>> pq(currentSize);
+	for (unsigned int i = 0; i < currentSize; i++)
+	{
+		distance[i] = INF;
+		visited[i] = 0;
+	}
+	
+	distance[startIndex] = 0;	
+	visited[startIndex] = 0;
+	Node<T> firstCity = cities[startIndex];
+	firstCity.weight = 0;
+	firstCity.from = firstCity.index;
+
+	pq.push(firstCity);
+	while (pq.getSize() > 0)
+	{
+		Node<T> currentCity = pq.pop();
+		visited[currentCity.index] = 1;
+		adj.checkShortestPath(visited, pq, currentCity.index, distance, prev);
+	}
+	printDijkstra(prev, distance, startIndex, endIndex);
+}
+
+template<typename T> 
+void Graph<T>::printDijkstra(int prev[], int distances[], int startIndex, int endIndex)
+{
+	int totalDistance = 0, lastWeight = 0, numberOfCities = 0, copyEnd = endIndex;
+
+	while (copyEnd != startIndex)
+	{
+		copyEnd = prev[copyEnd];
+		numberOfCities++;
+	}
+
+	copyEnd = endIndex;
+	int path[numberOfCities];
+	for (int i = numberOfCities - 1; i >= 0; i--)
+	{
+		path[i] = copyEnd;
+		copyEnd = prev[copyEnd];
+	}
+
+	cout << "1: "<< cities[startIndex].data << " to " << cities[path[0]].data << " \"distance = " << distances[path[0]] << "\"" << endl;
+	lastWeight = distances[path[0]];
+	for (unsigned int i = 0; i < numberOfCities - 1; i++)
+	{
+		cerr << i + 2 << ": "<< cities[path[i]].data << " to " << cities[path[i+1]].data << " \"distance = " << distances[path[i+1]] - lastWeight << "\"" << endl;
+		lastWeight = distances[path[i+1]];
+	}
+	cout<<"Total distance: "<<distances[endIndex]<<endl;
 }
 
 template<typename T> 

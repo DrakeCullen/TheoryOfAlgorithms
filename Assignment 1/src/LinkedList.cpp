@@ -70,9 +70,27 @@ void LinkedList<T>::checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq)
 
 	while (curr != tail) {
 		if (!visited[curr->index])
-		{
 			pq.push(*curr);
-			visited[curr->index] = 1;
+		curr = curr->next;
+	}
+}
+
+template<typename T> 
+void LinkedList<T>::checkShortestPath(bool visited[], PriorityQueue<Node<T>> &pq, int index, int distance[], int prev[])
+{
+	Node<T>* curr = head->next;
+
+	while (curr != tail) {
+		if (!visited[curr->index])
+		{
+			int newDistance = distance[index] + curr->weight;
+			if (newDistance < distance[curr->index])
+			{
+				distance[curr->index] = newDistance;
+				prev[curr->index] = index;
+				pq.push(*curr);
+			}
+			
 		}
 		curr = curr->next;
 	}

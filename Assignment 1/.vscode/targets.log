@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
- 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Sep 18 20:17:06 2021
+# Make data base, printed on Sun Sep 19 13:38:11 2021
 
 # Variables
 
@@ -51,7 +49,7 @@ SNAP_DATA = /var/snap/code/74
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:55129
+JOURNAL_STREAM = 8:53401
 # makefile (from 'Makefile', line 13)
 CFLAGS = -g -Wall
 # environment
@@ -77,9 +75,9 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 _ = /snap/code/74/usr/share/code/code
 # environment
-MANAGERPID = 2174
+MANAGERPID = 1769
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9ee1107c-9102-43e3-8fa3-9c6a5f9078cc.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-cb5ecb34-3c9a-4f3d-9166-25015219e211.sock
 # environment
 VSCODE_CWD = /home/drake
 # environment
@@ -91,7 +89,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/2387,unix/drake-pc:/tmp/.ICE-unix/2387
+SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/1986,unix/drake-pc:/tmp/.ICE-unix/1986
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -109,7 +107,7 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=32aa8a71-a139-453c-827f-a659ca03bb40&iid=32aa8a71-a139-453c-827f-a659ca03bb40&sid=32aa8a71-a139-453c-827f-a659ca03bb40","uploadToServer":true}
 # environment
-INVOCATION_ID = df71c25f827d4d7a8580c13e7d6d0bf1
+INVOCATION_ID = f1916e4068294c209dfddd9a32401c26
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/74/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -119,7 +117,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 23479
+GIO_LAUNCHED_DESKTOP_FILE_PID = 15703
 # automatic
 %F = $(notdir $%)
 # environment
@@ -133,7 +131,7 @@ PWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2351
+SSH_AGENT_PID = 1951
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -171,7 +169,6 @@ SNAP_REAL_HOME = /home/drake
 # default
 MAKE = $(MAKE_COMMAND)
 # default
- 
 MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
@@ -254,7 +251,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 23531
+VSCODE_PID = 15749
 # variable set hash-table stats:
 # Load=121/1024=12%, Rehash=0, Collisions=18/146=12%
 
@@ -264,9 +261,9 @@ VSCODE_PID = 23531
 
 # Directories
 
-# . (device 66306, inode 12714738): 15 files, no impossibilities.
+# . (device 66306, inode 12714738): 16 files, no impossibilities.
 
-# 15 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -281,6 +278,9 @@ MST.o:
 #  File has not been updated.
 
 # Not a target:
+ 
+make: *** No rule to make target 'all'.  Stop.
+ 
 all:
 #  Command line target.
 #  Implicit rule search has been done.
@@ -350,7 +350,6 @@ src/LinkedList.cpp:
 
 LinkedList.o: src/LinkedList.cpp include/LinkedList.h Node.o PriorityQueue.o
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 36):
@@ -424,12 +423,12 @@ MST: MST.o Graph.o
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 33 / storage = 391 B / avg = 11 B
-# current buf: size = 8162 B / used = 391 B / count = 33 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 34 / storage = 405 B / avg = 11 B
+# current buf: size = 8162 B / used = 405 B / count = 34 / avg = 11 B
 
-# strcache performance: lookups = 57 / hit rate = 42%
+# strcache performance: lookups = 58 / hit rate = 41%
 # hash-table stats:
-# Load=33/8192=0%, Rehash=0, Collisions=1/57=2%
-# Finished Make data base on Sat Sep 18 20:17:06 2021
+# Load=34/8192=0%, Rehash=0, Collisions=1/58=2%
+# Finished Make data base on Sun Sep 19 13:38:11 2021
 
  

@@ -66,6 +66,12 @@ void AdjacencyList<T>::checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq
     array[index].checkNeighbors(visited, pq);
 }
 
+template<typename T> 
+void AdjacencyList<T>::checkShortestPath(bool visited[], PriorityQueue<Node<T>> &pq, int index, int distance[], int prev[])
+{
+    array[index].checkShortestPath(visited, pq, index, distance, prev);
+}
+
 // Remove after testing
 template<typename T> 
 void AdjacencyList<T>::print()

@@ -24,6 +24,9 @@ private:
 		T pop();
 
 		void checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq);
+
+		void checkShortestPath(bool visited[], PriorityQueue<Node<T>> &pq, int index, int distance[], int prev[]);
+
 		
 		void deleteAll();
 

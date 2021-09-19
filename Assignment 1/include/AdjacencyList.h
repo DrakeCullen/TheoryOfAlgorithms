@@ -23,6 +23,8 @@ class AdjacencyList
 
         void checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq, int index);
 
+        void checkShortestPath(bool visited[], PriorityQueue<Node<T>> &pq, int index, int distance[], int prev[]);
+
         // This isn't needed?
         void calculateSize();
 
