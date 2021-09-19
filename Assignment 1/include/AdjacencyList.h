@@ -19,10 +19,12 @@ class AdjacencyList
 
         T operator[](T index);
 
-        void addEdge(T index, Node<T> *newNode);
+        void addEdge(int index, Node<T> *newNode);
+
+        void checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq, int index);
 
         // This isn't needed?
-        void calculateSize(int vertex1, int vertex2);
+        void calculateSize();
 
         void print();
 

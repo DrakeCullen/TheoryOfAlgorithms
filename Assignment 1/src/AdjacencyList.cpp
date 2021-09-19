@@ -45,7 +45,7 @@ void AdjacencyList<T>::enlargeArray()
  * * @param newNode -> A pointer to the node that you would like to add
  */
 template<typename T> 
-void AdjacencyList<T>::addEdge(T index, Node<T> *newNode)
+void AdjacencyList<T>::addEdge(int index, Node<T> *newNode)
 {
     array[index].push(newNode);
 }
@@ -53,22 +53,28 @@ void AdjacencyList<T>::addEdge(T index, Node<T> *newNode)
 
 // This isn't needed?
 template<typename T> 
-void AdjacencyList<T>::calculateSize(int vertex1, int vertex2)
+void AdjacencyList<T>::calculateSize()
 {
-    currentSize = vertex1 > currentSize ? vertex2 : currentSize;
-    currentSize = vertex2 > currentSize ? vertex2 : currentSize;
     if (currentSize + 1 == maxSize)
         enlargeArray();
+    currentSize += 1;
+}
+
+template<typename T> 
+void AdjacencyList<T>::checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq, int index)
+{
+    array[index].checkNeighbors(visited, pq);
 }
 
 // Remove after testing
 template<typename T> 
 void AdjacencyList<T>::print()
 {
-    for (int i = 0; i <= currentSize; i++) 
+    for (int i = 0; i < currentSize; i++) 
 	{
 		cout<<i<<": ";
 		array[i].print();
+        cout<<endl;
 	}
 }
 

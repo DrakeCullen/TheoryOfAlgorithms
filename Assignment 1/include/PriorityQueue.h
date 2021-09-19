@@ -17,9 +17,9 @@ class PriorityQueue
 
         void moveDown();
 
-        T getLeftChild(int index);
+        int getLeftChild(int index);
 
-        T getRightChild(int index);
+        int getRightChild(int index);
 
         void enlargeArray();
 

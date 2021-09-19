@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Sep 16 19:31:11 2021
+# Make data base, printed on Sat Sep 18 20:17:06 2021
 
 # Variables
 
@@ -32,6 +32,8 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -47,11 +49,9 @@ SHELL = /bin/sh
 # environment
 SNAP_DATA = /var/snap/code/74
 # environment
-VTE_VERSION = 6003
-# environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:52540
+JOURNAL_STREAM = 8:55129
 # makefile (from 'Makefile', line 13)
 CFLAGS = -g -Wall
 # environment
@@ -65,7 +65,7 @@ MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 1
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
 USERNAME = drake
 # environment
@@ -75,21 +75,23 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 1717
+_ = /snap/code/74/usr/share/code/code
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-eb43f0fb-78c8-490d-9f71-03e6e36110b5.sock
+MANAGERPID = 2174
 # environment
-VSCODE_CWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9ee1107c-9102-43e3-8fa3-9c6a5f9078cc.sock
+# environment
+VSCODE_CWD = /home/drake
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/74/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/drake/miniconda3/bin:/home/drake/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/1927,unix/drake-pc:/tmp/.ICE-unix/1927
+SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/2387,unix/drake-pc:/tmp/.ICE-unix/2387
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -99,8 +101,6 @@ SNAP = /snap/code/74
 # environment
 SNAP_VERSION = 83bd43bc
 # environment
-CONDA_PREFIX = /home/drake/miniconda3
-# environment
 XDG_MENU_PREFIX = gnome-
 # environment
 VSCODE_LOG_STACK = false
@@ -109,7 +109,7 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=32aa8a71-a139-453c-827f-a659ca03bb40&iid=32aa8a71-a139-453c-827f-a659ca03bb40&sid=32aa8a71-a139-453c-827f-a659ca03bb40","uploadToServer":true}
 # environment
-INVOCATION_ID = 9a926bccae064996957eb0b0d184823a
+INVOCATION_ID = df71c25f827d4d7a8580c13e7d6d0bf1
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/74/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -118,12 +118,12 @@ GDK_PIXBUF_MODULEDIR = /snap/code/74/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.1
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 23479
 # automatic
 %F = $(notdir $%)
 # environment
 DISPLAY = :1
-# environment
-CONDA_EXE = /home/drake/miniconda3/bin/conda
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -133,7 +133,7 @@ PWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1892
+SSH_AGENT_PID = 2351
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -155,8 +155,6 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # environment
 SNAP_CONTEXT = f3MKP_784zQ8bauSnggjho7C0CKrWtIGvp-fcBBBQSqN6SzJQP72
 # environment
-CONDA_PROMPT_MODIFIER = (base) 
-# environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 SNAP_USER_COMMON = /home/drake/snap/code/common
@@ -170,20 +168,17 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 MAKELEVEL := 0
 # environment
 SNAP_REAL_HOME = /home/drake
-# environment
-CONDA_DEFAULT_ENV = base
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
+ 
 MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
 SNAP_USER_DATA = /home/drake/snap/code/74
 # environment
-SHLVL = 1
+SHLVL = 0
 # makefile (from 'Makefile', line 12)
 CC = g++
 # environment
@@ -200,18 +195,16 @@ SNAP_REVISION = 74
 XDG_CURRENT_DESKTOP = Unity
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
-# environment
-CONDA_SHLVL = 1
 # default
 MAKE_COMMAND := make
-# environment
-OLDPWD = /home/drake/projects/Fl21/TheoryOfAlgorithms
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-95a7764f-1.60.1-main.sock
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -241,21 +234,13 @@ SNAP_NAME = code
 # environment
 LC_ALL = C
 # environment
-CONDA_PYTHON_EXE = /home/drake/miniconda3/bin/python
-# environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a10bb96f_6a6b_432a_b906_b83d883e572a
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.127
 # default
 SUFFIXES := 
 # environment
 SNAP_REEXEC = 
-# environment
-_CE_M = 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
@@ -269,13 +254,9 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 9739
-# environment
-_CE_CONDA = 
+VSCODE_PID = 23531
 # variable set hash-table stats:
-# Load=131/1024=13%, Rehash=0, Collisions=16/156=10%
+# Load=121/1024=12%, Rehash=0, Collisions=18/146=12%
 
 # Pattern-specific Variable Values
 
@@ -283,9 +264,9 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 66306, inode 12714738): 8 files, no impossibilities.
+# . (device 66306, inode 12714738): 15 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -303,7 +284,6 @@ MST.o:
 all:
 #  Command line target.
 #  Implicit rule search has been done.
- 
 #  File does not exist.
 #  File has not been updated.
 
@@ -329,7 +309,7 @@ include/Graph.h:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-09-16 19:26:57.998162447
+#  Last modified 2021-09-18 20:16:51.658574499
 #  File has been updated.
 #  Successfully updated.
 
@@ -368,8 +348,9 @@ src/LinkedList.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-LinkedList.o: src/LinkedList.cpp include/LinkedList.h Node.o
+LinkedList.o: src/LinkedList.cpp include/LinkedList.h Node.o PriorityQueue.o
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 36):
@@ -394,7 +375,7 @@ src/PriorityQueue.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-Graph.o: src/Graph.cpp include/Graph.h LinkedList.o PriorityQueue.o
+Graph.o: src/Graph.cpp include/Graph.h LinkedList.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -443,12 +424,12 @@ MST: MST.o Graph.o
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 32 / storage = 377 B / avg = 11 B
-# current buf: size = 8162 B / used = 377 B / count = 32 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 33 / storage = 391 B / avg = 11 B
+# current buf: size = 8162 B / used = 391 B / count = 33 / avg = 11 B
 
-# strcache performance: lookups = 50 / hit rate = 36%
+# strcache performance: lookups = 57 / hit rate = 42%
 # hash-table stats:
-# Load=32/8192=0%, Rehash=0, Collisions=1/50=2%
-# Finished Make data base on Thu Sep 16 19:31:11 2021
+# Load=33/8192=0%, Rehash=0, Collisions=1/57=2%
+# Finished Make data base on Sat Sep 18 20:17:06 2021
 
  

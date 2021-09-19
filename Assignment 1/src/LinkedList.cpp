@@ -63,6 +63,21 @@ T LinkedList<T>::pop()
 	return data;
 }
 
+template<typename T> 
+void LinkedList<T>::checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq)
+{
+	Node<T>* curr = head->next;
+
+	while (curr != tail) {
+		if (!visited[curr->index])
+		{
+			pq.push(*curr);
+			visited[curr->index] = 1;
+		}
+		curr = curr->next;
+	}
+}
+
 /**
  * Delete the allocated memory from the heap. 
  * O(n) where n is the size of the Linked List
@@ -88,10 +103,10 @@ void LinkedList<T>::print()
 	Node<T>* curr = head->next;
 	while(curr != tail) 
 	{
-		cout<<curr->data<<' ';
+		cout<<curr->data<<' '<<curr->weight<<"... ";
 		curr = curr->next;
 	}
-	cout<<std::endl;
+	cout<<endl;
 }
 
 template<typename T> 
@@ -103,5 +118,5 @@ void LinkedList<T>::printReverse()
 		cout<<curr->data<<' ';
 		curr = curr->prev;
 	}
-	cout<<std::endl;
+	cout<<endl;
 }

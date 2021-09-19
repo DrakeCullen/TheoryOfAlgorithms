@@ -3,6 +3,8 @@
 
 #include "Node.h"
 #include <iostream>
+#include "PriorityQueue.h"
+#include "../src/PriorityQueue.cpp"
 
 using namespace std;
 
@@ -20,6 +22,8 @@ private:
 		void push(Node<T>* newNode);
 
 		T pop();
+
+		void checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq);
 		
 		void deleteAll();
 

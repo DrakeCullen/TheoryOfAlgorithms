@@ -28,7 +28,7 @@ void PriorityQueue<T>::moveUp()
     int i = currentIndex;
     
     // While the current element is less than its parent, and it is still a valid position
-    while (array[i] < array[(i - 1) / 2] && i >= 0) 
+    while (array[i].weight < array[(i - 1) / 2].weight && i >= 0) 
     {
         // Swap the child and parent
         swap(i, (i - 1) / 2);
@@ -46,13 +46,13 @@ template<typename T>
 void PriorityQueue<T>::moveDown()
 {
     int index = 0;
-    T current, leftChild, rightChild;
+    int current, leftChild, rightChild;
 
     // Stop when we are at the end of the array, or both children are bigger than the parent
-    while (index * 2 + 1 < currentIndex && (array[index] > getLeftChild(index) || array[index] > getRightChild(index)))
+    while (index * 2 + 1 < currentIndex && (array[index].weight > getLeftChild(index) || array[index].weight > getRightChild(index)))
     {
         // Get the parent and its two children
-        current = array[index];
+        current = array[index].weight;
         leftChild = getLeftChild(index);
         rightChild = getRightChild(index);
 
@@ -79,12 +79,12 @@ void PriorityQueue<T>::moveDown()
  *  @param index -> The index of the parent node
  */
 template<typename T>
-T PriorityQueue<T>::getLeftChild(int index)
+int PriorityQueue<T>::getLeftChild(int index)
 {
     if (2 * index + 1 <= currentIndex)
-        return array[2 * index + 1];
+        return array[2 * index + 1].weight;
     else 
-        return array[index];
+        return array[index].weight;
 }
 
 /**
@@ -94,12 +94,12 @@ T PriorityQueue<T>::getLeftChild(int index)
  * @param index -> The index of the parent node
  */
 template<typename T>
-T PriorityQueue<T>::getRightChild(int index)
+int PriorityQueue<T>::getRightChild(int index)
 {
     if (2 * index + 2 <= currentIndex)
-        return array[2 * index + 2];
+        return array[2 * index + 2].weight;
     else 
-        return array[index];
+        return array[index].weight;
 }
 
 /**

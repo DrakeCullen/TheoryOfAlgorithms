@@ -1,21 +1,30 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include "PriorityQueue.h"
-#include "../src/PriorityQueue.cpp"
+
 #include "AdjacencyList.h"
 #include "../src/AdjacencyList.cpp"
 
+#include <fstream>
+#include <sstream>
+
 template <typename T> class Graph {
 private:
-	bool* visited;
 	AdjacencyList<T> adj;
-    int size;
+    int currentSize;
+    // Make dynamic later
+    Node<T> cities[128];
 	
 public:
-    Graph(int newSize);
+    Graph();
 
-	void addEdge(int vertex1, int vertex2, int weight = 0);
+	void addEdge(int vertex1, int vertex2, string data, int weight = 0);
+
+    void readInput(string filename);
+
+    void MST(int startIndex = 0);
+
+    void printMST(Node<T> ordering[]);
 	
     void print();
 

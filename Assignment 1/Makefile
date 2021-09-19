@@ -17,7 +17,7 @@ CFLAGS  = -g -Wall
 # you can name this target entry anything, but "default" or "all"
 # are the most commonly used names by convention
 #
-default: MST
+default: MST 
 
 # To create the executable file clock we need the object files
 # clockTypeImp.o, main.o:
@@ -29,10 +29,10 @@ MST: MST.o Graph.o
 # files clockTypeImp.cpp, clockType.h:
 #
 
-Graph.o: ./src/Graph.cpp ./include/Graph.h LinkedList.o PriorityQueue.o
+Graph.o: ./src/Graph.cpp ./include/Graph.h LinkedList.o 
 	$(CC) $(CFLAGS) -c ./src/Graph.cpp
 
-LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h Node.o
+LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h Node.o PriorityQueue.o
 	$(CC) $(CFLAGS) -c ./src/LinkedList.cpp
 
 AdjacencyList.o: ./src/AdjacencyList.cpp ./include/AdjacencyList.h LinkedList.o
