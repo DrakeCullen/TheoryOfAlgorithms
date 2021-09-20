@@ -6,6 +6,10 @@
 
 #include "../include/Graph.h"
 
+Graph::Graph()
+{
+	currentSize = 0;
+}
 
 void Graph::readCities(istream &input, int i)
 {
@@ -64,18 +68,21 @@ void Graph::readInput(string filename)
  
 void Graph::MST(int startIndex)
 {
+	
 	int totalDistance = 0, index = 0;
 	PriorityQueue<Node> pq;
 	bool visited[currentSize];
 	Node ordering[currentSize];
-	
+	cerr<<"First";
 	for (int i = 0; i < currentSize; i++)
 		visited[i] = 0;
 	
 	Node firstCity = *cities.getElement(startIndex);
 	firstCity.weight = 0;
 	firstCity.from = firstCity.index;
+	
 	pq.push(firstCity);
+	cerr<<"Before loop";
 	while (pq.getSize() > 0)
 	{
 		Node currentCity = pq.pop();

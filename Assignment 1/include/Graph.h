@@ -19,6 +19,8 @@ private:
 
 	void readDistances(istream &input, int i);
 public:
+    Graph();
+    
 	void addEdge(int vertex1, int vertex2, string data, int weight = 0);
 
     void readInput(string filename);
