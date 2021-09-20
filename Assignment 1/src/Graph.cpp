@@ -7,9 +7,36 @@
 #include "../include/Graph.h"
 
 template<typename T> 
-Graph<T>::Graph() {
+Graph<T>::Graph() 
+{
 	currentSize = 0;
-	//visited = new bool[size];
+}
+
+template<typename T> 
+void Graph<T>::readCities(istream &input, int i)
+{
+	string cityInfo, cityName;
+	if (i > 1)
+		getline(input, cityInfo);
+	getline(input, cityInfo);
+	stringstream ss(cityInfo);
+	getline(ss, cityName, '[');
+	Node<T> newCity;
+	newCity.data = cityName;
+	newCity.index = i;
+	cities[i] = newCity;
+}
+
+template<typename T> 
+void Graph<T>::readDistances(istream &input, int i)
+{
+	int distance;
+	for (int j = 0; j < i; j++)
+	{
+		input >> distance;
+		addEdge(i, j, cities[j].data, distance);
+		addEdge(j, i, cities[i].data, distance);
+	}
 }
 
 template<typename T> 
@@ -27,30 +54,14 @@ template<typename T>
 void Graph<T>::readInput(string filename)
 {
 	ifstream input(filename);
-	string comments, cityInfo, cityName;
-	int distance;
+	string comments;
 	getline(input, comments);
 	getline(input, comments);
-	
+	//Make work on any size file
 	for (unsigned int i = 0; i < 128; i++)
 	{
-		if (i > 1)
-			getline(input, cityInfo);
-		getline(input, cityInfo);
-		stringstream ss(cityInfo);
-		getline(ss, cityName, '[');
-		Node<T> newCity;
-		newCity.data = cityName;
-		newCity.index = i;
-		cities[i] = newCity;
-
-
-		for (int j = 0; j < i; j++)
-		{
-			input >> distance;
-			addEdge(i, j, cities[j].data, distance);
-			addEdge(j, i, cities[i].data, distance);
-		}
+		readCities(input, i);
+		readDistances(input, i);
 		adj.calculateSize();
 		currentSize++;
 	}
@@ -60,11 +71,10 @@ void Graph<T>::readInput(string filename)
 template<typename T> 
 void Graph<T>::MST(int startIndex)
 {
+	int totalDistance = 0, index = 0;
 	PriorityQueue<Node<T>> pq(currentSize);
 	bool visited[currentSize];
-	int totalDistance = 0;
 	Node<T> ordering[currentSize];
-	int i = 0;
 	
 	for (unsigned int i = 0; i < currentSize; i++)
 		visited[i] = 0;
@@ -81,7 +91,7 @@ void Graph<T>::MST(int startIndex)
 		{
 			visited[currentCity.index] = 1;
 			totalDistance += currentCity.weight;
-			ordering[i++] = currentCity;
+			ordering[index++] = currentCity;
 
 			adj.checkNeighbors(visited, pq, currentCity.index);
 		}
@@ -156,10 +166,3 @@ void Graph<T>::printDijkstra(int prev[], int distances[], int startIndex, int en
 	}
 	cout<<"Total distance: "<<distances[endIndex]<<endl;
 }
-
-template<typename T> 
-void Graph<T>::print() 
-{
-	adj.print();
-}
-

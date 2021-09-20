@@ -11,18 +11,6 @@ int main() {
     Graph<string> g;
     g.readInput("distances.txt");
     //g.print();
-    //g.MST(115);
-    g.dijkstra(13, 67);
-    /*g.addEdge(0, 1, 5);
-    g.addEdge(0, 2, 1);
-    g.addEdge(1, 2, 2);
-    g.addEdge(1, 3, 3);
-    g.addEdge(1, 4, 20);
-    g.addEdge(2, 1, 3);
-    g.addEdge(2, 4, 12);
-    g.addEdge(3, 2, 3);
-    g.addEdge(3, 4, 2);
-    g.addEdge(3, 5, 6);
-    g.addEdge(4, 5, 1);
-    g.print();*/
+    g.MST(115);
+    //g.dijkstra(13, 67);
 }

@@ -14,7 +14,10 @@ private:
     int currentSize;
     // Make dynamic later
     Node<T> cities[128];
-	
+    
+    void readCities(istream &input, int i);
+
+	void readDistances(istream &input, int i);
 public:
     Graph();
 
@@ -22,7 +25,7 @@ public:
 
     void readInput(string filename);
 
-    //Should take in file too.
+    //Should take in file too. Actually main should, we good
     //Take in city name and find index
     void MST(int startIndex = 0);
 
@@ -32,9 +35,6 @@ public:
     void printMST(Node<T> ordering[]);
 
     void printDijkstra(int prev[], int distances[], int startIndex, int endIndex);
-	
-    void print();
-
 };
 
 #endif
