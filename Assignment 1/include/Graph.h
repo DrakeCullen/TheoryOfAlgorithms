@@ -8,19 +8,17 @@
 #include <fstream>
 #include <sstream>
 
-template <typename T> class Graph {
+class Graph {
 private:
-	AdjacencyList<T> adj;
+	AdjacencyList<Node> adj;
     int currentSize;
     // Make dynamic later
-    Node<T> cities[128];
+    ResizableArray<Node> cities;
     
     void readCities(istream &input, int i);
 
 	void readDistances(istream &input, int i);
 public:
-    Graph();
-
 	void addEdge(int vertex1, int vertex2, string data, int weight = 0);
 
     void readInput(string filename);
@@ -32,7 +30,7 @@ public:
     //Same as above
     void dijkstra(int startIndex, int endIndex);
 
-    void printMST(Node<T> ordering[]);
+    void printMST(Node ordering[]);
 
     void printDijkstra(int prev[], int distances[], int startIndex, int endIndex);
 };

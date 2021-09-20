@@ -3,6 +3,8 @@
     "files.associations": {
         "iostream": "cpp",
         "*.tcc": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "cmath": "cpp",
+        "fstream": "cpp"
     }
 }

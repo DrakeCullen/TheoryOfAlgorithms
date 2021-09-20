@@ -1,6 +1,7 @@
 #ifndef PRIORITYQUEUE_H
 #define PRIORITYQUEUE_H
 
+#include "ResizableArray.h"
 #include <iostream>
 
 using namespace std;
@@ -9,9 +10,8 @@ template <typename T>
 class PriorityQueue 
 {
     private:
-        T* array;
+        ResizableArray<T> array;
         int currentIndex = 0;
-        int maxSize = 0;
 
         void moveUp();
 
@@ -21,13 +21,9 @@ class PriorityQueue
 
         int getRightChild(int index);
 
-        void enlargeArray();
-
-        void swap(int firstIndex, int secondIndex);
+        
 
     public:
-        PriorityQueue(int size = 2);
-
         void push(T newItem);
 
         T pop();

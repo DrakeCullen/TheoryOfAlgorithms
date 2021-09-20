@@ -2,15 +2,17 @@
 #define NODE_H
 #include <string>
 
-template <typename T>  class Node {
+using namespace std;
+
+class Node {
 public:
-	T data;
+	string data;
 	int index;
 	int weight;
 	int number;
 	int from;
-	Node<T>* next;
-	Node<T>* prev;
+	Node* next;
+	Node* prev;
 };
 
 #endif

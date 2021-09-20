@@ -10,8 +10,8 @@ using namespace std;
 
 template <typename T> class LinkedList {
 private:
-		Node<T>* head;
-		Node<T>* tail;
+		Node* head;
+		Node* tail;
 		int size;
 	
 	public:
@@ -19,13 +19,13 @@ private:
 		
 		int getSize();
 				
-		void push(Node<T>* newNode);
+		void push(Node* newNode);
 
 		T pop();
 
-		void checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq);
+		void checkNeighbors(bool visited[], PriorityQueue<Node> &pq);
 
-		void checkShortestPath(bool visited[], PriorityQueue<Node<T>> &pq, int index, int distance[], int prev[]);
+		void checkShortestPath(bool visited[], PriorityQueue<Node> &pq, int index, int distance[], int prev[]);
 
 		
 		void deleteAll();

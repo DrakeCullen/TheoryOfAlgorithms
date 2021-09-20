@@ -6,14 +6,8 @@
 
 #include "../include/Graph.h"
 
-template<typename T> 
-Graph<T>::Graph() 
-{
-	currentSize = 0;
-}
 
-template<typename T> 
-void Graph<T>::readCities(istream &input, int i)
+void Graph::readCities(istream &input, int i)
 {
 	string cityInfo, cityName;
 	if (i > 1)
@@ -21,28 +15,28 @@ void Graph<T>::readCities(istream &input, int i)
 	getline(input, cityInfo);
 	stringstream ss(cityInfo);
 	getline(ss, cityName, '[');
-	Node<T> newCity;
+	Node newCity;
 	newCity.data = cityName;
 	newCity.index = i;
-	cities[i] = newCity;
+	cities.insert(i, newCity);
 }
 
-template<typename T> 
-void Graph<T>::readDistances(istream &input, int i)
+ 
+void Graph::readDistances(istream &input, int i)
 {
 	int distance;
 	for (int j = 0; j < i; j++)
 	{
 		input >> distance;
-		addEdge(i, j, cities[j].data, distance);
-		addEdge(j, i, cities[i].data, distance);
+		addEdge(i, j, cities.getElement(j)->data, distance);
+		addEdge(j, i, cities.getElement(i)->data, distance);
 	}
 }
 
-template<typename T> 
-void Graph<T>::addEdge(int vertex1, int vertex2, string data, int weight) 
+ 
+void Graph::addEdge(int vertex1, int vertex2, string data, int weight) 
 { 
-	Node<T>* newNode = new Node<T>;
+	Node* newNode = new Node;
 	newNode->data = data;
 	newNode->index = vertex2;
 	newNode->weight = weight;
@@ -50,73 +44,72 @@ void Graph<T>::addEdge(int vertex1, int vertex2, string data, int weight)
 	adj.addEdge(vertex1, newNode);
 }
 
-template<typename T> 
-void Graph<T>::readInput(string filename)
+ 
+void Graph::readInput(string filename)
 {
 	ifstream input(filename);
 	string comments;
 	getline(input, comments);
 	getline(input, comments);
 	//Make work on any size file
-	for (unsigned int i = 0; i < 128; i++)
+	for (int i = 0; i < 128; i++)
 	{
 		readCities(input, i);
 		readDistances(input, i);
-		adj.calculateSize();
 		currentSize++;
 	}
 	input.close();
 }
 
-template<typename T> 
-void Graph<T>::MST(int startIndex)
+ 
+void Graph::MST(int startIndex)
 {
 	int totalDistance = 0, index = 0;
-	PriorityQueue<Node<T>> pq(currentSize);
+	PriorityQueue<Node> pq;
 	bool visited[currentSize];
-	Node<T> ordering[currentSize];
+	Node ordering[currentSize];
 	
-	for (unsigned int i = 0; i < currentSize; i++)
+	for (int i = 0; i < currentSize; i++)
 		visited[i] = 0;
 	
-	Node<T> firstCity = cities[startIndex];
+	Node firstCity = *cities.getElement(startIndex);
 	firstCity.weight = 0;
 	firstCity.from = firstCity.index;
-
 	pq.push(firstCity);
 	while (pq.getSize() > 0)
 	{
-		Node<T> currentCity = pq.pop();
+		Node currentCity = pq.pop();
 		if (!visited[currentCity.index])
 		{
 			visited[currentCity.index] = 1;
 			totalDistance += currentCity.weight;
 			ordering[index++] = currentCity;
-
 			adj.checkNeighbors(visited, pq, currentCity.index);
 		}
+		
 	}
 	cout<<"The total distance is: "<<totalDistance<<endl;
 	printMST(ordering);
 }
 
-template<typename T> 
-void Graph<T>::printMST(Node<T> ordering[])
+ 
+void Graph::printMST(Node ordering[])
 {
-	for (unsigned int i = 0; i < currentSize; i++)
-		cout<<cities[ordering[i].from].data<<" to "<<ordering[i].data<<" \"distance = "<<ordering[i].weight<<'"'<<endl;
+	//Change from hard coded value
+	for (int i = 0; i < 128; i++)
+		cout<<cities.getElement(ordering[i].from)->data<<" to "<<ordering[i].data<<" \"distance = "<<ordering[i].weight<<'"'<<endl;
 
 }
 
-template<typename T> 
-void Graph<T>::dijkstra(int startIndex, int endIndex)
+ 
+void Graph::dijkstra(int startIndex, int endIndex)
 {
 	const int INF = 2147483646;
 	int distance[currentSize];
 	bool visited[currentSize];
 	int prev[currentSize];
-	PriorityQueue<Node<T>> pq(currentSize);
-	for (unsigned int i = 0; i < currentSize; i++)
+	PriorityQueue<Node> pq;
+	for (int i = 0; i < currentSize; i++)
 	{
 		distance[i] = INF;
 		visited[i] = 0;
@@ -124,24 +117,24 @@ void Graph<T>::dijkstra(int startIndex, int endIndex)
 	
 	distance[startIndex] = 0;	
 	visited[startIndex] = 0;
-	Node<T> firstCity = cities[startIndex];
+	Node firstCity = *cities.getElement(startIndex);
 	firstCity.weight = 0;
 	firstCity.from = firstCity.index;
 
 	pq.push(firstCity);
 	while (pq.getSize() > 0)
 	{
-		Node<T> currentCity = pq.pop();
+		Node currentCity = pq.pop();
 		visited[currentCity.index] = 1;
 		adj.checkShortestPath(visited, pq, currentCity.index, distance, prev);
 	}
 	printDijkstra(prev, distance, startIndex, endIndex);
 }
 
-template<typename T> 
-void Graph<T>::printDijkstra(int prev[], int distances[], int startIndex, int endIndex)
+ 
+void Graph::printDijkstra(int prev[], int distances[], int startIndex, int endIndex)
 {
-	int totalDistance = 0, lastWeight = 0, numberOfCities = 0, copyEnd = endIndex;
+	int lastWeight = 0, numberOfCities = 0, copyEnd = endIndex;
 
 	while (copyEnd != startIndex)
 	{
@@ -157,11 +150,11 @@ void Graph<T>::printDijkstra(int prev[], int distances[], int startIndex, int en
 		copyEnd = prev[copyEnd];
 	}
 
-	cout << "1: "<< cities[startIndex].data << " to " << cities[path[0]].data << " \"distance = " << distances[path[0]] << "\"" << endl;
+	cout << "1: "<< cities.getElement(startIndex)->data << " to " << cities.getElement(path[0])->data << " \"distance = " << distances[path[0]] << "\"" << endl;
 	lastWeight = distances[path[0]];
-	for (unsigned int i = 0; i < numberOfCities - 1; i++)
+	for (int i = 0; i < numberOfCities - 1; i++)
 	{
-		cerr << i + 2 << ": "<< cities[path[i]].data << " to " << cities[path[i+1]].data << " \"distance = " << distances[path[i+1]] - lastWeight << "\"" << endl;
+		cout << i + 2 << ": "<< cities.getElement(path[i])->data << " to " << cities.getElement(path[i+1])->data << " \"distance = " << distances[path[i+1]] - lastWeight << "\"" << endl;
 		lastWeight = distances[path[i+1]];
 	}
 	cout<<"Total distance: "<<distances[endIndex]<<endl;

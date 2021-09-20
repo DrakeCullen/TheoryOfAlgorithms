@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Sep 19 13:38:11 2021
+# Make data base, printed on Sun Sep 19 18:50:00 2021
 
 # Variables
 
@@ -261,9 +263,9 @@ VSCODE_PID = 15749
 
 # Directories
 
-# . (device 66306, inode 12714738): 16 files, no impossibilities.
+# . (device 66306, inode 12714738): 10 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -278,10 +280,8 @@ MST.o:
 #  File has not been updated.
 
 # Not a target:
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 all:
+ 
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -293,7 +293,7 @@ src/AdjacencyList.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-AdjacencyList.o: src/AdjacencyList.cpp include/AdjacencyList.h LinkedList.o
+AdjacencyList.o: src/AdjacencyList.cpp include/AdjacencyList.h LinkedList.o ResizableArray.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -309,12 +309,18 @@ include/Graph.h:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-09-18 20:16:51.658574499
+#  Last modified 2021-09-19 18:49:20.869909001
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 include/LinkedList.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+include/ResizableArray.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -342,13 +348,20 @@ src/LinkedList.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
+ResizableArray.o: src/ResizableArray.cpp include/ResizableArray.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	$(CC) $(CFLAGS) -c ./src/ResizableArray.cpp
+
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-LinkedList.o: src/LinkedList.cpp include/LinkedList.h Node.o PriorityQueue.o
+LinkedList.o: src/LinkedList.cpp include/LinkedList.h Node.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -361,11 +374,17 @@ include/Node.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+src/ResizableArray.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 50):
+#  recipe to execute (from 'Makefile', line 53):
 	$(RM) MST *.o *~
 
 # Not a target:
@@ -374,14 +393,15 @@ src/PriorityQueue.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-Graph.o: src/Graph.cpp include/Graph.h LinkedList.o
+ 
+Graph.o: src/Graph.cpp include/Graph.h AdjacencyList.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 33):
 	$(CC) $(CFLAGS) -c ./src/Graph.cpp
 
-PriorityQueue.o: src/PriorityQueue.cpp include/PriorityQueue.h
+PriorityQueue.o: src/PriorityQueue.cpp include/PriorityQueue.h ResizableArray.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -404,7 +424,7 @@ Node.o: src/Node.cpp include/Node.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 45):
+#  recipe to execute (from 'Makefile', line 48):
 	$(CC) $(CFLAGS) -c ./src/Node.cpp
 	
 
@@ -416,19 +436,19 @@ MST: MST.o Graph.o
 	$(CC) $(CFLAGS) -o MST MST.o Graph.o
 
 # files hash-table stats:
-# Load=23/1024=2%, Rehash=0, Collisions=0/55=0%
+# Load=26/1024=3%, Rehash=0, Collisions=0/61=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 34 / storage = 405 B / avg = 11 B
-# current buf: size = 8162 B / used = 405 B / count = 34 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 37 / storage = 470 B / avg = 12 B
+# current buf: size = 8162 B / used = 470 B / count = 37 / avg = 12 B
 
-# strcache performance: lookups = 58 / hit rate = 41%
+# strcache performance: lookups = 57 / hit rate = 35%
 # hash-table stats:
-# Load=34/8192=0%, Rehash=0, Collisions=1/58=2%
-# Finished Make data base on Sun Sep 19 13:38:11 2021
+# Load=37/8192=0%, Rehash=0, Collisions=1/57=2%
+# Finished Make data base on Sun Sep 19 18:50:00 2021
 
  

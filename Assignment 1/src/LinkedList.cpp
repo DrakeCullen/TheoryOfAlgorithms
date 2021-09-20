@@ -13,8 +13,8 @@
 template<typename T> 
 LinkedList<T>::LinkedList() 
 {
-	head = new Node<T>();
-	tail = new Node<T>();
+	head = new Node();
+	tail = new Node();
 	head->next = tail;
 	tail->prev = head;
 	size = 0;
@@ -37,7 +37,7 @@ int LinkedList<T>::getSize()
  * @param newNode -> An instance of the node class that is added to the Linked List
  */
 template<typename T> 
-void LinkedList<T>::push(Node<T>* newNode) 
+void LinkedList<T>::push(Node* newNode) 
 {
 	newNode->next = head->next;
 	head->next->prev = newNode;
@@ -53,7 +53,7 @@ void LinkedList<T>::push(Node<T>* newNode)
 template<typename T> 
 T LinkedList<T>::pop() 
 {
-	Node<T>* nodeToDelete = head->next;
+	Node* nodeToDelete = head->next;
 	T data = nodeToDelete->data;
 
 	head->next = nodeToDelete->next;
@@ -64,9 +64,9 @@ T LinkedList<T>::pop()
 }
 
 template<typename T> 
-void LinkedList<T>::checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq)
+void LinkedList<T>::checkNeighbors(bool visited[], PriorityQueue<Node> &pq)
 {
-	Node<T>* curr = head->next;
+	Node* curr = head->next;
 
 	while (curr != tail) {
 		if (!visited[curr->index])
@@ -76,9 +76,9 @@ void LinkedList<T>::checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq)
 }
 
 template<typename T> 
-void LinkedList<T>::checkShortestPath(bool visited[], PriorityQueue<Node<T>> &pq, int index, int distance[], int prev[])
+void LinkedList<T>::checkShortestPath(bool visited[], PriorityQueue<Node> &pq, int index, int distance[], int prev[])
 {
-	Node<T>* curr = head->next;
+	Node* curr = head->next;
 
 	while (curr != tail) {
 		if (!visited[curr->index])
@@ -103,8 +103,8 @@ void LinkedList<T>::checkShortestPath(bool visited[], PriorityQueue<Node<T>> &pq
 template<typename T> 
 void LinkedList<T>::deleteAll() 
 {
-	Node<T>* curr = head;
-	Node<T>* prev;
+	Node* curr = head;
+	Node* prev;
 
 	while (prev != tail) {
 		prev = curr;
@@ -118,7 +118,7 @@ void LinkedList<T>::deleteAll()
 template<typename T> 
 void LinkedList<T>::print() 
 {
-	Node<T>* curr = head->next;
+	Node* curr = head->next;
 	while(curr != tail) 
 	{
 		cout<<curr->data<<' '<<curr->weight<<"... ";
@@ -130,7 +130,7 @@ void LinkedList<T>::print()
 template<typename T> 
 void LinkedList<T>::printReverse() 
 {
-	Node<T>* curr = tail->prev;
+	Node* curr = tail->prev;
 	while(curr != head) 
 	{
 		cout<<curr->data<<' ';

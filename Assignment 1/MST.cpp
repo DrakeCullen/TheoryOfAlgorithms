@@ -5,12 +5,11 @@
 */
 
 #include "./include/Graph.h"
-#include "./src/Graph.cpp"
 
 int main() {
-    Graph<string> g;
+    Graph g;
     g.readInput("distances.txt");
     //g.print();
-    g.MST(115);
-    //g.dijkstra(13, 67);
+    //g.MST(115);
+    g.dijkstra(13, 67);
 }

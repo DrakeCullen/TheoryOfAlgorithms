@@ -6,17 +6,7 @@
 
 #include "../include/PriorityQueue.h"
 
-/**
- * Default Constructor that allocates memory for an array of type T. Default size is 2.
- * The min heap is stored in the array data structure.
- * O(1)
- */
-template<typename T> 
-PriorityQueue<T>::PriorityQueue(int size)
-{
-    maxSize = size;
-    array = new T[size];
-}
+
 
 /**
  * After adding a new element as a leaf, move it up until it is in the correct position.
@@ -28,10 +18,10 @@ void PriorityQueue<T>::moveUp()
     int i = currentIndex;
     
     // While the current element is less than its parent, and it is still a valid position
-    while (array[i].weight < array[(i - 1) / 2].weight && i >= 0) 
+    while (array.getElement(i)->weight < array.getElement((i - 1) / 2)->weight && i >= 0) 
     {
         // Swap the child and parent
-        swap(i, (i - 1) / 2);
+        array.swap(i, (i - 1) / 2);
         // "I" now has the index of the parent
         i = (i - 1) / 2;
     }
@@ -49,10 +39,10 @@ void PriorityQueue<T>::moveDown()
     int current, leftChild, rightChild;
 
     // Stop when we are at the end of the array, or both children are bigger than the parent
-    while (index * 2 + 1 < currentIndex && (array[index].weight > getLeftChild(index) || array[index].weight > getRightChild(index)))
+    while (index * 2 + 1 < currentIndex && (array.getElement(index)->weight > getLeftChild(index) || array.getElement(index)->weight > getRightChild(index)))
     {
         // Get the parent and its two children
-        current = array[index].weight;
+        current = array.getElement(index)->weight;
         leftChild = getLeftChild(index);
         rightChild = getRightChild(index);
 
@@ -60,13 +50,13 @@ void PriorityQueue<T>::moveDown()
         // If that is true, the current index (i) is now pointing to the child node.
         if (leftChild <= rightChild && leftChild < current)
         {
-            swap(index, 2 * index + 1);
+            array.swap(index, 2 * index + 1);
             index = 2 * index + 1;
         }
 
         else if (rightChild < current)
         {
-            swap(index, 2 * index + 2);
+            array.swap(index, 2 * index + 2);
             index = 2 * index + 2;
         }
     }
@@ -82,9 +72,9 @@ template<typename T>
 int PriorityQueue<T>::getLeftChild(int index)
 {
     if (2 * index + 1 <= currentIndex)
-        return array[2 * index + 1].weight;
+        return array.getElement(2 * index + 1)->weight;
     else 
-        return array[index].weight;
+        return array.getElement(index)->weight;
 }
 
 /**
@@ -97,41 +87,9 @@ template<typename T>
 int PriorityQueue<T>::getRightChild(int index)
 {
     if (2 * index + 2 <= currentIndex)
-        return array[2 * index + 2].weight;
+        return array.getElement(2 * index + 2)->weight;
     else 
-        return array[index].weight;
-}
-
-/**
- * Swap two nodes in the array.
- * O(1). Indexes can be accessed in constant time. 
- * @param firstIndex -> The index of the first node
- * @param secondIndex -> The index of the second node
- */
-template<typename T>
-void PriorityQueue<T>::swap(int firstIndex, int secondIndex)
-{
-    T temp = array[firstIndex];
-    array[firstIndex] = array[secondIndex];
-    array[secondIndex] = temp;
-}
-
-/**
- * If the array becomes full, we must allocate new space on the heap and delete the old array.
- * This is inspired by the way vectors work in c++. Everytime we make a new array, the size is doubled.
- * O(n). Iterate over and copy every element.
- */
-template<typename T> 
-void PriorityQueue<T>::enlargeArray() 
-{
-    maxSize *= 2;
-    T* newArray = new T[maxSize];
-
-    for (int i = 0; i <= currentIndex; i++)
-        newArray[i] = array[i];
-
-    delete[] array;
-    array = newArray;
+        return array.getElement(index)->weight;
 }
 
 /**
@@ -147,9 +105,7 @@ void PriorityQueue<T>::enlargeArray()
 template<typename T>
 void PriorityQueue<T>::push(T newItem)
 {
-    if (currentIndex + 1 >= maxSize)
-        enlargeArray();
-    array[currentIndex] = newItem;
+    array.insert(currentIndex, newItem);
     moveUp();
     currentIndex++;
 }
@@ -162,9 +118,8 @@ void PriorityQueue<T>::push(T newItem)
 template<typename T>
 T PriorityQueue<T>::pop()
 {
-    T topValue = array[0];
+    T topValue = array.pop();
     currentIndex--;
-    array[0] = array[currentIndex];
     moveDown();
     return topValue;
 }
@@ -186,5 +141,5 @@ int PriorityQueue<T>::getSize()
 template<typename T> 
 PriorityQueue<T>::~PriorityQueue()
 {
-    delete[] array;
+    //delete[] array;
 }

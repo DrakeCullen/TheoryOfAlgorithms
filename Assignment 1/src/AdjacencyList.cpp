@@ -13,29 +13,10 @@
  * * @param newSize -> The original size of the array
  */
 template<typename T> 
-AdjacencyList<T>::AdjacencyList(int newSize)
+AdjacencyList<T>::AdjacencyList()
 {
-    maxSize = newSize;
-    currentSize = 0;
-    array = new LinkedList<T>[newSize];
 }
 
-/**
- * If the array becomes full, we must allocate new space on the heap and delete the old array.
- * This is inspired by the way vectors work in c++. Everytime we make a new array, the size is doubled.
- * O(n). Iterate over and copy every element.
- */
-template<typename T> 
-void AdjacencyList<T>::enlargeArray() 
-{
-    maxSize *= 2;
-    LinkedList<T>* newArray = new LinkedList<T>[maxSize];
-    for (int i = 0; i <= currentSize; i++)
-        newArray[i] = array[i];
-    
-    delete[] array;
-    array = newArray;
-}
 
 /**
  * Add a new edge to the adjacency list. 
@@ -45,56 +26,31 @@ void AdjacencyList<T>::enlargeArray()
  * * @param newNode -> A pointer to the node that you would like to add
  */
 template<typename T> 
-void AdjacencyList<T>::addEdge(int index, Node<T> *newNode)
+void AdjacencyList<T>::addEdge(int index, Node *newNode)
 {
-    array[index].push(newNode);
+    array.calculateSize();
+    LinkedList<T>* temp = array.getElement(index);
+    temp->push(newNode);
 }
 
 
-// This isn't needed?
 template<typename T> 
-void AdjacencyList<T>::calculateSize()
+void AdjacencyList<T>::checkNeighbors(bool visited[], PriorityQueue<Node> &pq, int index)
 {
-    if (currentSize + 1 == maxSize)
-        enlargeArray();
-    currentSize += 1;
-}
-
-template<typename T> 
-void AdjacencyList<T>::checkNeighbors(bool visited[], PriorityQueue<Node<T>> &pq, int index)
-{
-    array[index].checkNeighbors(visited, pq);
+    LinkedList<T>* temp = array.getElement(index);
+    temp->checkNeighbors(visited, pq);
 }
 
 template<typename T> 
-void AdjacencyList<T>::checkShortestPath(bool visited[], PriorityQueue<Node<T>> &pq, int index, int distance[], int prev[])
+void AdjacencyList<T>::checkShortestPath(bool visited[], PriorityQueue<Node> &pq, int index, int distance[], int prev[])
 {
-    array[index].checkShortestPath(visited, pq, index, distance, prev);
+    LinkedList<T>* temp = array.getElement(index);
+    temp->checkShortestPath(visited, pq, index, distance, prev);
 }
 
-// Remove after testing
-template<typename T> 
-void AdjacencyList<T>::print()
-{
-    for (int i = 0; i < currentSize; i++) 
-	{
-		cout<<i<<": ";
-		array[i].print();
-        cout<<endl;
-	}
-}
-
-/**
- * Go through and delete every linked list and the dynamic array.
- * O(n+m). Where n is the number of edges and m is the number of vertices
- */
 template<typename T> 
 AdjacencyList<T>::~AdjacencyList()
 {
-    for (unsigned int i = 0; i < maxSize; i++)
-        array[i].deleteAll();
-    delete[] array;
-    array = nullptr;
 }
 
 

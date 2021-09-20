@@ -29,17 +29,20 @@ MST: MST.o Graph.o
 # files clockTypeImp.cpp, clockType.h:
 #
 
-Graph.o: ./src/Graph.cpp ./include/Graph.h LinkedList.o 
+Graph.o: ./src/Graph.cpp ./include/Graph.h AdjacencyList.o 
 	$(CC) $(CFLAGS) -c ./src/Graph.cpp
 
-LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h Node.o PriorityQueue.o
+LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h Node.o
 	$(CC) $(CFLAGS) -c ./src/LinkedList.cpp
 
-AdjacencyList.o: ./src/AdjacencyList.cpp ./include/AdjacencyList.h LinkedList.o
+AdjacencyList.o: ./src/AdjacencyList.cpp ./include/AdjacencyList.h LinkedList.o ResizableArray.o
 	$(CC) $(CFLAGS) -c ./src/AdjacencyList.cpp
 
-PriorityQueue.o: ./src/PriorityQueue.cpp ./include/PriorityQueue.h
+PriorityQueue.o: ./src/PriorityQueue.cpp ./include/PriorityQueue.h ResizableArray.o
 	$(CC) $(CFLAGS) -c ./src/PriorityQueue.cpp
+
+ResizableArray.o: ./src/ResizableArray.cpp ./include/ResizableArray.h
+	$(CC) $(CFLAGS) -c ./src/ResizableArray.cpp
 
 Node.o: ./src/Node.cpp ./include/Node.h
 	$(CC) $(CFLAGS) -c ./src/Node.cpp
