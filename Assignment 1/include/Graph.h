@@ -15,7 +15,7 @@ private:
     // Make dynamic later
     ResizableArray<Node> cities;
     
-    void readCities(istream &input, int i);
+    void readCities(istream &input, int i, bool &validInput);
 
 	void readDistances(istream &input, int i);
 public:

@@ -1,0 +1,5 @@
+1: Tallahassee, FL to Wenatchee, WA "distance = 82"
+2: Wenatchee, WA to Wichita, KS "distance = 117"
+3: Wichita, KS to Schenectady, NY "distance = 106"
+4: Schenectady, NY to Sumter, SC "distance = 152"
+Total distance: 457

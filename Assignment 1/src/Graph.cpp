@@ -11,13 +11,18 @@ Graph::Graph()
 	currentSize = 0;
 }
 
-void Graph::readCities(istream &input, int i)
+void Graph::readCities(istream &input, int i, bool &validInput)
 {
 	string cityInfo, cityName;
 	if (i > 1)
 		getline(input, cityInfo);
 	getline(input, cityInfo);
 	stringstream ss(cityInfo);
+	if (cityInfo[0] == '*')
+	{
+		validInput = false;
+		return;
+	}
 	getline(ss, cityName, '[');
 	Node newCity;
 	newCity.data = cityName;
@@ -56,11 +61,16 @@ void Graph::readInput(string filename)
 	getline(input, comments);
 	getline(input, comments);
 	//Make work on any size file
-	for (int i = 0; i < 128; i++)
+	bool validInput = true;
+	int i = 0;
+	while (true)
 	{
-		readCities(input, i);
+		readCities(input, i, validInput);
+		if (!validInput)
+			break;
 		readDistances(input, i);
 		currentSize++;
+		i++;
 	}
 	input.close();
 }
