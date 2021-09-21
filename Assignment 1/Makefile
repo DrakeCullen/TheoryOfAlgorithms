@@ -17,14 +17,14 @@ CFLAGS  = -g -Wall
 # you can name this target entry anything, but "default" or "all"
 # are the most commonly used names by convention
 #
-default: MST Journey
+default: MST journey
 
 
 MST: MST.o Graph.o
 	$(CC) $(CFLAGS) -o MST MST.o Graph.o
 
-Journey: Journey.o Graph.o
-	$(CC) $(CFLAGS) -o Journey Journey.o Graph.o
+journey: journey.o Graph.o
+	$(CC) $(CFLAGS) -o journey journey.o Graph.o
 
 Graph.o: ./src/Graph.cpp ./include/Graph.h AdjacencyList.o 
 	$(CC) $(CFLAGS) -c ./src/Graph.cpp
@@ -48,4 +48,4 @@ Node.o: ./src/Node.cpp ./include/Node.h
 
 clean:
 	$(RM) MST *.o *~
-	$(RM) Journey *.o *~
+	$(RM) journey *.o *~

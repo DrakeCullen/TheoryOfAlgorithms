@@ -5,6 +5,8 @@
         "*.tcc": "cpp",
         "iosfwd": "cpp",
         "cmath": "cpp",
-        "fstream": "cpp"
-    }
+        "fstream": "cpp",
+        "chrono": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
