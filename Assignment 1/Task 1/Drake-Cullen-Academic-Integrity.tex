@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{sectsty}
+\usepackage[hyphens]{url}  %% be sure to specify the option 'hyphens'
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Drake-Cullen-Part-1-Answers}
+\author{Drake Cullen}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+%\maketitle
+%\section{}
+%\subsection{}
+\begin{minipage}{\linewidth}% to keep image and caption on one page
+\centering
+\includegraphics[keepaspectratio=true,scale=0.35]{CMU.png}
+\end{minipage}
+\section*{ \centering Task 1 Solutions}
+\subsection*{ \centering By Drake Cullen} 
+
+\vspace{5mm}
+ 
+
+\section{Statement a)}
+The statement is \textbf{False}. By adding a constant factor to each weight, paths with more nodes will be affected more than paths with less nodes. This can be seen in the example below. 
+
+\begin{center}
+\includegraphics[keepaspectratio=true,scale=0.25]{graph.jpg}
+\end{center}
+Let us assume that you are looking for the shortest path from A to E using the graph above. There are two different paths that you can take to get from A to E.
+
+\begin{center}
+ \rotatebox{90}{%
+\includegraphics[keepaspectratio=true,scale=0.25]{original_paths.jpg}
+}
+\end{center}
+By taking the path from A to B to D to E (call this path1), the combined weight is 6. If you choose to take the path2 from A to C to E, the combined weight is 7. Therefore, path1 is shorter than path2.
+
+\begin{center}
+ \rotatebox{90}{%
+\includegraphics[keepaspectratio=true,scale=0.25]{updated_paths.jpg}
+}
+\end{center}
+After adding the constant value c = 2 to every edge, the updated paths can be seen in the image above. By adding this constant, path2 is now shorter than path1. We know that path1 should be shorter than path2, so by adding a constant to every edge, the shortest path is now innacurate; therefore, this statement is false.
+
+\newpage
+\section{Statement b)}
+The statement is \textbf{False}. Weights with a value of one cause a problem. Other positive integers will grow larger when squared, but one will keep the same value when squared; therefore, the weights won't increase proportionally. The statement would be true if every weight was multiplied by a constant such as 2. The manner in which the statement fails can be seen in the example below. 
+
+\begin{center}
+\includegraphics[keepaspectratio=true,scale=0.25]{graph2.jpg}
+\end{center}
+Let us assume that you are looking for the shortest path from A to D using the graph above. There are two different paths that you can take to get from A to D.
+
+\begin{center}
+\includegraphics[keepaspectratio=true,scale=0.25]{original_paths2.jpg}
+\end{center}
+By taking the path from A to B to C to D (call this path1), the combined weight is 3. If you choose to take the path2 from A to D, the combined weight is 2. Therefore, path2 is shorter than path1.
+
+\begin{center}
+\includegraphics[keepaspectratio=true,scale=0.25]{updated_paths2.jpg}
+\end{center}
+After squaring every edge, the updated paths can be seen in the image above. Path1 is now shorter than path2. We know that path2 should be shorter than path1, so by squaring every edge, the shortest path is now innacurate; therefore, this statement is false.
+
+\end{document}  
