@@ -25,6 +25,8 @@ public:
 
     void readInput(string filename);
 
+    int findCityIndex(string city);
+
     //Should take in file too. Actually main should, we good
     //Take in city name and find index
     void MST(int startIndex = 0);

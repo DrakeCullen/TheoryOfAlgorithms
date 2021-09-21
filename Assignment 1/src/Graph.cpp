@@ -65,7 +65,14 @@ void Graph::readInput(string filename)
 	input.close();
 }
 
- 
+int Graph::findCityIndex(string city)
+{
+	for (int i = 0; i < currentSize; i++)
+		if (cities.getElement(i)->data == city)
+			return i;
+	return -1;
+}
+
 void Graph::MST(int startIndex)
 {
 	
@@ -73,7 +80,6 @@ void Graph::MST(int startIndex)
 	PriorityQueue<Node> pq;
 	bool visited[currentSize];
 	Node ordering[currentSize];
-	cerr<<"First";
 	for (int i = 0; i < currentSize; i++)
 		visited[i] = 0;
 	
@@ -82,7 +88,6 @@ void Graph::MST(int startIndex)
 	firstCity.from = firstCity.index;
 	
 	pq.push(firstCity);
-	cerr<<"Before loop";
 	while (pq.getSize() > 0)
 	{
 		Node currentCity = pq.pop();
