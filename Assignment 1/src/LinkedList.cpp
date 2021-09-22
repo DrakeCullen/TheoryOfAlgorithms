@@ -2,6 +2,7 @@
     CSCI-480 - Assignment 1
     @file LinkedList.cpp
     @author Drake Cullen
+	Linked Lists are used to construct the adjacency matrix. The class can be used for other purposes because it is templatized.
 */
 
 #include "../include/LinkedList.h"
@@ -13,8 +14,8 @@
 template<typename T> 
 LinkedList<T>::LinkedList() 
 {
-	head = new Node();
-	tail = new Node();
+	head = new City();
+	tail = new City();
 	head->next = tail;
 	tail->prev = head;
 	size = 0;
@@ -22,6 +23,7 @@ LinkedList<T>::LinkedList()
 
 /**
  * Return the size of the linked list.
+ * @return int - the size of the linked list
  * O(1)
  */
 template<typename T> 
@@ -32,41 +34,48 @@ int LinkedList<T>::getSize()
 
 /**
  * Add a new element to the front of a linked list and increase the size variable by one.
+ * @param newCity -> An instance of the City class that is added to the Linked List
  * O(1)
- *
- * @param newNode -> An instance of the node class that is added to the Linked List
  */
 template<typename T> 
-void LinkedList<T>::push(Node* newNode) 
+void LinkedList<T>::push(City* newCity) 
 {
-	newNode->next = head->next;
-	head->next->prev = newNode;
-	newNode->prev = head;
-	head->next = newNode;
+	newCity->next = head->next;
+	head->next->prev = newCity;
+	newCity->prev = head;
+	head->next = newCity;
 	size++;
 }
 
 /**
- * Delete the top element from the Linked List.
+ * Delete the top element from the Linked List. Decrease the size by one
+ * @return T - return the data from the top element of the list
  * O(1)
  */
 template<typename T> 
 T LinkedList<T>::pop() 
 {
-	Node* nodeToDelete = head->next;
-	T data = nodeToDelete->data;
+	City* CityToDelete = head->next;
+	T data = CityToDelete->data;
 
-	head->next = nodeToDelete->next;
-	nodeToDelete->next->prev = head;
-	delete nodeToDelete;
+	head->next = CityToDelete->next;
+	CityToDelete->next->prev = head;
+	delete CityToDelete;
 	size--;
 	return data;
 }
 
+/**
+ * Utilized in finding the MST
+ * Go through all the cities that this city is connected to. Add them to the priority queue if they havent been visited.
+ * @param bool - An array of boolean values representing cities that have been visited. 1 means visited
+ * @param PriorityQueue<City> - The priority queue containing the cities that will be explored next
+ * O(n) where n is the number of cities connected to the city in question
+ */
 template<typename T> 
-void LinkedList<T>::checkNeighbors(bool visited[], PriorityQueue<Node> &pq)
+void LinkedList<T>::addUnvisitedNeighborsToQueue(bool visited[], PriorityQueue<City> &pq)
 {
-	Node* curr = head->next;
+	City* curr = head->next;
 
 	while (curr != tail) {
 		if (!visited[curr->index])
@@ -75,10 +84,22 @@ void LinkedList<T>::checkNeighbors(bool visited[], PriorityQueue<Node> &pq)
 	}
 }
 
+/**
+ * Utilized in finding the shortest path
+ * Go through all the cities that this city is connected to. If an adjacent city hasn't been visited, then go inside the if statement.
+ * If the distance to get to the adjacent city is less by using the city passed as an argument, 
+ * then update the adjacent cities distance and add the adjacent city to the priority queue. Update prev so we know how we got to the adjacent city.
+ * @param bool - An array of boolean values representing cities that have been visited. 1 means visited
+ * @param PriorityQueue<City> - The priority queue containing the cities that will be explored next
+ * @param int - The index of the city that is being passed. Used to find values in distance array and prev array
+ * @param int - An array of integers containing the shortest distance to reach a city
+ * @param int - An array of integers that keeps track of the city used to reach the current city
+ * O(n) where n is the number of cities connected to the city in question
+ */
 template<typename T> 
-void LinkedList<T>::checkShortestPath(bool visited[], PriorityQueue<Node> &pq, int index, int distance[], int prev[])
+void LinkedList<T>::updateNeighborsForShorterPath(bool visited[], PriorityQueue<City> &pq, int index, int distance[], int prev[])
 {
-	Node* curr = head->next;
+	City* curr = head->next;
 
 	while (curr != tail) {
 		if (!visited[curr->index])
@@ -103,38 +124,15 @@ void LinkedList<T>::checkShortestPath(bool visited[], PriorityQueue<Node> &pq, i
 template<typename T> 
 void LinkedList<T>::deleteAll() 
 {
-	Node* curr = head;
-	Node* prev;
+	City* curr = head;
+	City* prev;
 
 	while (prev != tail) {
 		prev = curr;
 		curr = curr->next;
 		delete prev;
 	}
+
+	delete tail;
 	size = 0;
-}
-
-//Remove after testing
-template<typename T> 
-void LinkedList<T>::print() 
-{
-	Node* curr = head->next;
-	while(curr != tail) 
-	{
-		cout<<curr->data<<' '<<curr->weight<<"... ";
-		curr = curr->next;
-	}
-	cout<<endl;
-}
-
-template<typename T> 
-void LinkedList<T>::printReverse() 
-{
-	Node* curr = tail->prev;
-	while(curr != head) 
-	{
-		cout<<curr->data<<' ';
-		curr = curr->prev;
-	}
-	cout<<endl;
 }

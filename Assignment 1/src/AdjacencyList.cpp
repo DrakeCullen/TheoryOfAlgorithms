@@ -20,32 +20,32 @@ AdjacencyList<T>::AdjacencyList()
 
 /**
  * Add a new edge to the adjacency list. 
- * Go to the corresponding linked list and push the node on.
+ * Go to the corresponding linked list and push the City on.
  * O(1). Accessing the index is O(1), and pushing to the front of a linked list is O(1)
  * * @param index -> The index of the graph that you are coming from
- * * @param newNode -> A pointer to the node that you would like to add
+ * * @param newCity -> A pointer to the City that you would like to add
  */
 template<typename T> 
-void AdjacencyList<T>::addEdge(int index, Node *newNode)
+void AdjacencyList<T>::addEdge(int index, City *newCity)
 {
     array.calculateSize();
     LinkedList<T>* temp = array.getElement(index);
-    temp->push(newNode);
+    temp->push(newCity);
 }
 
 
 template<typename T> 
-void AdjacencyList<T>::checkNeighbors(bool visited[], PriorityQueue<Node> &pq, int index)
+void AdjacencyList<T>::checkNeighbors(bool visited[], PriorityQueue<City> &pq, int index)
 {
     LinkedList<T>* temp = array.getElement(index);
-    temp->checkNeighbors(visited, pq);
+    temp->addUnvisitedNeighborsToQueue(visited, pq);
 }
 
 template<typename T> 
-void AdjacencyList<T>::checkShortestPath(bool visited[], PriorityQueue<Node> &pq, int index, int distance[], int prev[])
+void AdjacencyList<T>::checkShortestPath(bool visited[], PriorityQueue<City> &pq, int index, int distance[], int prev[])
 {
     LinkedList<T>* temp = array.getElement(index);
-    temp->checkShortestPath(visited, pq, index, distance, prev);
+    temp->updateNeighborsForShorterPath(visited, pq, index, distance, prev);
 }
 
 template<typename T> 

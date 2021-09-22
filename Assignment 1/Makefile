@@ -29,7 +29,7 @@ journey: journey.o Graph.o
 Graph.o: ./src/Graph.cpp ./include/Graph.h AdjacencyList.o 
 	$(CC) $(CFLAGS) -c ./src/Graph.cpp
 
-LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h Node.o
+LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h City.o
 	$(CC) $(CFLAGS) -c ./src/LinkedList.cpp
 
 AdjacencyList.o: ./src/AdjacencyList.cpp ./include/AdjacencyList.h LinkedList.o ResizableArray.o
@@ -41,8 +41,8 @@ PriorityQueue.o: ./src/PriorityQueue.cpp ./include/PriorityQueue.h ResizableArra
 ResizableArray.o: ./src/ResizableArray.cpp ./include/ResizableArray.h
 	$(CC) $(CFLAGS) -c ./src/ResizableArray.cpp
 
-Node.o: ./src/Node.cpp ./include/Node.h
-	$(CC) $(CFLAGS) -c ./src/Node.cpp
+City.o: ./src/City.cpp ./include/City.h
+	$(CC) $(CFLAGS) -c ./src/City.cpp
 
 	
 

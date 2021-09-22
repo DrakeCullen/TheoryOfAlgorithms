@@ -1,16 +1,18 @@
 /**
     CSCI-480 - Assignment 1
-    @file ResizableArray.cpp
+    @file LinkedList.cpp
     @author Drake Cullen
+	Acts like an array in c++ with O(1) lookup time, but can be resized
 */
+
 
 #include "../include/ResizableArray.h"
 
 /**
- * Default Constructor that allocates memory for an array of type T. Default size is 2.
+ * Default Constructor that allocates memory for an array of type T. Default size is 128.
  * Each element in an array holds a linked list.
  * O(1)
- * * @param newSize -> The original size of the array
+ * * @param int -> The original size of the array
  */
 template<typename T> 
 ResizableArray<T>::ResizableArray(int newSize)
@@ -19,7 +21,6 @@ ResizableArray<T>::ResizableArray(int newSize)
     currentSize = 0;
     array = new T[newSize];
 }
-
 
 /**
  * If the array becomes full, we must allocate new space on the heap and delete the old array.
@@ -38,12 +39,22 @@ void ResizableArray<T>::enlargeArray()
     array = newArray;
 }
 
+/**
+ * Used to access a specific index in the array.
+ * O(1)
+ * * @return T* - returns a pointer to the item at that position in the array
+ */
 template<typename T> 
 T* ResizableArray<T>::getElement(int index)
 {
     return &array[index];
 }
 
+/**
+ * This method makes sure that there is always enough room in the array. It is called everytime an element is added.
+ * If the array becomes full, it call the enlargeArray method.
+ * O(n) in the worst case when enlargeArray is called.
+ */
 template<typename T> 
 void ResizableArray<T>::calculateSize()
 {
@@ -52,13 +63,25 @@ void ResizableArray<T>::calculateSize()
     currentSize++;
 }
 
+/**
+ * Insert a new item at the end of the array
+ * Call the calculateSize method to make sure that there is room before adding the item
+ * O(n) in the worst case when enlargeArray is called. Average case of O(1).
+ * @param T - The new item that will be added to the array
+ */
 template<typename T> 
-void ResizableArray<T>::insert(int index, T newItem)
+void ResizableArray<T>::insert(T newItem)
 {
     calculateSize();
     array[currentSize-1] = newItem;
 }
 
+/**
+ * Remove the first element in the array. Called from the PriorityQueue class
+ * The last element is moved to the fist position.
+ * O(1)
+ * @return T - the element at the front of the
+ */
 template<typename T> 
 T ResizableArray<T>::pop()
 {
@@ -69,10 +92,10 @@ T ResizableArray<T>::pop()
 }
 
 /**
- * Swap two nodes in the array.
+ * Swap two Citys in the array.
  * O(1). Indexes can be accessed in constant time. 
- * @param firstIndex -> The index of the first node
- * @param secondIndex -> The index of the second node
+ * @param firstIndex -> The index of the first City
+ * @param secondIndex -> The index of the second City
  */
 template<typename T> 
 void ResizableArray<T>::swap(int firstIndex, int secondIndex)

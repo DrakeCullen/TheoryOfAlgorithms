@@ -15,11 +15,11 @@ class AdjacencyList
     public:
         AdjacencyList();
 
-        void addEdge(int index, Node *newNode);
+        void addEdge(int index, City *newCity);
 
-        void checkNeighbors(bool visited[], PriorityQueue<Node> &pq, int index);
+        void checkNeighbors(bool visited[], PriorityQueue<City> &pq, int index);
 
-        void checkShortestPath(bool visited[], PriorityQueue<Node> &pq, int index, int distance[], int prev[]);
+        void checkShortestPath(bool visited[], PriorityQueue<City> &pq, int index, int distance[], int prev[]);
 
         ~AdjacencyList();
 };

@@ -5,7 +5,7 @@
 */
 
 #include "./include/Graph.h"
-#include <chrono>
+
 
 int main(int argc, char *argv[])
 {
@@ -31,10 +31,7 @@ int main(int argc, char *argv[])
             return 0;
         }
         // This includes print time. Move inside the functions to only get calculation time...
-        auto start = chrono::steady_clock::now();
         g.dijkstra(startIndex, destinationIndex);
-        auto end = chrono::steady_clock::now();
-        cout << "Time taken to find the shortest path: " << double(chrono::duration_cast<chrono::microseconds>(end - start).count()) / 1000000 << " seconds. \n";
     }
     else
         cout << "Pass in a start and destination city! \n";

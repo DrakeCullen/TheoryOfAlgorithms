@@ -5,6 +5,7 @@
 */
 
 #include "../include/Graph.h"
+#include <chrono>
 
 Graph::Graph()
 {
@@ -24,10 +25,10 @@ void Graph::readCities(istream &input, int i, bool &validInput)
 		return;
 	}
 	getline(ss, cityName, '[');
-	Node newCity;
+	City newCity;
 	newCity.data = cityName;
 	newCity.index = i;
-	cities.insert(i, newCity);
+	cities.insert(newCity);
 }
 
  
@@ -45,12 +46,12 @@ void Graph::readDistances(istream &input, int i)
  
 void Graph::addEdge(int vertex1, int vertex2, string data, int weight) 
 { 
-	Node* newNode = new Node;
-	newNode->data = data;
-	newNode->index = vertex2;
-	newNode->weight = weight;
-	newNode->from = vertex1;
-	adj.addEdge(vertex1, newNode);
+	City* newCity = new City;
+	newCity->data = data;
+	newCity->index = vertex2;
+	newCity->weight = weight;
+	newCity->from = vertex1;
+	adj.addEdge(vertex1, newCity);
 }
 
  
@@ -86,21 +87,23 @@ int Graph::findCityIndex(string city)
 void Graph::MST(int startIndex)
 {
 	
+	auto start = chrono::steady_clock::now();
 	int totalDistance = 0, index = 0;
-	PriorityQueue<Node> pq;
+	PriorityQueue<City> pq;
 	bool visited[currentSize];
-	Node ordering[currentSize];
+	//Change to array of pointer
+	City ordering[currentSize];
 	for (int i = 0; i < currentSize; i++)
 		visited[i] = 0;
 	
-	Node firstCity = *cities.getElement(startIndex);
+	City firstCity = *cities.getElement(startIndex);
 	firstCity.weight = 0;
 	firstCity.from = firstCity.index;
 	
 	pq.push(firstCity);
 	while (pq.getSize() > 0)
 	{
-		Node currentCity = pq.pop();
+		City currentCity = pq.pop();
 		if (!visited[currentCity.index])
 		{
 			visited[currentCity.index] = 1;
@@ -110,27 +113,29 @@ void Graph::MST(int startIndex)
 		}
 		
 	}
+	auto end = chrono::steady_clock::now();
+	double timeTaken = double(chrono::duration_cast<chrono::microseconds>(end - start).count()) / 1000000;
 	cout<<"The total distance is: "<<totalDistance<<endl;
-	printMST(ordering);
+	printMST(ordering, timeTaken);
 }
 
  
-void Graph::printMST(Node ordering[])
+void Graph::printMST(City ordering[], double timeTaken)
 {
-	//Change from hard coded value
-	for (int i = 0; i < 128; i++)
+	for (int i = 0; i < currentSize; i++)
 		cout<<cities.getElement(ordering[i].from)->data<<" to "<<ordering[i].data<<" \"distance = "<<ordering[i].weight<<'"'<<endl;
-
+	cout << "\nTime taken to find the Minimum Spanning Tree: " << timeTaken << " seconds. \n";
 }
 
  
 void Graph::dijkstra(int startIndex, int endIndex)
 {
+	auto start = chrono::steady_clock::now();
 	const int INF = 2147483646;
 	int distance[currentSize];
 	bool visited[currentSize];
 	int prev[currentSize];
-	PriorityQueue<Node> pq;
+	PriorityQueue<City> pq;
 	for (int i = 0; i < currentSize; i++)
 	{
 		distance[i] = INF;
@@ -139,22 +144,24 @@ void Graph::dijkstra(int startIndex, int endIndex)
 	
 	distance[startIndex] = 0;	
 	visited[startIndex] = 0;
-	Node firstCity = *cities.getElement(startIndex);
+	City firstCity = *cities.getElement(startIndex);
 	firstCity.weight = 0;
 	firstCity.from = firstCity.index;
 
 	pq.push(firstCity);
 	while (pq.getSize() > 0)
 	{
-		Node currentCity = pq.pop();
+		City currentCity = pq.pop();
 		visited[currentCity.index] = 1;
 		adj.checkShortestPath(visited, pq, currentCity.index, distance, prev);
 	}
-	printDijkstra(prev, distance, startIndex, endIndex);
+	auto end = chrono::steady_clock::now();
+	double timeTaken = double(chrono::duration_cast<chrono::microseconds>(end - start).count()) / 1000000;
+	printDijkstra(prev, distance, startIndex, endIndex, timeTaken);
 }
 
  
-void Graph::printDijkstra(int prev[], int distances[], int startIndex, int endIndex)
+void Graph::printDijkstra(int prev[], int distances[], int startIndex, int endIndex, double timeTaken)
 {
 	int lastWeight = 0, numberOfCities = 0, copyEnd = endIndex;
 
@@ -180,4 +187,5 @@ void Graph::printDijkstra(int prev[], int distances[], int startIndex, int endIn
 		lastWeight = distances[path[i+1]];
 	}
 	cout<<"Total distance: "<<distances[endIndex]<<endl;
+	cout << "\nTime taken to find the shortest path: " << timeTaken << " seconds. \n";
 }

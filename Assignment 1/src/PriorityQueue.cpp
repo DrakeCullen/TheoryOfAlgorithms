@@ -47,7 +47,7 @@ void PriorityQueue<T>::moveDown()
         rightChild = getRightChild(index);
 
         // If the parent is bigger than one or both of the children, swap the parent and smallest child to correct the order.
-        // If that is true, the current index (i) is now pointing to the child node.
+        // If that is true, the current index (i) is now pointing to the child City.
         if (leftChild <= rightChild && leftChild < current)
         {
             array.swap(index, 2 * index + 1);
@@ -63,10 +63,10 @@ void PriorityQueue<T>::moveDown()
 }
 
 /**
- * Return the left child of a node. If the node is a leaf, return the node itself to avoid errors.
+ * Return the left child of a City. If the City is a leaf, return the City itself to avoid errors.
  * In an array, the left child is always (2 * pos) + 1.
  * O(1). Indexes can be accessed in constant time.
- *  @param index -> The index of the parent node
+ *  @param index -> The index of the parent City
  */
 template<typename T>
 int PriorityQueue<T>::getLeftChild(int index)
@@ -78,10 +78,10 @@ int PriorityQueue<T>::getLeftChild(int index)
 }
 
 /**
- * Return the right child of a node. If the node is a leaf, return the node itself to avoid errors.
+ * Return the right child of a City. If the City is a leaf, return the City itself to avoid errors.
  * In an array, the right child is always (2 * pos) + 2.
  * O(1). Indexes can be accessed in constant time.
- * @param index -> The index of the parent node
+ * @param index -> The index of the parent City
  */
 template<typename T>
 int PriorityQueue<T>::getRightChild(int index)
@@ -105,7 +105,7 @@ int PriorityQueue<T>::getRightChild(int index)
 template<typename T>
 void PriorityQueue<T>::push(T newItem)
 {
-    array.insert(currentIndex, newItem);
+    array.insert(newItem);
     moveUp();
     currentIndex++;
 }

@@ -10,10 +10,10 @@
 
 class Graph {
 private:
-	AdjacencyList<Node> adj;
+	AdjacencyList<City> adj;
     int currentSize;
     // Make dynamic later
-    ResizableArray<Node> cities;
+    ResizableArray<City> cities;
     
     void readCities(istream &input, int i, bool &validInput);
 
@@ -34,9 +34,9 @@ public:
     //Same as above
     void dijkstra(int startIndex, int endIndex);
 
-    void printMST(Node ordering[]);
+    void printMST(City ordering[], double timeTaken);
 
-    void printDijkstra(int prev[], int distances[], int startIndex, int endIndex);
+    void printDijkstra(int prev[], int distances[], int startIndex, int endIndex, double timeTaken);
 };
 
 #endif

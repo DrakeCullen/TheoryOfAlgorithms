@@ -25,10 +25,7 @@ int main(int argc, char *argv[]) {
             cout << argv[2] << " is an invalid city! \n";
             return 0;
         }
-        auto start = chrono::steady_clock::now();
         g.MST(startNode);
-        auto end = chrono::steady_clock::now();
-        cout << "Time taken to find the Minimum Spanning Tree: " << double(chrono::duration_cast<chrono::microseconds>(end-start).count()) / 1000000 << " seconds. \n";
     }
     else
         cout << "Enter a start city! \n";

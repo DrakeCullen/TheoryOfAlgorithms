@@ -13,7 +13,7 @@ class ResizableArray
         void enlargeArray();
 
     public:
-        ResizableArray(int newSize = 132);
+        ResizableArray(int newSize = 128);
 
         T* getElement(int index);
 
@@ -21,7 +21,7 @@ class ResizableArray
 
         void swap(int firstIndex, int secondIndex);
 
-        void insert(int index, T newItem);
+        void insert(T newItem);
 
         T pop();
 
