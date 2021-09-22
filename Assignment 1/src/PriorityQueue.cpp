@@ -2,11 +2,10 @@
     CSCI-480 - Assignment 1
     @file PriorityQueue.cpp
     @author Drake Cullen
+    Priority queue implemented using a min heap
 */
 
 #include "../include/PriorityQueue.h"
-
-
 
 /**
  * After adding a new element as a leaf, move it up until it is in the correct position.

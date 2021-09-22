@@ -1,8 +1,14 @@
+/**
+    CSCI-480 - Assignment 1
+    @file PriorityQueue.ch
+    @author Drake Cullen
+    Priority queue implemented using a min heap
+*/
+
 #ifndef PRIORITYQUEUE_H
 #define PRIORITYQUEUE_H
 
 #include "ResizableArray.h"
-#include <iostream>
 
 using namespace std;
 
@@ -20,8 +26,6 @@ class PriorityQueue
         int getLeftChild(int index);
 
         int getRightChild(int index);
-
-        
 
     public:
         void push(T newItem);

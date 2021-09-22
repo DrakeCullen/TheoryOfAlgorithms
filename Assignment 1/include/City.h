@@ -1,6 +1,6 @@
 /**
     CSCI-480 - Assignment 1
-    @file City.cpp
+    @file City.h
     @author Drake Cullen
     City is the basic building block for the project. It acts as a node in linked lists, queues, etc.
 */
@@ -9,6 +9,7 @@
 #define CITY_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 

@@ -1,6 +1,6 @@
 /**
     CSCI-480 - Assignment 1
-    @file LinkedList.cpp
+    @file LinkedList.h
     @author Drake Cullen
 	Linked Lists are used to construct the adjacency matrix. The class can be used for other purposes because it is templatized.
 */

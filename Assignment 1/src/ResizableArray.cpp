@@ -2,7 +2,7 @@
     CSCI-480 - Assignment 1
     @file LinkedList.cpp
     @author Drake Cullen
-	Acts like an array in c++ with O(1) lookup time, but can be resized
+	Acts like an array in c++ with O(1) lookup time, but it is resized when it becomes full
 */
 
 
@@ -78,7 +78,7 @@ void ResizableArray<T>::insert(T newItem)
 
 /**
  * Remove the first element in the array. Called from the PriorityQueue class
- * The last element is moved to the fist position.
+ * The last element is moved to the fist position. Decrease size by one.
  * O(1)
  * @return T - the element at the front of the
  */

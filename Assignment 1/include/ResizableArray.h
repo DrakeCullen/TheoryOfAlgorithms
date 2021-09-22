@@ -1,3 +1,10 @@
+/**
+    CSCI-480 - Assignment 1
+    @file LinkedList.h
+    @author Drake Cullen
+	Acts like an array in c++ with O(1) lookup time, but it is resized when it becomes full
+*/
+
 #ifndef RESIZABLEARRAY_H
 #define RESIZABLEARRAY_H
 
