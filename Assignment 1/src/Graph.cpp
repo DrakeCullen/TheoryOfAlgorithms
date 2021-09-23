@@ -199,7 +199,7 @@ void Graph::printMST(City ordering[], double timeTaken)
 	cout << "\nTime taken to find the Minimum Spanning Tree: " << timeTaken << " seconds. \n";
 }
 
- 
+// SHOULD DIJKSTRA HAVE VISITED?????
 void Graph::dijkstra(int startIndex, int endIndex)
 {
 	auto start = chrono::steady_clock::now();
