@@ -33,8 +33,6 @@ class PriorityQueue
         T pop();
 
         int getSize();
-
-        ~PriorityQueue();
 };
 
 #endif

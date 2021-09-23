@@ -70,7 +70,7 @@ T LinkedList<T>::pop()
  * Go through all the cities that this city is connected to. Add them to the priority queue if they havent been visited.
  * @param bool - An array of boolean values representing cities that have been visited. 1 means visited
  * @param PriorityQueue<City> - The priority queue containing the cities that will be explored next
- * O(n) where n is the number of cities connected to the city in question
+ * O(E) where E is the number of cities connected to the city in question
  */
 template<typename T> 
 void LinkedList<T>::addUnvisitedNeighborsToQueue(bool visited[], PriorityQueue<City> &pq)

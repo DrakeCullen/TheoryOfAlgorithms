@@ -26,14 +26,11 @@ MST: MST.o Graph.o
 journey: journey.o Graph.o
 	$(CC) $(CFLAGS) -o journey journey.o Graph.o
 
-Graph.o: ./src/Graph.cpp ./include/Graph.h AdjacencyList.o 
+Graph.o: ./src/Graph.cpp ./include/Graph.h LinkedList.o ResizableArray.o
 	$(CC) $(CFLAGS) -c ./src/Graph.cpp
 
 LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h City.o
 	$(CC) $(CFLAGS) -c ./src/LinkedList.cpp
-
-AdjacencyList.o: ./src/AdjacencyList.cpp ./include/AdjacencyList.h LinkedList.o ResizableArray.o
-	$(CC) $(CFLAGS) -c ./src/AdjacencyList.cpp
 
 PriorityQueue.o: ./src/PriorityQueue.cpp ./include/PriorityQueue.h ResizableArray.o
 	$(CC) $(CFLAGS) -c ./src/PriorityQueue.cpp

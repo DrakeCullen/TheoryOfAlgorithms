@@ -8,6 +8,36 @@
 #include "../include/PriorityQueue.h"
 
 /**
+ * Return the left child of a City. If the City is a leaf, return the City itself to avoid errors.
+ * In an array, the left child is always (2 * pos) + 1.
+ * O(1). Indexes can be accessed in constant time.
+ *  @param int -> The weight in the left child
+ */
+template<typename T>
+int PriorityQueue<T>::getLeftChild(int index)
+{
+    if (2 * index + 1 <= currentIndex)
+        return array.getElement(2 * index + 1)->weight;
+    else 
+        return array.getElement(index)->weight;
+}
+
+/**
+ * Return the right child of a City. If the City is a leaf, return the City itself to avoid errors.
+ * In an array, the right child is always (2 * pos) + 2.
+ * O(1). Indexes can be accessed in constant time.
+ * @param int -> The weight in the right child
+ */
+template<typename T>
+int PriorityQueue<T>::getRightChild(int index)
+{
+    if (2 * index + 2 <= currentIndex)
+        return array.getElement(2 * index + 2)->weight;
+    else 
+        return array.getElement(index)->weight;
+}
+
+/**
  * After adding a new element as a leaf, move it up until it is in the correct position.
  * O(log(n)). i is divided by roughly 2 everytime. This gives us log(n) runtime.
  */
@@ -21,7 +51,7 @@ void PriorityQueue<T>::moveUp()
     {
         // Swap the child and parent
         array.swap(i, (i - 1) / 2);
-        // "I" now has the index of the parent
+        // "i" now has the index of the parent
         i = (i - 1) / 2;
     }
 }
@@ -62,44 +92,14 @@ void PriorityQueue<T>::moveDown()
 }
 
 /**
- * Return the left child of a City. If the City is a leaf, return the City itself to avoid errors.
- * In an array, the left child is always (2 * pos) + 1.
- * O(1). Indexes can be accessed in constant time.
- *  @param index -> The index of the parent City
- */
-template<typename T>
-int PriorityQueue<T>::getLeftChild(int index)
-{
-    if (2 * index + 1 <= currentIndex)
-        return array.getElement(2 * index + 1)->weight;
-    else 
-        return array.getElement(index)->weight;
-}
-
-/**
- * Return the right child of a City. If the City is a leaf, return the City itself to avoid errors.
- * In an array, the right child is always (2 * pos) + 2.
- * O(1). Indexes can be accessed in constant time.
- * @param index -> The index of the parent City
- */
-template<typename T>
-int PriorityQueue<T>::getRightChild(int index)
-{
-    if (2 * index + 2 <= currentIndex)
-        return array.getElement(2 * index + 2)->weight;
-    else 
-        return array.getElement(index)->weight;
-}
-
-/**
  * Add a new element to the array. If the array is full, enlarge it.
- * Call the moveUp function to reorded the min heap.
+ * Call the moveUp function to reorder the min heap.
  * O(log(n)). The two most significant 'operations' are enlargeArray() and moveUp().
  * The function moveUp() is O(log(n)). See above for details.
  * The function enlargeArray is O(n), but, it is only called in powers of 2 (or maybe it isn't ever called if a correct maxSize is passed into the constructor).
  * Therefore, enlargeArray is called at size 4, 8, 16, 32, 64, 128 ... so the calls are O(log(n)) in this function.
  * log(n) + log(n) = 2log(n) = O(log(n))
- * @param newItem -> The new element to add
+ * @param T - The new element to add
  */
 template<typename T>
 void PriorityQueue<T>::push(T newItem)
@@ -113,6 +113,7 @@ void PriorityQueue<T>::push(T newItem)
  * Remove the minimum element and replace it with the last item. Decrease the current index by one.
  * Fix the ordering of the min heap with the moveDown function.
  * O(log(n)). As described above, the moveDown function takes O(log(n))
+ * @param T - The minimum item in the queue
  */
 template<typename T>
 T PriorityQueue<T>::pop()
@@ -126,19 +127,10 @@ T PriorityQueue<T>::pop()
 /**
  * Return the size of the priority queue.
  * O(1)
+ * @param int - The size of the priority queue
  */
 template<typename T>
 int PriorityQueue<T>::getSize()
 {
     return currentIndex;
-}
-
-/**
- * Default destructor. Free up the memory allocated on the heap.
- * O(n). Iterate over and dele every element.
- */
-template<typename T> 
-PriorityQueue<T>::~PriorityQueue()
-{
-    //delete[] array;
 }

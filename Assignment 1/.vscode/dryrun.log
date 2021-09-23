@@ -1,5 +1,12 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1'
-make: Nothing to be done for 'default'.
+g++    -c -o MST.o MST.cpp
+g++ -g -Wall -c ./src/City.cpp
+g++ -g -Wall -c ./src/LinkedList.cpp
+g++ -g -Wall -c ./src/ResizableArray.cpp
+g++ -g -Wall -c ./src/Graph.cpp
+g++ -g -Wall -o MST MST.o Graph.o
+g++    -c -o journey.o journey.cpp
+g++ -g -Wall -o journey journey.o Graph.o
 make: Leaving directory '/home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1'
  
