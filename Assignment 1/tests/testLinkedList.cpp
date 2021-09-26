@@ -2,37 +2,37 @@
 #include "../src/LinkedList.cpp"
 #include <assert.h>
 
-void addNode(LinkedList<int> &ll, int data)
+void addCity(LinkedList<string> &ll, string data)
 {
-    Node<int>* newNode = new Node<int>;
-    newNode->data = data;
-    ll.push(newNode);
+    City* newCity = new City;
+    newCity->data = data;
+    ll.push(newCity);
 }
 
 void lladdItems()
 {
-    LinkedList<int> ll;
-    addNode(ll, 3);
-    addNode(ll, 20);
-    addNode(ll, 14);
-    addNode(ll, 12);
-    addNode(ll, 31);
-    addNode(ll, 7);
-    addNode(ll, 11);
-    addNode(ll, 13);
-    addNode(ll, 7);
-    assert( ll.pop() == 7);
+    LinkedList<string> ll;
+    addCity(ll, "3");
+    addCity(ll, "20");
+    addCity(ll, "14");
+    addCity(ll, "12");
+    addCity(ll, "31");
+    addCity(ll, "7");
+    addCity(ll, "11");
+    addCity(ll, "13");
+    addCity(ll, "7");
+    assert( ll.pop() == "7");
 }
 
 void llcheckingSize()
 {
-    LinkedList<int> ll;
+    LinkedList<string> ll;
     assert( ll.getSize() == 0);
-    addNode(ll, 45);
+    addCity(ll, "45");
     assert( ll.getSize() == 1);
-    addNode(ll, 20);
+    addCity(ll, "20");
     assert( ll.getSize() == 2);
-    addNode(ll, 14);
+    addCity(ll, "14");
     assert( ll.getSize() == 3);
     ll.pop();
     assert( ll.getSize() == 2);
@@ -44,23 +44,23 @@ void llcheckingSize()
 
 void llcheckOrder()
 {
-    LinkedList<int>  ll;
-    addNode(ll, 45);
-    addNode(ll, 20);
-    addNode(ll, 14);
-    addNode(ll, 12);
-    addNode(ll, 31);
-    addNode(ll, 7);
-    addNode(ll, 11);
-    addNode(ll, 13);
-    addNode(ll, 7);
-    assert( ll.pop() == 7);
-    assert( ll.pop() == 13);
-    assert( ll.pop() == 11);
-    assert( ll.pop() == 7);
-    assert( ll.pop() == 31);
-    assert( ll.pop() == 12);
-    assert( ll.pop() == 14);
-    assert( ll.pop() == 20);
-    assert( ll.pop() == 45);
+    LinkedList<string>  ll;
+    addCity(ll, "45");
+    addCity(ll, "20");
+    addCity(ll, "14");
+    addCity(ll, "12");
+    addCity(ll, "31");
+    addCity(ll, "7");
+    addCity(ll, "11");
+    addCity(ll, "13");
+    addCity(ll, "7");
+    assert( ll.pop() == "7");
+    assert( ll.pop() == "13");
+    assert( ll.pop() == "11");
+    assert( ll.pop() == "7");
+    assert( ll.pop() == "31");
+    assert( ll.pop() == "12");
+    assert( ll.pop() == "14");
+    assert( ll.pop() == "20");
+    assert( ll.pop() == "45");
 }

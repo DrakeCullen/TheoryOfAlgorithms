@@ -134,7 +134,7 @@ int Graph::findCityIndex(string city)
 }
 
 /**
- * Given a starting node, find the minimum spanning tree of the graph.
+ * Given a starting city, find the minimum spanning tree of the graph.
  * Add an initial city to the tree, and get the top element from the priority queue until it is empty.
  * If the city hasn't been visited, add its weight and check its neighbors
  * @param int - The index of the start city
@@ -199,45 +199,75 @@ void Graph::printMST(City ordering[], double timeTaken)
 	cout << "\nTime taken to find the Minimum Spanning Tree: " << timeTaken << " seconds. \n";
 }
 
-// SHOULD DIJKSTRA HAVE VISITED?????
+/**
+ * Given a starting and ending city, find the shortest path between them
+ * Add the start city to the priority queue. Initialize all distances to INF except for the starting node
+ * While the priority queue still has cities, check there neighbors to see if you can update the minimum distance.
+ * If so, add these cities to the queue and update their distances
+ * @param int - The index of the start city
+ * @param int - The index of the end city
+ * O(E*log(V)) where E is the number of edges and V is the number of cities
+ */
 void Graph::dijkstra(int startIndex, int endIndex)
 {
+	// Used to measure the time it takes to run the algorithm
 	auto start = chrono::steady_clock::now();
+	// Represent infinity with the maximum value and integer can store
 	const int INF = 2147483646;
+	// Arrays to keep track of the shortest distance to a city and whether the city has been visited
 	int distance[currentSize];
 	bool visited[currentSize];
+	// Keep track of how we got to a city so that the order can be printed later
 	int prev[currentSize];
 	PriorityQueue<City> pq;
+
 	for (int i = 0; i < currentSize; i++)
 	{
 		distance[i] = INF;
 		visited[i] = 0;
 	}
 	
+	// The distance to the start city is 0, and add it to the queue
 	distance[startIndex] = 0;	
 	visited[startIndex] = 0;
 	City firstCity = *cities.getElement(startIndex);
 	firstCity.weight = 0;
 	firstCity.from = firstCity.index;
-
 	pq.push(firstCity);
+
+	// Repeats for every edge in the graph. O(E)
 	while (pq.getSize() > 0)
 	{
+		// O(log(V) to get the top element and rearrange the min heap
 		City currentCity = pq.pop();
 		visited[currentCity.index] = 1;
-		LinkedList<City>* temp = adjacencyList.getElement(currentCity.index);
-    	temp->updateNeighborsForShorterPath(visited, pq, currentCity.index, distance, prev);
+
+		// Explore tjhe connecting cities to see if by using this city, it is shorter to get to them
+		LinkedList<City>* cityNeighbors = adjacencyList.getElement(currentCity.index);
+    	cityNeighbors->updateNeighborsForShorterPath(visited, pq, currentCity.index, distance, prev);
 	}
+
+	// Find the ending time and call the method to print the results
 	auto end = chrono::steady_clock::now();
 	double timeTaken = double(chrono::duration_cast<chrono::microseconds>(end - start).count()) / 1000000;
 	printDijkstra(prev, distance, startIndex, endIndex, timeTaken);
 }
 
- 
+/**
+ * Print the cities in the order they were visited along with the distance between cities. Print out the time taken at the end.
+ * @param int[] - Prev is an array that contains the index of the city that a city came from. I.E. prev[5] has the index of the city used to get to city 5
+ * @param int[] - distances contains the minimum distance to get to each city
+ * @param int - startIndex is the index of the start city
+ * @param int - endIndex is the index of the end city
+ * @param dobule - timeTaken is the amount of time to run the SSSP algorithm
+ * O(V) where V is the number of cities in the graph
+ */
 void Graph::printDijkstra(int prev[], int distances[], int startIndex, int endIndex, double timeTaken)
 {
 	int lastWeight = 0, numberOfCities = 0, copyEnd = endIndex;
 
+	// Calculate the number of cities used to get to the end city
+	// Start at the index of the end city. Use the prev array to keep jumping back until we get to the start cities index.
 	while (copyEnd != startIndex)
 	{
 		copyEnd = prev[copyEnd];
@@ -246,12 +276,16 @@ void Graph::printDijkstra(int prev[], int distances[], int startIndex, int endIn
 
 	copyEnd = endIndex;
 	int path[numberOfCities];
+
+	// Prev contains distances to every city. We only want the path to get to the end city
+	// Copy the path to get to the end city into the path array
 	for (int i = numberOfCities - 1; i >= 0; i--)
 	{
 		path[i] = copyEnd;
 		copyEnd = prev[copyEnd];
 	}
 
+	// Use the path and distances arrays to print out directions to get from the start to the end city.
 	cout << "1: "<< cities.getElement(startIndex)->data << " to " << cities.getElement(path[0])->data << " \"distance = " << distances[path[0]] << "\"" << endl;
 	lastWeight = distances[path[0]];
 	for (int i = 0; i < numberOfCities - 1; i++)
