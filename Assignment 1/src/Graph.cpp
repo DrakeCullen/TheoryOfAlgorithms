@@ -60,7 +60,7 @@ void Graph::readCities(istream &input, int i, bool &validInput)
 void Graph::readDistances(istream &input, int i)
 {
 	int distance;
-	for (int j = 0; j < i; j++)
+	for (int j = i - 1; j >= 0; j--)
 	{
 		input >> distance;
 		// The graph is undirected, so add adges in both directions
