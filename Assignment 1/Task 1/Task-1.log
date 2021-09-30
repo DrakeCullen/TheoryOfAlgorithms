@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.8.23)  21 SEP 2021 13:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.8.23)  30 SEP 2021 09:48
 entering extended mode
-**./Drake-Cullen-Academic-Integrity.tex
-(Drake-Cullen-Academic-Integrity.tex
+**./Task-1.tex
+(Task-1.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-07-12>
 (/home/drake/.miktex/texmfs/install/tex/latex/base/article.cls
@@ -148,8 +148,8 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count193
 \l__pdf_internal_box=\box50
 )
-(Drake-Cullen-Academic-Integrity.aux)
-\openout1 = `Drake-Cullen-Academic-Integrity.aux'.
+(Task-1.aux)
+\openout1 = `Task-1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
@@ -237,53 +237,53 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 22--26
 <graph.jpg, id=2, 876.27374pt x 1082.0425pt>
 File: graph.jpg Graphic file (type jpg)
 <use graph.jpg>
-Package pdftex.def Info: graph.jpg  used on input line 36.
+Package pdftex.def Info: graph.jpg  used on input line 42.
 (pdftex.def)             Requested size: 219.06789pt x 270.50996pt.
-<original_paths.jpg, id=3, 228.855pt x 963.6pt>
-File: original_paths.jpg Graphic file (type jpg)
-<use original_paths.jpg>
-Package pdftex.def Info: original_paths.jpg  used on input line 43.
-(pdftex.def)             Requested size: 57.21361pt x 240.89941pt.
 [1
 
 {/home/drake/.miktex/texmfs/data/pdftex/config/pdftex.map} <./CMU.png (PNG copy
-)> <./graph.jpg> <./original_paths.jpg>]
+)> <./graph.jpg>]
+<original_paths.jpg, id=10, 228.855pt x 963.6pt>
+File: original_paths.jpg Graphic file (type jpg)
+<use original_paths.jpg>
+Package pdftex.def Info: original_paths.jpg  used on input line 49.
+(pdftex.def)             Requested size: 57.21361pt x 240.89941pt.
 <updated_paths.jpg, id=11, 351.56343pt x 963.6pt>
 File: updated_paths.jpg Graphic file (type jpg)
 <use updated_paths.jpg>
-Package pdftex.def Info: updated_paths.jpg  used on input line 50.
+Package pdftex.def Info: updated_paths.jpg  used on input line 56.
 (pdftex.def)             Requested size: 87.89064pt x 240.89941pt.
- [2 <./updated_paths.jpg>]
+ [2 <./original_paths.jpg> <./updated_paths.jpg>]
 <graph2.jpg, id=15, 746.79pt x 963.6pt>
 File: graph2.jpg Graphic file (type jpg)
 <use graph2.jpg>
-Package pdftex.def Info: graph2.jpg  used on input line 59.
+Package pdftex.def Info: graph2.jpg  used on input line 65.
 (pdftex.def)             Requested size: 186.69704pt x 240.89941pt.
 <original_paths2.jpg, id=16, 963.6pt x 275.52937pt>
 File: original_paths2.jpg Graphic file (type jpg)
 <use original_paths2.jpg>
-Package pdftex.def Info: original_paths2.jpg  used on input line 64.
+Package pdftex.def Info: original_paths2.jpg  used on input line 70.
 (pdftex.def)             Requested size: 240.89941pt x 68.88217pt.
 <updated_paths2.jpg, id=17, 963.6pt x 322.95656pt>
 File: updated_paths2.jpg Graphic file (type jpg)
 <use updated_paths2.jpg>
-Package pdftex.def Info: updated_paths2.jpg  used on input line 69.
+Package pdftex.def Info: updated_paths2.jpg  used on input line 75.
 (pdftex.def)             Requested size: 240.89941pt x 80.73894pt.
- [3 <./graph2.jpg> <./original_paths2.jpg>] [4 <./updated_paths2.jpg>]
-(Drake-Cullen-Academic-Integrity.aux) ) 
+ [3 <./graph2.jpg> <./original_paths2.jpg>] [4 <./updated_paths2.jpg>] (Task-1.
+aux) ) 
 Here is how much of TeX's memory you used:
  3016 strings out of 480807
- 45442 string characters out of 2900637
- 336856 words of memory out of 3000000
+ 45142 string characters out of 2900637
+ 336806 words of memory out of 3000000
  20647 multiletter control sequences out of 15000+600000
  409596 words of font info for 50 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 57i,7n,66p,459b,193s stack positions out of 5000i,500n,10000p,200000b,80000s
-</home/drake/.miktex/texmfs/install/font
-s/type1/public/amsfonts/cm/cmbx10.pfb></home/drake/.miktex/texmfs/install/fonts
-/type1/public/amsfonts/cm/cmbx12.pfb></home/drake/.miktex/texmfs/install/fonts/
-type1/public/amsfonts/cm/cmr10.pfb>
-Output written on Drake-Cullen-Academic-Integrity.pdf (4 pages, 581702 bytes).
+ 57i,7n,66p,434b,193s stack positions out of 5000i,500n,10000p,200000b,80000s
+</home/drake/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10
+.pfb></home/drake/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.
+pfb></home/drake/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pf
+b>
+Output written on Task-1.pdf (4 pages, 587364 bytes).
 PDF statistics:
  37 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
