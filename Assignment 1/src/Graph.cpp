@@ -164,13 +164,20 @@ void Graph::MST(int startIndex)
 	firstCity.from = firstCity.index;
 	pq.push(firstCity);
 
-	while (pq.getSize() > 0)
+	// This loop will be ran at a maximum of V times where V is the number of cities.
+	while (pq.getSize() > 0 && index < currentSize)
 	{
 		// We know that popping from the min heap priority queue to get the city with the least distance takes O(log(V)) where V is the number of cities.
 		// This operation happens for every city V. So we have O(V*log(V) 
 		City currentCity = pq.pop();
 
-		// Inside the if statement, all possible edges will be explored. This runtime is independent of popping, so the two will be added.
+		/** The statements in the 'if' statement are independent of the size of the priority queue because the 'if' statement limits them to be ran only for each city (each city is visited once).
+		*   The runtime of the code in the 'if' statement is independent of the popping runtime (seen above), so the two runtimes will be added instead of multiplied.   
+		*   Furthermore, by running the 'if' statement for each city, all possible Edges (E) will be explored.
+		*   Within the if statement, every line has a constant runtime except for the addUnvisitedNeighborsToQueue method.
+		*   More specifically, the addUnvisitedNeighborsToQueue method will end up looping through every adjacent edge to a city, and taking O(log(V)) to push to the priority queue.
+		*   Therefore, by checking and pushing every edge that exists in the graph, we have the runtime O(E*log(V))
+		*/
 		if (!visited[currentCity.index])
 		{
 			visited[currentCity.index] = 1;
@@ -178,7 +185,6 @@ void Graph::MST(int startIndex)
 			ordering[index++] = currentCity;
 
 			LinkedList<City>* cityNeighbors = adjacencyList.getElement(currentCity.index);
-			// We know this takes O(E*log(V)). Check the Linked List class for analysis.
     		cityNeighbors->addUnvisitedNeighborsToQueue(visited, pq);
 		}
 	}
@@ -204,16 +210,14 @@ void Graph::printMST(City ordering[], double timeTaken)
 }
 
 /**
- * Given a starting and ending city, find the shortest path between them
- * Add the start city to the priority queue. Initialize all distances to INF except for the starting node
+ * Given a starting and ending city, find the shortest path between them.
+ * Add the start city to the priority queue. Initialize all distances to INF except for the starting node.
  * While the priority queue still has cities, check there neighbors to see if you can update the minimum distance.
- * If so, add these cities to the queue and update their distances
+ * If so, add these cities to the queue and update their distances.
  * @param int - The index of the start city
  * @param int - The index of the end city
- * O(V*E*2log(n)) -> O(V*E*log(n)) where V is the number of cities and E is the number of edges
- * The while loop will repeat for V times because each city will be visited once
- * Each time, popping from the priority queue takes O(log(V))
- * Furthermore, checking and adding neighbors takes O(E*log(V))
+ * O((V*log(V)) + E*log(V)) where E is the number of edges and V is the number of cities. Simplifying gives 
+ * O(log(V)*(E+V))
  */ 
 void Graph::dijkstra(int startIndex, int endIndex)
 {
@@ -242,16 +246,21 @@ void Graph::dijkstra(int startIndex, int endIndex)
 	firstCity.from = firstCity.index;
 	pq.push(firstCity);
 
-	// Repeat for each vertex V
 	while (pq.getSize() > 0)
 	{
-		// We know that popping from the min heap priority queue to get the city with the least distance takes O(log(V))
+		// We know that popping from the min heap priority queue to get the city with the least distance takes O(log(V)) where V is the number of cities.
+		// This operation happens for every city V. So we have O(V*log(V) 
 		City currentCity = pq.pop();
 		visited[currentCity.index] = 1;
 
 		LinkedList<City>* cityNeighbors = adjacencyList.getElement(currentCity.index);
 
-		// We know this takes O(E*log(V)). Check the Linked List class for analysis.
+		/** The runtime of this method is independent of the popping runtime (seen above), so the two runtimes will be added instead of multiplied.   
+		*   We know that each city (V) will only be added one time to the queue.
+		*   Therefore, the updateNeighborsForShorterPath will end up iterating over every possible edge (E).
+		*   Adding an edge takes O(log(V)) time.
+		*   Therefore, by checking every edge and pushing each city, we have the runtime O(E*log(V))
+		*/
     	cityNeighbors->updateNeighborsForShorterPath(visited, pq, currentCity.index, distance, prev);
 	}
 

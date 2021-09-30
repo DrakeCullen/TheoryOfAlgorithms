@@ -12,7 +12,7 @@ CC = g++
 CFLAGS  = -g -Wall
 
 # the default target is to make MST and journey
-default: MST journey
+all: MST journey
 
 # To create the executable file MST we need the MST and Graph object files
 MST: MST.o Graph.o

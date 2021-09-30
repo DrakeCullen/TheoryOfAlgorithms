@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Sep 29 19:01:26 2021
+# Make data base, printed on Thu Sep 30 08:12:58 2021
 
 # Variables
 
@@ -51,7 +51,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:50944
+JOURNAL_STREAM = 8:52956
 # makefile (from 'Makefile', line 12)
 CFLAGS = -g -Wall
 # environment
@@ -75,9 +75,9 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 1968
+MANAGERPID = 1748
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-6f0a11d5-0abb-4e6e-b217-c0a6a43d2ffb.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a0ba6b8c-ea3d-4f0e-a0e3-811804b5835b.sock
 # environment
 VSCODE_CWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1
 # environment
@@ -89,7 +89,7 @@ PATH = /home/drake/miniconda3/bin:/home/drake/miniconda3/condabin:/usr/local/sbi
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/2199,unix/drake-pc:/tmp/.ICE-unix/2199
+SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/1963,unix/drake-pc:/tmp/.ICE-unix/1963
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -109,7 +109,7 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=32aa8a71-a139-453c-827f-a659ca03bb40&iid=32aa8a71-a139-453c-827f-a659ca03bb40&sid=32aa8a71-a139-453c-827f-a659ca03bb40","uploadToServer":true}
 # environment
-INVOCATION_ID = 115e3ac4239d4ae49a01bc7ec7bb9a5f
+INVOCATION_ID = f530c9ff0ead4b00aaf17771765ed769
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/75/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -133,7 +133,7 @@ PWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2163
+SSH_AGENT_PID = 1928
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -245,11 +245,11 @@ CONDA_PYTHON_EXE = /home/drake/miniconda3/bin/python
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/b86a578a_2788_4c17_bfa7_460076e1cc10
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/cf40b2dc_3742_4133_9450_84b20c768b6d
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.156
+GNOME_TERMINAL_SERVICE = :1.85
 # default
 SUFFIXES := 
 # environment
@@ -271,7 +271,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 10743
+VSCODE_PID = 5772
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -279,13 +279,14 @@ _CE_CONDA =
 
 # Pattern-specific Variable Values
 
+ 
 # No pattern-specific variable values.
 
 # Directories
 
-# . (device 66306, inode 12714738): 17 files, no impossibilities.
+# . (device 66306, inode 12714738): 10 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -402,7 +403,6 @@ clean:
 	$(RM) journey *.o *~
 
 # Not a target:
- 
 src/PriorityQueue.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -453,9 +453,9 @@ journey: journey.o Graph.o
 # strcache buffers: 1 (0) / strings = 35 / storage = 412 B / avg = 11 B
 # current buf: size = 8162 B / used = 412 B / count = 35 / avg = 11 B
 
-# strcache performance: lookups = 63 / hit rate = 44%
+# strcache performance: lookups = 56 / hit rate = 37%
 # hash-table stats:
-# Load=35/8192=0%, Rehash=0, Collisions=1/63=2%
-# Finished Make data base on Wed Sep 29 19:01:26 2021
+# Load=35/8192=0%, Rehash=0, Collisions=1/56=2%
+# Finished Make data base on Thu Sep 30 08:12:58 2021
 
  
