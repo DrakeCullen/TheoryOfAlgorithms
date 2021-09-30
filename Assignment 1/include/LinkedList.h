@@ -14,8 +14,8 @@
 
 template <typename T> class LinkedList {
 	private:
-		City* head;
-		City* tail;
+		T* head;
+		T* tail;
 		int size;
 	
 	public:
@@ -23,13 +23,13 @@ template <typename T> class LinkedList {
 		
 		int getSize();
 				
-		void push(City* newCity);
+		void push(T* newCity);
 
 		T pop();
 
-		void addUnvisitedNeighborsToQueue(bool visited[], PriorityQueue<City> &pq);
+		void addUnvisitedNeighborsToQueue(bool visited[], PriorityQueue<T> &pq);
 
-		void updateNeighborsForShorterPath(bool visited[], PriorityQueue<City> &pq, int index, int distance[], int prev[]);
+		void updateNeighborsForShorterPath(bool visited[], PriorityQueue<T> &pq, int index, int distance[], int prev[]);
 
 		void deleteAll();
 };

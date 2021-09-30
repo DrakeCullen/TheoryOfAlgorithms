@@ -8,10 +8,10 @@
 #include "../include/PriorityQueue.h"
 
 /**
- * Return the left child of a City. If the City is a leaf, return the City itself to avoid errors.
+ * Return the weight of the left child of a City. If the City is a leaf, return the City itself to avoid errors.
  * In an array, the left child is always (2 * pos) + 1.
  * O(1). Indexes can be accessed in constant time.
- *  @param int -> The weight in the left child
+ *  @param int -> The weight of the left child
  */
 template<typename T>
 int PriorityQueue<T>::getLeftChild(int index)
@@ -23,10 +23,10 @@ int PriorityQueue<T>::getLeftChild(int index)
 }
 
 /**
- * Return the right child of a City. If the City is a leaf, return the City itself to avoid errors.
+ * Return the weight of right child of a City. If the City is a leaf, return the City itself to avoid errors.
  * In an array, the right child is always (2 * pos) + 2.
  * O(1). Indexes can be accessed in constant time.
- * @param int -> The weight in the right child
+ * @param int -> The weight of the right child
  */
 template<typename T>
 int PriorityQueue<T>::getRightChild(int index)
@@ -94,11 +94,11 @@ void PriorityQueue<T>::moveDown()
 /**
  * Add a new element to the array. If the array is full, enlarge it.
  * Call the moveUp function to reorder the min heap.
- * O(log(n)). The two most significant 'operations' are enlargeArray() and moveUp().
+ * O(log(n)). The two most significant 'operations' are insert() and moveUp().
  * The function moveUp() is O(log(n)). See above for details.
- * The function enlargeArray is O(n), but, it is only called in powers of 2 (or maybe it isn't ever called if a correct maxSize is passed into the constructor).
- * Therefore, enlargeArray is called at size 4, 8, 16, 32, 64, 128 ... so the calls are O(log(n)) in this function.
- * log(n) + log(n) = 2log(n) = O(log(n))
+ * The function insert can be O(n) in the worst case, but, it is only calls enlarge array in powers of 2 (or maybe it isn't ever called if a correct maxSize is passed into the constructor).
+ * Therefore, enlargeArray is called at size 128, 256, 512 ... so it is O(1) on average.
+ * log(n) dominates, so we have O(log(n))
  * @param T - The new element to add
  */
 template<typename T>

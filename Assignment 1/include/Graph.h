@@ -22,7 +22,8 @@ private:
 
     //The adjacency list is a resizable array where each element is a linked list
 	ResizableArray<LinkedList<City>> adjacencyList;
-    // Each index store a city. Useful when looking up information about a city.
+
+    // Each index stores a city. Useful when looking up information about a city.
     ResizableArray<City> cities;
     
     void readCities(istream &input, int i, bool &validInput);

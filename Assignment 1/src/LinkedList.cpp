@@ -14,8 +14,8 @@
 template<typename T> 
 LinkedList<T>::LinkedList() 
 {
-	head = new City();
-	tail = new City();
+	head = new T();
+	tail = new T();
 	head->next = tail;
 	tail->prev = head;
 	size = 0;
@@ -38,7 +38,7 @@ int LinkedList<T>::getSize()
  * O(1)
  */
 template<typename T> 
-void LinkedList<T>::push(City* newCity) 
+void LinkedList<T>::push(T* newCity) 
 {
 	newCity->next = head->next;
 	head->next->prev = newCity;
@@ -55,8 +55,8 @@ void LinkedList<T>::push(City* newCity)
 template<typename T> 
 T LinkedList<T>::pop() 
 {
-	City* CityToDelete = head->next;
-	T data = CityToDelete->data;
+	T* CityToDelete = head->next;
+	string data = CityToDelete->data;
 
 	head->next = CityToDelete->next;
 	CityToDelete->next->prev = head;
@@ -69,16 +69,19 @@ T LinkedList<T>::pop()
  * Utilized in finding the MST
  * Go through all the cities that this city is connected to. Add them to the priority queue if they havent been visited.
  * @param bool - An array of boolean values representing cities that have been visited. 1 means visited
- * @param PriorityQueue<City> - The priority queue containing the cities that will be explored next
- * O(E) where E is the number of cities connected to the city in question
+ * @param PriorityQueue<T> - The priority queue containing the cities that will be explored next
+ * O(E*log(V)) where E is the number of cities connected to the city in question and V is the number of cities.
+ * We get E because we must visit every edge, and log(V) because that is the time it takes to insert in a priority queue.
  */
 template<typename T> 
-void LinkedList<T>::addUnvisitedNeighborsToQueue(bool visited[], PriorityQueue<City> &pq)
+void LinkedList<T>::addUnvisitedNeighborsToQueue(bool visited[], PriorityQueue<T> &pq)
 {
-	City* curr = head->next;
+	T* curr = head->next;
 
+	// Repeats E times
 	while (curr != tail) {
 		if (!visited[curr->index])
+			// Takes O(log(V)) time
 			pq.push(*curr);
 		curr = curr->next;
 	}
@@ -90,17 +93,18 @@ void LinkedList<T>::addUnvisitedNeighborsToQueue(bool visited[], PriorityQueue<C
  * If the distance to get to the adjacent city is less by using the city passed as an argument, 
  * then update the adjacent cities distance and add the adjacent city to the priority queue. Update prev so we know how we got to the adjacent city.
  * @param bool - An array of boolean values representing cities that have been visited. 1 means visited
- * @param PriorityQueue<City> - The priority queue containing the cities that will be explored next
+ * @param PriorityQueue<T> - The priority queue containing the cities that will be explored next
  * @param int - The index of the city that is being passed. Used to find values in distance array and prev array
- * @param int - An array of integers containing the shortest distance to reach a city
- * @param int - An array of integers that keeps track of the city used to reach the current city
- * O(n) where n is the number of cities connected to the city in question
+ * @param int[] - An array of integers containing the shortest distance to reach a city
+ * @param int[] - An array of integers that keeps track of the city used to reach the current city
+ * We get E because we must visit every edge, and log(V) because that is the time it takes to insert in a priority queue.
  */
 template<typename T> 
-void LinkedList<T>::updateNeighborsForShorterPath(bool visited[], PriorityQueue<City> &pq, int index, int distance[], int prev[])
+void LinkedList<T>::updateNeighborsForShorterPath(bool visited[], PriorityQueue<T> &pq, int index, int distance[], int prev[])
 {
-	City* curr = head->next;
+	T* curr = head->next;
 
+	// Repeats E times
 	while (curr != tail) {
 		if (!visited[curr->index])
 		{
@@ -109,9 +113,9 @@ void LinkedList<T>::updateNeighborsForShorterPath(bool visited[], PriorityQueue<
 			{
 				distance[curr->index] = newDistance;
 				prev[curr->index] = index;
+				// Takes O(log(V)) time
 				pq.push(*curr);
 			}
-			
 		}
 		curr = curr->next;
 	}
@@ -124,8 +128,8 @@ void LinkedList<T>::updateNeighborsForShorterPath(bool visited[], PriorityQueue<
 template<typename T> 
 void LinkedList<T>::deleteAll() 
 {
-	City* curr = head;
-	City* prev;
+	T* curr = head;
+	T* prev;
 
 	while (prev != tail) {
 		prev = curr;

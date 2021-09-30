@@ -55,7 +55,7 @@ void Graph::readCities(istream &input, int i, bool &validInput)
  * Read in the distances associated with a city
  * For example, if this is the 5th city, we will read in 4 distances
  * @param istream - The form of input
- * @param int - The i'th word being read in
+ * @param int - The i'th city being read in
  */
 void Graph::readDistances(istream &input, int i)
 {
@@ -63,6 +63,7 @@ void Graph::readDistances(istream &input, int i)
 	for (int j = i - 1; j >= 0; j--)
 	{
 		input >> distance;
+
 		// The graph is undirected, so add adges in both directions
 		addEdge(i, j, cities.getElement(j)->data, distance);
 		addEdge(j, i, cities.getElement(i)->data, distance);
@@ -75,7 +76,7 @@ void Graph::readDistances(istream &input, int i)
  * @param int - The index of the second city
  * @param string - The name of the second city
  * @param int - The distance (weight) between the two cities
- * O(log(n)). Every operation is constant, except for the calculateSize method, which has an average time of log(n).
+ * O(1). Every operation is constant
  */
 void Graph::addEdge(int city1, int city2, string name, int weight) 
 { 
@@ -123,7 +124,7 @@ void Graph::readInput(string filename)
  * Given a cities name, find its index by using the cities array.
  * @param string - The name of the city you are looking for
  * @return int - The index of the city, or -1 if the city isn't found
- * O(n) where n is the number of vertices in the graph
+ * O(V) where V is the number of cities in the graph
  */
 int Graph::findCityIndex(string city)
 {
@@ -135,10 +136,11 @@ int Graph::findCityIndex(string city)
 
 /**
  * Given a starting city, find the minimum spanning tree of the graph.
- * Add an initial city to the tree, and get the top element from the priority queue until it is empty.
+ * Add an initial city to the priority queue, and get the top element from the priority queue until it is empty.
  * If the city hasn't been visited, add its weight and check its neighbors
  * @param int - The index of the start city
- * O(E*log(V)) where E is the number of edges and V is the number of cities
+ * O((V*log(V)) + E*log(V)) where E is the number of edges and V is the number of cities. Simplifying gives 
+ * O(log(V)*(E+V))
  */
 void Graph::MST(int startIndex)
 {
@@ -162,13 +164,13 @@ void Graph::MST(int startIndex)
 	firstCity.from = firstCity.index;
 	pq.push(firstCity);
 
-	// Repeats for every edge in the graph. O(E)
 	while (pq.getSize() > 0)
 	{
-		// O(log(V) to get the top element and rearrange the min heap
+		// We know that popping from the min heap priority queue to get the city with the least distance takes O(log(V)) where V is the number of cities.
+		// This operation happens for every city V. So we have O(V*log(V) 
 		City currentCity = pq.pop();
 
-		// The cities connecting to a certain city are only explored one time
+		// Inside the if statement, all possible edges will be explored. This runtime is independent of popping, so the two will be added.
 		if (!visited[currentCity.index])
 		{
 			visited[currentCity.index] = 1;
@@ -176,6 +178,7 @@ void Graph::MST(int startIndex)
 			ordering[index++] = currentCity;
 
 			LinkedList<City>* cityNeighbors = adjacencyList.getElement(currentCity.index);
+			// We know this takes O(E*log(V)). Check the Linked List class for analysis.
     		cityNeighbors->addUnvisitedNeighborsToQueue(visited, pq);
 		}
 	}
@@ -190,6 +193,7 @@ void Graph::MST(int startIndex)
 /**
  * Print the MST in the order the nodes were visited. Print out the time taken at the end.
  * @param City[] - The array containing the order in which cities were visited
+ * @param double - The time taken to run the algorithm
  * O(V) where V is the number of cities in the graph
  */
 void Graph::printMST(City ordering[], double timeTaken)
@@ -206,8 +210,11 @@ void Graph::printMST(City ordering[], double timeTaken)
  * If so, add these cities to the queue and update their distances
  * @param int - The index of the start city
  * @param int - The index of the end city
- * O(E*log(V)) where E is the number of edges and V is the number of cities
- */
+ * O(V*E*2log(n)) -> O(V*E*log(n)) where V is the number of cities and E is the number of edges
+ * The while loop will repeat for V times because each city will be visited once
+ * Each time, popping from the priority queue takes O(log(V))
+ * Furthermore, checking and adding neighbors takes O(E*log(V))
+ */ 
 void Graph::dijkstra(int startIndex, int endIndex)
 {
 	// Used to measure the time it takes to run the algorithm
@@ -235,15 +242,16 @@ void Graph::dijkstra(int startIndex, int endIndex)
 	firstCity.from = firstCity.index;
 	pq.push(firstCity);
 
-	// Repeats for every edge in the graph. O(E)
+	// Repeat for each vertex V
 	while (pq.getSize() > 0)
 	{
-		// O(log(V) to get the top element and rearrange the min heap
+		// We know that popping from the min heap priority queue to get the city with the least distance takes O(log(V))
 		City currentCity = pq.pop();
 		visited[currentCity.index] = 1;
 
-		// Explore tjhe connecting cities to see if by using this city, it is shorter to get to them
 		LinkedList<City>* cityNeighbors = adjacencyList.getElement(currentCity.index);
+
+		// We know this takes O(E*log(V)). Check the Linked List class for analysis.
     	cityNeighbors->updateNeighborsForShorterPath(visited, pq, currentCity.index, distance, prev);
 	}
 

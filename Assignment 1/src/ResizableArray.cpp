@@ -41,8 +41,9 @@ void ResizableArray<T>::enlargeArray()
 
 /**
  * Used to access a specific index in the array.
- * O(1)
+ * * @param int -> The index you would like to access
  * * @return T* - returns a pointer to the item at that position in the array
+ *  O(1)
  */
 template<typename T> 
 T* ResizableArray<T>::getElement(int index)
@@ -53,7 +54,7 @@ T* ResizableArray<T>::getElement(int index)
 /**
  * This method makes sure that there is always enough room in the array. It is called everytime an element is added.
  * If the array becomes full, it call the enlargeArray method.
- * O(n) in the worst case when enlargeArray is called.
+ * O(n) in the worst case when enlargeArray is called. On average, O(1)
  */
 template<typename T> 
 void ResizableArray<T>::calculateSize()
@@ -107,13 +108,12 @@ void ResizableArray<T>::swap(int firstIndex, int secondIndex)
 
 /**
  * Go through and delete every linked list and the dynamic array.
- * O(n+m). Where n is the number of edges and m is the number of vertices
+ * O(V+E). Where V is the number of cities and E is the number of edges. For each city,
+ * all the connected cities will be deleted in the linked list. The array will than be deleted.
  */
 template<typename T> 
 ResizableArray<T>::~ResizableArray()
 {
-    //for (unsigned int i = 0; i < maxSize; i++)
-    //    array[i].deleteAll();
     delete[] array;
     array = nullptr;
 }

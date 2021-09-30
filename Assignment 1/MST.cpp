@@ -17,6 +17,7 @@
 #include <chrono>
 
 int main(int argc, char *argv[]) {
+    // If no file is passed
     if (argc < 2)
     {
         cout << "Pass a file as a parameter! \n";
@@ -25,6 +26,8 @@ int main(int argc, char *argv[]) {
 
     Graph g;
     g.readInput(argv[1]);
+
+    // If the correct number of parameters are passed
     if (argc == 3)
     {
         string cityName = argv[2];
@@ -34,6 +37,8 @@ int main(int argc, char *argv[]) {
             cout << argv[2] << " is an invalid city! \n";
             return 0;
         }
+
+        // If the city is valid
         g.MST(startNode);
     }
     else
