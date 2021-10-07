@@ -131,12 +131,13 @@ void LinkedList<T>::deleteAll()
 	T* curr = head;
 	T* prev;
 
-	while (prev != tail) {
+	while (curr != tail) {
 		prev = curr;
 		curr = curr->next;
 		delete prev;
 	}
 
 	delete tail;
+	head = tail = nullptr;
 	size = 0;
 }
