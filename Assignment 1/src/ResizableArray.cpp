@@ -106,6 +106,13 @@ void ResizableArray<T>::swap(int firstIndex, int secondIndex)
     array[secondIndex] = temp;
 }
 
+template<typename T> 
+void ResizableArray<T>::freeLL()
+{
+    for (int i = 0; i < 128; i++)
+        array[i].deleteAll();
+}
+
 /**
  * Go through and delete every linked list and the dynamic array.
  * O(V+E). Where V is the number of cities and E is the number of edges. For each city,

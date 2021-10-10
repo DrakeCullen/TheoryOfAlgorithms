@@ -32,6 +32,8 @@ class ResizableArray
 
         T pop();
 
+        void freeLL();
+
         ~ResizableArray();
 };
 

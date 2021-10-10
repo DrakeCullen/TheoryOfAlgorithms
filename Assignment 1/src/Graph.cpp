@@ -87,7 +87,7 @@ void Graph::addEdge(int city1, int city2, string name, int weight)
 	newCity->from = city1;
 
 	// Make sure there is enough space in the adjacency list. If not, increase the size
-	adjacencyList.calculateSize();
+	//adjacencyList.calculateSize();
 
 	// Get a pointer to the linked list that contains the neighbors of city1
     LinkedList<City>* city1Neighbors = adjacencyList.getElement(city1);
@@ -194,6 +194,7 @@ void Graph::MST(int startIndex)
 	double timeTaken = double(chrono::duration_cast<chrono::microseconds>(end - start).count()) / 1000000;
 	cout << "The total distance is: " << totalDistance << endl;
 	printMST(ordering, timeTaken);
+	
 }
 
 /**
@@ -312,4 +313,9 @@ void Graph::printDijkstra(int prev[], int distances[], int startIndex, int endIn
 	}
 	cout<<"Total distance: "<<distances[endIndex]<<endl;
 	cout << "\nTime taken to find the shortest path: " << timeTaken << " seconds. \n";
+}
+
+Graph::~Graph()
+{
+	adjacencyList.freeLL();
 }

@@ -45,6 +45,8 @@ public:
     void printMST(City ordering[], double timeTaken);
 
     void printDijkstra(int prev[], int distances[], int startIndex, int endIndex, double timeTaken);
+
+    ~Graph();
 };
 
 #endif
