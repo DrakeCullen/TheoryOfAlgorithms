@@ -3,10 +3,14 @@
 #include "../include/Heap.h"
 
 template<typename T>
-Heap<T>::Heap(int size) 
+Heap<T>::Heap(int size, bool type) 
 {
 	heapArr = new Word*[size];
 	currentIndex = 0;
+    if (type == 0)
+        maxHeap = false;
+    else   
+        maxHeap = true;
 }
 
 
@@ -43,7 +47,7 @@ int Heap<T>::getRightChild(int index)
 template<typename T>
 void Heap<T>::swap(int i, int j)
 {
-    T temp = heapArr[i];
+    T* temp = heapArr[i];
     heapArr[i] = heapArr[j];
     heapArr[j] = temp;
 }
@@ -59,7 +63,7 @@ void Heap<T>::moveUp()
     int i = currentIndex;
     
     // While the current element is less than its parent, and it is still a valid position
-    while (heapArr[i]->count < heapArr[(i - 1) / 2]->count && i >= 0) 
+    while ((!maxHeap && heapArr[i]->count < heapArr[(i - 1) / 2]->count && i >= 0) || (maxHeap && heapArr[i]->count > heapArr[(i - 1) / 2]->count && i >= 0)) 
     {
         // Swap the child and parent
         swap(i, (i - 1) / 2);
@@ -80,25 +84,51 @@ void Heap<T>::moveDown()
     int current, leftChild, rightChild;
 
     // Stop when we are at the end of the array, or both children are bigger than the parent
-    while (index * 2 + 1 < currentIndex && (heapArr[index]->count > getLeftChild(index) || heapArr[index]->count > getRightChild(index)))
+    if (!maxHeap)
     {
-        // Get the parent and its two children
-        current = heapArr[index]->count;
-        leftChild = getLeftChild(index);
-        rightChild = getRightChild(index);
-
-        // If the parent is bigger than one or both of the children, swap the parent and smallest child to correct the order.
-        // If that is true, the current index (i) is now pointing to the child node.
-        if (leftChild <= rightChild && leftChild < current)
+    while ((index * 2 + 1 < currentIndex && (heapArr[index]->count > getLeftChild(index) || heapArr[index]->count > getRightChild(index))))
         {
-            swap(index, 2 * index + 1);
-            index = 2 * index + 1;
+            // Get the parent and its two children
+            current = heapArr[index]->count;
+            leftChild = getLeftChild(index);
+            rightChild = getRightChild(index);
+
+            // If the parent is bigger than one or both of the children, swap the parent and smallest child to correct the order.
+            // If that is true, the current index (i) is now pointing to the child node.
+            if (leftChild <= rightChild && leftChild < current)
+            {
+                swap(index, 2 * index + 1);
+                index = 2 * index + 1;
+            }
+
+            else if (rightChild < current)
+            {
+                swap(index, 2 * index + 2);
+                index = 2 * index + 2;
+            }
         }
-
-        else if (rightChild < current)
+    } else
+    {
+         while ((index * 2 + 1 < currentIndex && (heapArr[index]->count < getLeftChild(index) || heapArr[index]->count < getRightChild(index))))
         {
-            swap(index, 2 * index + 2);
-            index = 2 * index + 2;
+            // Get the parent and its two children
+            current = heapArr[index]->count;
+            leftChild = getLeftChild(index);
+            rightChild = getRightChild(index);
+
+            // If the parent is bigger than one or both of the children, swap the parent and smallest child to correct the order.
+            // If that is true, the current index (i) is now pointing to the child node.
+            if (leftChild >= rightChild && leftChild > current)
+            {
+                swap(index, 2 * index + 1);
+                index = 2 * index + 1;
+            }
+
+            else if (rightChild > current)
+            {
+                swap(index, 2 * index + 2);
+                index = 2 * index + 2;
+            }
         }
     }
 }
@@ -132,6 +162,7 @@ T* Heap<T>::pop()
 {
     T* topValue = heapArr[0];
     currentIndex--;
+    heapArr[0] = heapArr[currentIndex];
     moveDown();
     return topValue;
 }

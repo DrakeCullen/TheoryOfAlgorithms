@@ -15,20 +15,19 @@ CFLAGS  = -g -Wall
 all: ass3j
 
 # To create the executable file MST we need the MST and Graph object files
-ass3j: ass3j.o Hashtable.o Heap.o
-	$(CC) $(CFLAGS) -o ass3j ass3j.o Hashtable.o Heap.o
+ass3j: ass3j.o Hashtable.o
+	$(CC) $(CFLAGS) -o ass3j ass3j.o Hashtable.o
 
 Hashtable.o: ./src/Hashtable.cpp ./include/Hashtable.h LinkedList.o
 	$(CC) $(CFLAGS) -c ./src/Hashtable.cpp
 
+# To create the object file linked list, we need the linked list source and header files.
+# We also need the city object file.
+LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h Word.o Heap.o
+	$(CC) $(CFLAGS) -c ./src/LinkedList.cpp
 
 Heap.o: ./src/Heap.cpp ./include/Heap.h Word.o
 	$(CC) $(CFLAGS) -c ./src/Heap.cpp
-
-# To create the object file linked list, we need the linked list source and header files.
-# We also need the city object file.
-LinkedList.o: ./src/LinkedList.cpp ./include/LinkedList.h Word.o
-	$(CC) $(CFLAGS) -c ./src/LinkedList.cpp
 
 # To create the object file word, we need the word header file.
 Word.o: ./include/Word.h

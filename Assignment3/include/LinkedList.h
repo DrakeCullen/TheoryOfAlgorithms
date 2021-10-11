@@ -4,6 +4,8 @@
 #define LINKEDLIST_H
 
 #include "../include/Word.h"
+#include "Heap.h"
+#include "../src/Heap.cpp"
 
 template <typename T> class LinkedList {
 	private:
@@ -21,6 +23,8 @@ template <typename T> class LinkedList {
 		Word* getWord(string &word);
 
 		int addOrUpdateWord(string &word);
+
+		void addAllToHeap(Heap<Word> &);
 
 		~LinkedList();
 };

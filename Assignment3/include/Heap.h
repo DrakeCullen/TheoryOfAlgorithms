@@ -13,6 +13,7 @@ class Heap
     private:
         Word** heapArr;
         int currentIndex;
+        bool maxHeap;
 
         void moveUp();
 
@@ -25,7 +26,7 @@ class Heap
         void swap(int, int);
 
     public:
-        Heap(int);
+        Heap(int, bool);
 
         void push(T* newItem);
 

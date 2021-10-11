@@ -48,8 +48,15 @@ void Hashtable::addWord(string &word)
 		if (size > 1)
 			collisions++;
 	}
-
 }
+
+
+void Hashtable::createHeap(Heap<Word> &heap)
+{
+    for (int i = 0; i < hSize; i++)
+		table[i].addAllToHeap(heap);
+}
+
 
 Hashtable::~Hashtable()
 {

@@ -26,6 +26,8 @@ class Hashtable {
 
 		void addWord(string&);
 
+		void createHeap(Heap<Word> &);
+
 		~Hashtable();
 };
 

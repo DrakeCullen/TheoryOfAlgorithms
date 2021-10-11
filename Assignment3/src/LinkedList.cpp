@@ -79,6 +79,16 @@ int LinkedList<T>::addOrUpdateWord(string &word)
 	return size;
 }
 
+template<typename T> 
+void LinkedList<T>::addAllToHeap(Heap<Word> &heap)
+{
+	T* temp = head->next;
+	while (temp != tail) {
+		heap.push(temp);
+		temp = temp->next;
+	}
+}
+
 /**
  * Delete the allocated memory from the heap. 
  * O(n) where n is the size of the Linked List
