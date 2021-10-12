@@ -1,0 +1,9 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment3'
+g++    -c -o ass3j.o ass3j.cpp
+g++ -g -Wall -c ./src/Heap.cpp
+g++ -g -Wall -c ./src/LinkedList.cpp
+g++ -g -Wall -c ./src/Hashtable.cpp
+g++ -g -Wall -o ass3j ass3j.o Hashtable.o
+make: Leaving directory '/home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment3'
+ 
