@@ -39,10 +39,18 @@ void LinkedList<T>::push(string &word)
 	newNode->data = word;
 	newNode->count = 1;
 
-	newNode->next = head->next;
-	head->next->prev = newNode;
-	newNode->prev = head;
-	head->next = newNode;
+	T* prev = head;
+	T* curr = head->next;
+	while (curr != tail && newNode->data < curr->data)
+	{
+		prev = curr;
+		curr = curr->next;
+	}
+
+	newNode->next = curr;
+	prev->next = newNode;
+	newNode->prev = prev;
+	curr->prev = newNode;
 	size++;
 }
 

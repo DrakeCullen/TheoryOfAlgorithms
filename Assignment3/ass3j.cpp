@@ -1,6 +1,10 @@
 #include "./include/Hashtable.h"
 #include <fstream>
 
+
+void readInput(string&, Hashtable &);
+void getSentences(string);
+
 int main(int argc, char *argv[]) {
     /*Hashtable h(10);
     string hi = "hi";
@@ -29,8 +33,50 @@ int main(int argc, char *argv[]) {
     while (heMax.getSize() > 0)
         cout<<heMax.pop()->data<<endl;
     cout<<endl;*/
+
+    const int UNIQUE_WORDS = 8643;
+    // 50% = 17286, 70% = 13776, 80% = 10803
+
+    Hashtable hashTable(UNIQUE_WORDS / .5);
+    string inputFile = argv[1], outputFile = argv[2];
+    ofstream out(outputFile);
+    readInput(inputFile, hashTable);
+    Heap<Word> heMax(UNIQUE_WORDS / .5,0);
+    hashTable.createHeap(heMax);
+    Word* w;
+    cout<<hashTable.getTotalWordCount()<<' '<<hashTable.getCollisionCount();
+    for (int i = 0; i < 150; i++)
+    {
+        w = heMax.pop();
+        out<<w->data<<' '<<w->count<<endl;
+    }
+    
+    return 0;
+}
+
+void readInput(string &inputFile, Hashtable &hashTable)
+{
+    string currentWord, cleanedWord;
+    ifstream input(inputFile);
+    while (input >> currentWord)
+    {
+        cleanedWord = "";
+        for (int i = 0; i < currentWord.length(); i++)
+        {
+            if (isalpha(currentWord[i]))
+                cleanedWord += tolower(currentWord[i]);
+            else if (currentWord[i] == '-')
+                cleanedWord += '-';
+        }
+        hashTable.addWord(cleanedWord);
+    }
+    input.close();
+}
+
+void getSentences(string file)
+{
     string current;
-    ifstream input(argv[1]);
+    ifstream input(file);
     ofstream out("output.txt");
     while (input >> current) {
         for (int i = 0; i < current.length(); i++)
@@ -42,6 +88,7 @@ int main(int argc, char *argv[]) {
                     out << current <<' ';
         }
     }
+    input.close();
 
 
     // Looking if next word is capital. The book doesn't always capitalize...
@@ -68,5 +115,4 @@ int main(int argc, char *argv[]) {
         }
         last = current;
     }*/
-    return 0;
 }

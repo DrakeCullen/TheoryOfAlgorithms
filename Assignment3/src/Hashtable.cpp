@@ -29,16 +29,26 @@ int Hashtable::basicHash(string &word)
 	return word.length() % hSize;
 }
 
+// The initial and shift value were calculated vy running a simulation with all values from 0-10,000 for initial and 0-9 for shifting
+
+int Hashtable::betterHash(string &word)
+{
+	long long hash = 530;
+	for (unsigned int i = 0; i < word.length(); i++) 
+		hash = ((hash << 8) + word[i]) % hSize;
+
+	return hash % hSize;
+}
 
 Word* Hashtable::getWord(string &word)
 {
-	int index = basicHash(word);
+	int index = betterHash(word);
 	return table[index].getWord(word);
 }
 
 void Hashtable::addWord(string &word)
 {
-	int index = basicHash(word);
+	int index = betterHash(word);
 	
 	// If a new word is added, it returns the number of elements in the linked list.
 	int size = table[index].addOrUpdateWord(word);
@@ -49,7 +59,6 @@ void Hashtable::addWord(string &word)
 			collisions++;
 	}
 }
-
 
 void Hashtable::createHeap(Heap<Word> &heap)
 {

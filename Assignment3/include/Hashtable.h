@@ -24,6 +24,8 @@ class Hashtable {
 
 		int basicHash(string&);
 
+		int betterHash(string&);
+
 		void addWord(string&);
 
 		void createHeap(Heap<Word> &);

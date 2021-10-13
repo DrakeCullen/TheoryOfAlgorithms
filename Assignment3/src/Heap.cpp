@@ -183,3 +183,99 @@ Heap<T>::~Heap()
 {
 	delete[] heapArr;
 }
+
+/*
+
+template<typename T> 
+void Heap<T>::moveUp()
+{
+    int i = currentIndex;
+    
+    // While the current element is less than or equal to its parent, and it is still a valid position
+    while ((!maxHeap && heapArr[i]->count <= heapArr[(i - 1) / 2]->count && i  >= 0) || (maxHeap && heapArr[i]->count >= heapArr[(i - 1) / 2]->count && i >= 0)) 
+    {
+        // If the value is strictly smaller or greater
+        if ((!maxHeap && heapArr[i]->count < heapArr[(i - 1) / 2]->count) || (maxHeap && heapArr[i]->count > heapArr[(i - 1) / 2]->count))
+        {
+        // Swap the child and parent
+        swap(i, (i - 1) / 2);
+        // "i" now has the index of the parent
+        i = (i - 1) / 2;
+        }
+        //If the values are equal, only swap if it fixes alphabetical ordering
+        else if (heapArr[i]->data < heapArr[(i - 1) / 2]->data)
+        {
+            swap(i, (i - 1) / 2);
+            i = (i - 1) / 2;
+        } else
+            break;
+    }
+}*/
+
+/*
+template<typename T>
+void Heap<T>::moveDown()
+{
+    int index = 0;
+    int current, leftChild, rightChild;
+
+    // Stop when we are at the end of the array, or both children are bigger than the parent
+    if (!maxHeap)
+    {
+    while ((index * 2 + 1 < currentIndex && (heapArr[index]->count >= getLeftChild(index) || heapArr[index]->count >= getRightChild(index))))
+        {
+            // Get the parent and its two children
+            current = heapArr[index]->count;
+            leftChild = getLeftChild(index);
+            rightChild = getRightChild(index);
+
+
+            // If the parent is bigger than one or both of the children, swap the parent and smallest child to correct the order.
+            // If that is true, the current index (i) is now pointing to the child node.
+            if (leftChild <= rightChild && leftChild < current)
+            {
+                swap(index, 2 * index + 1);
+                index = 2 * index + 1;
+            }
+            else if (rightChild < current)
+            {
+                swap(index, 2 * index + 2);
+                index = 2 * index + 2;
+            }
+            // Left
+            else if (leftChild <= rightChild && heapArr[index]->data > heapArr[2 * index + 1]->data)
+            {
+                swap(index, 2 * index + 1);
+                index = 2 * index + 1;
+            } else if (heapArr[index]->data > heapArr[2 * index + 2]->data)
+            {
+                swap(index, 2 * index + 2);
+                index = 2 * index + 2;
+            } else
+                break;
+        }
+    } else
+    {
+         while ((index * 2 + 1 < currentIndex && (heapArr[index]->count < getLeftChild(index) || heapArr[index]->count < getRightChild(index))))
+        {
+            // Get the parent and its two children
+            current = heapArr[index]->count;
+            leftChild = getLeftChild(index);
+            rightChild = getRightChild(index);
+
+            // If the parent is bigger than one or both of the children, swap the parent and smallest child to correct the order.
+            // If that is true, the current index (i) is now pointing to the child node.
+            if (leftChild >= rightChild && leftChild > current)
+            {
+                swap(index, 2 * index + 1);
+                index = 2 * index + 1;
+            }
+
+            else if (rightChild > current)
+            {
+                swap(index, 2 * index + 2);
+                index = 2 * index + 2;
+            }
+        }
+    }
+}*/
