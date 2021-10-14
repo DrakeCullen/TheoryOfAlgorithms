@@ -1,9 +1,15 @@
-
+/**
+    CSCI-480 - Assignment 3
+    @file LinkedList.cpp
+    @author Drake Cullen
+	The linked list is templatized so it can store any type.
+*/
 
 #include "../include/LinkedList.h"
 
 /**
  * Default Constructor that allocates memory for the head and tail pointers and links them.
+ * Sets the size of the linked list to 0.
  * O(1)
  */
 template<typename T> 
@@ -28,9 +34,9 @@ int LinkedList<T>::getSize()
 }
 
 /**
- * Add a new element to the front of a linked list and increase the size variable by one.
- * @param newCity -> An instance of the City class that is added to the Linked List
- * O(1)
+ * Add a new element to the linked list in alphabetical order and increase the size variable by one.
+ * @param string -> The word you would like to add
+ * O(1) There should be little to no collisions, so this function should usually execute in constant time.
  */
 template<typename T> 
 void LinkedList<T>::push(string &word) 
@@ -41,6 +47,7 @@ void LinkedList<T>::push(string &word)
 
 	T* prev = head;
 	T* curr = head->next;
+
 	while (curr != tail && newNode->data < curr->data)
 	{
 		prev = curr;
@@ -54,11 +61,18 @@ void LinkedList<T>::push(string &word)
 	size++;
 }
 
+/**
+ * Check the linked list for a certain word and return a pointer to it.
+ * @param string -> The word you would like to search for
+ * @return T* -> A pointer to the address of the word, or nullptr if the word doesn't exist in the list.
+ * O(1) There should be little to no collisions, so this function should usually execute in constant time.
+ */
 template<typename T> 
-Word* LinkedList<T>::getWord(string &word)
+T* LinkedList<T>::getWord(string &word)
 {
 	T* temp = head->next;
-	while (head != tail)
+
+	while (temp != tail)
 	{
 		if (temp->data == word)
 			return temp;
@@ -67,11 +81,16 @@ Word* LinkedList<T>::getWord(string &word)
 	return nullptr;
 }
 
+/**
+ * Search the linked list for a word. If it exists, increase the count by one. If it doesn't exist, add it with the push command.
+ * @param string -> The word you would like to add
+ * @return bool -> Return 0 if the word is already in the list. Return 1 if the word is new.
+ * O(1) There should be little to no collisions, so this function should usually execute in constant time. Push also executes in constant time.
+ */
 template<typename T> 
-int LinkedList<T>::addOrUpdateWord(string &word)
+bool LinkedList<T>::addOrUpdateWord(string &word)
 {
 	T* temp = head->next;
-	int size = 1;
 
 	while (temp != tail)
 	{
@@ -81,10 +100,9 @@ int LinkedList<T>::addOrUpdateWord(string &word)
 			return 0;
 		}
 		temp = temp->next;
-		size++;
 	}
 	push(word);
-	return size;
+	return 1;
 }
 
 template<typename T> 

@@ -1,4 +1,9 @@
-
+/**
+    CSCI-480 - Assignment 3
+    @file Heap.h
+    @author Drake Cullen
+	The heap can be a min or max heap depending on what is passed to the constructor.
+*/
 
 #ifndef HEAP_H
 #define HEAP_H

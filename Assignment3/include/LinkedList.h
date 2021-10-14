@@ -1,4 +1,9 @@
-
+/**
+    CSCI-480 - Assignment 3
+    @file LinkedList.h
+    @author Drake Cullen
+	The linked list is templatized so it can store any type.
+*/
 
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
@@ -20,9 +25,9 @@ template <typename T> class LinkedList {
 				
 		void push(string &newNode);
 
-		Word* getWord(string &word);
+		T* getWord(string &word);
 
-		int addOrUpdateWord(string &word);
+		bool addOrUpdateWord(string &word);
 
 		void addAllToHeap(Heap<Word> &);
 

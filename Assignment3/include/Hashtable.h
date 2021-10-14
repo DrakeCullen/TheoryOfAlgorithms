@@ -1,4 +1,9 @@
-
+/**
+    CSCI-480 - Assignment 3
+    @file Hashtable.h
+    @author Drake Cullen
+	The hashtable contains the hash function as well as the array of linked lists to store the words.
+*/
 
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
@@ -18,15 +23,17 @@ class Hashtable {
 		
 		int getTotalWordCount();
 
+		void calculateCollisions();
+
 		int getCollisionCount();
 
 		Word* getWord(string&);
 
-		int basicHash(string&);
-
-		int betterHash(string&);
+		int hash(string&);
 
 		void addWord(string&);
+
+		void addWordCust(string&, int i, int j);
 
 		void createHeap(Heap<Word> &);
 

@@ -1,4 +1,9 @@
-
+/**
+    CSCI-480 - Assignment 3
+    @file Word.h
+    @author Drake Cullen
+	The word object stores the string, a counter that corresponds to the number of time the word appears, and pointers to the last and next word.
+*/
 
 #ifndef WORD_H
 #define WORD_H

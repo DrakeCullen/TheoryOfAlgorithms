@@ -19,19 +19,23 @@ int Hashtable::getTotalWordCount()
 	return wordCount;
 }
 
+void Hashtable::calculateCollisions()
+{
+	collisions = 0;
+	for (int i = 0; i < hSize; i++)
+		if (table[i].getSize() > 1)
+			collisions++;
+}
+
 int Hashtable::getCollisionCount()
 {
 	return collisions;
 }
 
-int Hashtable::basicHash(string &word)
-{
-	return word.length() % hSize;
-}
 
 // The initial and shift value were calculated vy running a simulation with all values from 0-10,000 for initial and 0-9 for shifting
 
-int Hashtable::betterHash(string &word)
+int Hashtable::hash(string &word)
 {
 	long long hash = 530;
 	for (unsigned int i = 0; i < word.length(); i++) 
@@ -42,23 +46,31 @@ int Hashtable::betterHash(string &word)
 
 Word* Hashtable::getWord(string &word)
 {
-	int index = betterHash(word);
+	int index = hash(word);
+	Word* result = table[index].getWord(word);
+	if (result == nullptr)
+		return nullptr;
 	return table[index].getWord(word);
 }
 
 void Hashtable::addWord(string &word)
 {
-	int index = betterHash(word);
+	int index = hash(word);
 	
 	// If a new word is added, it returns the number of elements in the linked list.
 	int size = table[index].addOrUpdateWord(word);
-	if (size >= 1)
-	{
+	if (size != 0)
 		wordCount++;
-		if (size > 1)
-			collisions++;
-	}
 }
+
+void Hashtable::addWordCust(string& word, int start, int shift)
+{
+	long long hash = start;
+	for (unsigned int i = 0; i < word.length(); i++) 
+		hash = ((hash << shift) + word[i]) % hSize;
+	table[hash].addOrUpdateWord(word);
+}
+
 
 void Hashtable::createHeap(Heap<Word> &heap)
 {
