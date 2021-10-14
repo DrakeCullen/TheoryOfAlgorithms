@@ -105,6 +105,11 @@ bool LinkedList<T>::addOrUpdateWord(string &word)
 	return 1;
 }
 
+/**
+ * Go through every element in the linked list, and add it to the heap.
+ * @param Heap -> The heap that the words will be added to
+ * O(1) There should be little to no collisions, so this function should usually execute in constant time. Push also executes in constant time.
+ */
 template<typename T> 
 void LinkedList<T>::addAllToHeap(Heap<Word> &heap)
 {
@@ -117,7 +122,7 @@ void LinkedList<T>::addAllToHeap(Heap<Word> &heap)
 
 /**
  * Delete the allocated memory from the heap. 
- * O(n) where n is the size of the Linked List
+ * O(n) where n is the size of the Linked List. N should be 1, so it is O(1).
  */
 template<typename T> 
 LinkedList<T>::~LinkedList() 

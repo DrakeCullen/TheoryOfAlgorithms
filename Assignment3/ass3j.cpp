@@ -32,9 +32,14 @@ int main(int argc, char *argv[]) {
         words.push_back(cleanedWord);
     }
     input.close();
+     Hashtable hashTable(8642 / .5);
+    for (auto word: words)
+        hashTable.addWord(word);
+    hashTable.calculateCollisions();
+    cout<<hashTable.getCollisionCount();
 
-    int best = 1000000, bestI, bestJ, res;
-    for (int i = 10000; i < 100000; i++)
+    /*int best = 1000000, bestI, bestJ, res;
+    for (int i = 0; i < 100000; i++)
     {
         for (int j = 0; j < 15; j++)
         {
@@ -51,7 +56,9 @@ int main(int argc, char *argv[]) {
             }
         }
         if (i % 50 == 0) cout<<bestI<<' '<<bestJ<<' '<<best<<endl;
-    }
+    }*/
+
+
     /*int userInput;
     string searchWord;
     // 50% = 17286, 70% = 13776, 80% = 10803

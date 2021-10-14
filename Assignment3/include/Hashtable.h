@@ -29,6 +29,8 @@ class Hashtable {
 
 		Word* getWord(string&);
 
+		int oldHash(string&);
+
 		int hash(string&);
 
 		void addWord(string&);
