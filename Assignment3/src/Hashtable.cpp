@@ -36,17 +36,9 @@ int Hashtable::getTotalWordCount()
  */
 void Hashtable::calculateCollisions()
 {
-	int sum = 0;
-	for (int k = 0; k < 50; k++)
-	{
-	collisions = 0;
 	for (int i = 0; i < hSize; i++)
-		if (table[i].getSize() == k)
+		if (table[i].getSize() > 1)
 			collisions++;
-	if (k > 1) sum += collisions;
-	cout<<k<<' '<<collisions<<endl;
-	}
-	cout<<"sum "<<sum<<endl;
 }
 
 /**
@@ -59,24 +51,22 @@ int Hashtable::getCollisionCount()
 	return collisions;
 }
 
-
-int Hashtable::oldHash(string &word)
-{
-	long long hash = 0;
-	for (unsigned int i = 0; i < word.length(); i++) 
-		hash += word[i] % hSize;
-
-	return hash % hSize;
-}
-
-// The initial and shift value were calculated vy running a simulation with all values from 0-10,000 for initial and 0-9 for shifting
-
+//
+/**
+ * Return the hash of a word.
+ * The initial and shift value were calculated by running a simulation.
+ * The initial hash values were tested from0-10,000 with corresponding
+ * bit shifting from 0-25.
+ * 530 and 8 turned out to minimize the number of collisions.
+ * @param string -> The word you would like to hash
+ * @return int -> The hash of the word.
+ * O(1)
+ */
 int Hashtable::hash(string &word)
 {
 	long long hash = 530;
 	for (unsigned int i = 0; i < word.length(); i++) 
 		hash = ((hash << 8) + word[i]) % hSize;
-
 	return hash % hSize;
 }
 
@@ -108,15 +98,6 @@ void Hashtable::addWord(string &word)
 	int size = table[index].addOrUpdateWord(word);
 	if (size != 0)
 		wordCount++;
-}
-
-void Hashtable::addWordCust(string& word, int start, int shift)
-{
-	long long hash = start;
-	for (unsigned int i = 0; i < word.length(); i++) 
-		hash += ((hash << shift) + word[i]) % hSize;
-	hash = hash % hSize;
-	table[hash].addOrUpdateWord(word);
 }
 
 /**

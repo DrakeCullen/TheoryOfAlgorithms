@@ -3,12 +3,8 @@
 #include <time.h>
 #include <chrono>
 
-
-//DELETE
-#include <vector>
-
-
 void readInput(string&, Hashtable &);
+void showMenu(Hashtable &hashTable, string &inputFile, string &outputFile, bool &displayMenu);
 void heapForTopOneFifty(Hashtable &, string &, bool);
 void heapForAllWords(Hashtable &, string &, bool);
 void calculateTimeOccupancy(string &, ofstream &, double, string[]);
@@ -16,97 +12,46 @@ void compareTimeOccupancy(string &, string &);
 void getSentences(string&, string&);
 
 int main(int argc, char *argv[]) {
-    string currentWord, cleanedWord;
-    ifstream input(argv[1]);
-    vector<string> words;
-    while (input >> currentWord)
-    {
-        cleanedWord = "";
-        for (int i = 0; i < currentWord.length(); i++)
-        {
-            if (isalpha(currentWord[i]))
-                cleanedWord += tolower(currentWord[i]);
-            else if (currentWord[i] == '-' && i + 1 < currentWord.length() && currentWord[i+1] != '-')
-                cleanedWord += '-';
-        }
-        words.push_back(cleanedWord);
-    }
-    input.close();
-     Hashtable hashTable(8642 / .5);
-    for (auto word: words)
-        hashTable.addWord(word);
-    hashTable.calculateCollisions();
-    cout<<hashTable.getCollisionCount();
-
-    /*int best = 1000000, bestI, bestJ, res;
-    for (int i = 0; i < 100000; i++)
-    {
-        for (int j = 0; j < 15; j++)
-        {
-            Hashtable hashTable(8642 / .5);
-            for (auto word: words)
-                hashTable.addWordCust(word, i, j);
-            hashTable.calculateCollisions();
-            res = hashTable.getCollisionCount();
-            if (res <= best)
-            {
-                best = res;
-                bestI = i;
-                bestJ = j;
-            }
-        }
-        if (i % 50 == 0) cout<<bestI<<' '<<bestJ<<' '<<best<<endl;
-    }*/
-
-
-    /*int userInput;
-    string searchWord;
     // 50% = 17286, 70% = 13776, 80% = 10803
-    // Wait until input is read
     const int UNIQUE_WORDS = 8642;
-    bool showMenu = true;
+    bool displayMenu = false;
     Hashtable hashTable(UNIQUE_WORDS / .5);
-    string inputFile = argv[1], outputFile = argv[2];
-    //ofstream out(outputFile);
+    string inputFile = argv[1], outputFile = argv[2], temp = "";
     readInput(inputFile, hashTable);
 
-    while (showMenu)
+    if (argc > 3)
     {
-        cout<<"\n Choose an option by typing the associated number (all output is printed to the output file): \n 1) Find the number of occurences of a word. \n 2) Print the 150 least frequently occuring words. \n 3) Print the 150 most frequently occuring words. \n";
-        cout<<" 4) All words in ascending order by frequency. \n 5) All words in descending order by frequency. \n 6) Print the number of sentences. \n 7) To test occupancy ratios affect on speed. \n 0) Terminates the program. \n > ";
-        cin>>userInput;
-        if (userInput == 0)
-            showMenu = false;
-        else if (userInput == 1)
-        {
-            cout<<"Enter a word: ";
-            cin>>searchWord;
-            Word* result = hashTable.getWord(searchWord);
-            if (result != nullptr)
-            {
-                cout<<"\""<<searchWord<<"\" appears "<<result->count<<" time(s)"<<endl;
-            }
-            else 
-            {
-                cout<<"\""<<searchWord<<"\" was not found in the word list \n";
-            }
-        }
-        else if (userInput == 2)
-            heapForTopOneFifty(hashTable, outputFile, 0);
-        else if (userInput == 3)
-            heapForTopOneFifty(hashTable, outputFile, 1);
-        else if (userInput == 4)
-            heapForAllWords(hashTable, outputFile, 0);
-        else if (userInput == 5)
-            heapForAllWords(hashTable, outputFile, 1);
-        else if (userInput == 6)
-            getSentences(inputFile, outputFile);
-        else if (userInput == 7)
-            compareTimeOccupancy(inputFile, outputFile);
+        temp = argv[3];
+        displayMenu = temp == "menu";
     }
-    return 0;*/
+    
+    if (displayMenu)
+    {
+        while (displayMenu)
+        {
+            showMenu(hashTable, inputFile, outputFile, displayMenu);
+        }
+    } else {
+        if (argc > 3)
+            temp = argv[3];
+        if (temp == "ascending")
+            heapForAllWords(hashTable, outputFile, 0);
+        else
+            heapForAllWords(hashTable, outputFile, 1);
+    }
+    return 0;
 }
 
+
+/**
+ * Read in word by word from the input file. 
+ * Convert all words to lowercase and clean up data before adding to the hashtable.
+ * @param string& -> The name of the input file.
+ * @param Hashtable -> The hashtable that the words will be added to
+ * O(n) Where n is the total number of characters in the file. For each word, every letter
+ * is checked and if need, it is converted to lowercase.
+ * Adding to the hashtable takes constant time.
+ */
 void readInput(string &inputFile, Hashtable &hashTable)
 {
     string currentWord, cleanedWord;
@@ -126,6 +71,62 @@ void readInput(string &inputFile, Hashtable &hashTable)
     input.close();
 }
 
+/**
+ * Display the user with a menu.
+ * Based on their choice, call the appropriate function.
+ * Convert all words to lowercase and clean up data before adding to the hashtable.
+ * @param Hashtable -> The hashtable that the words will be added to
+ * @param string& -> The name of the input file.
+ * @param string& -> The hashtable that the words will be added to
+ * @param bool -> Determines when the user would like to quit the program.
+ */
+void showMenu(Hashtable &hashTable, string &inputFile, string &outputFile, bool &displayMenu)
+{
+    int userInput;
+    string searchWord;
+
+    cout<<"\n Choose an option by typing the associated number (all output is printed to the output file): \n 1) Find the number of occurences of a word. \n 2) Print the 150 least frequently occuring words. \n 3) Print the 150 most frequently occuring words. \n";
+    cout<<" 4) All words in ascending order by frequency. \n 5) All words in descending order by frequency. \n 6) Print the number of sentences. \n 7) To test occupancy ratios affect on speed. \n 0) Terminates the program. \n > ";
+    cin>>userInput;
+
+    if (userInput == 0)
+        displayMenu = false;
+    else if (userInput == 1)
+    {
+        cout<<"Enter a word: ";
+        cin>>searchWord;
+        Word* result = hashTable.getWord(searchWord);
+        if (result != nullptr)
+        {
+            cout<<"\""<<searchWord<<"\" appears "<<result->count<<" time(s)"<<endl;
+        }
+        else 
+        {
+            cout<<"\""<<searchWord<<"\" was not found in the word list \n";
+        }
+    }
+    else if (userInput == 2)
+        heapForTopOneFifty(hashTable, outputFile, 0);
+    else if (userInput == 3)
+        heapForTopOneFifty(hashTable, outputFile, 1);
+    else if (userInput == 4)
+        heapForAllWords(hashTable, outputFile, 0);
+    else if (userInput == 5)
+        heapForAllWords(hashTable, outputFile, 1);
+    else if (userInput == 6)
+        getSentences(inputFile, outputFile);
+    else if (userInput == 7)
+        compareTimeOccupancy(inputFile, outputFile);
+}
+
+
+/**
+ * Create a heap to print out the top 150 most occurring words, or the 150 least occuring words.
+ * @param Hashtable -> The hashtable with all of the words
+ * @param string& -> The name of the output file.
+ * @param bool -> A 0 is a min heap and a 1 is a max heap.
+ * O(log(n)) We will always loop 150 times. Popping from a heap takes log(n).
+ */
 void heapForTopOneFifty(Hashtable &hashTable, string &outFile, bool heapType)
 {
     ofstream out(outFile);
@@ -141,12 +142,20 @@ void heapForTopOneFifty(Hashtable &hashTable, string &outFile, bool heapType)
     cout<<"Check the output file for results. \n";
 }
 
+/**
+ * Create a heap to print out every word in ascending or descending order based
+ * on the number of times they appear in the input file.
+ * @param Hashtable -> The hashtable with all of the words
+ * @param string& -> The name of the output file.
+ * @param bool -> A 0 is a min heap and a 1 is a max heap.
+ * O(n*log(n)) We will have to loop through every word, giving us time n. For each word,
+ * popping from a heap takes log(n). Thus we have n*log(n)
+ */
 void heapForAllWords(Hashtable &hashTable, string &outFile, bool heapType)
 {
     ofstream out(outFile);
     Heap<Word> heap(hashTable.getTotalWordCount() / .5, heapType);
     hashTable.createHeap(heap);
-    cout<<hashTable.getTotalWordCount();
     Word* w;
     for (int i = 0; i <= hashTable.getTotalWordCount() - 1 ; i++)
     {
@@ -157,12 +166,31 @@ void heapForAllWords(Hashtable &hashTable, string &outFile, bool heapType)
     cout<<"Check the output file for results. \n";
 }
 
+
+/**
+ * This function prints out the total number of sentences.
+ * To start, it looks for periods, question marks, and exclamation points. 
+ * 
+ * Next, it searches for quotation marks. If a quotation mark is at the end of a word,
+ * the value before the quotation mark is read. I search for this because you make have a sentence 
+ * such as: Mark said: "Hello."
+ * 
+ * If either of the cases above are true, we look at the next word. If the next word doesn't start with a 
+ * capital letter, than we probably have an abbreviation like St.
+ * 
+ * Finally, don't add one to the counter if the word is part of the special cases such as Mr. and Mrs.
+ * 
+ * @param string* -> The name of the input file.
+ * @param string* -> The name of the output file.
+ * O(n) Where n is the number of words in the file.
+ */
 void getSentences(string& inputFile, string& outFile)
 {
-    string current;
+    string current, last;
     ifstream input(inputFile);
     ofstream out(outFile);
     int numOfSentences = 0;
+    /*
     while (input >> current) {
         for (int i = 0; i < current.length(); i++)
             current[i] = tolower(current[i]);
@@ -176,35 +204,59 @@ void getSentences(string& inputFile, string& outFile)
     out<<"There are a total of "<<numOfSentences<<" sentences.";
     input.close();
     out.close();
-    cout<<"Check the output file for results. \n";
+    cout<<"Check the output file for results. \n";*/
 
-
-    // Looking if next word is capital. The book doesn't always capitalize...
-    /*while (input >> current) {
+    bool upper;
+    input >> last;
+    while (input >> current) {
+        upper = false;
+        // If the first letter is capitalized
         if (isalpha(current[0]))
             upper = isupper(current[0]);
+        // Maybe the word started with a symbol, so check the next letter(s) for a capital
         else
         {
             int i = 1;
             while (i < current.length() && !isalpha(current[i]))
                 i++;
-            upper = isupper(current[1]);
+            if (i < current.length())
+                upper = isupper(current[i]);
         }
+
+        // Make all the letters lowercase
         for (int i = 0; i < current.length(); i++)
             current[i] = tolower(current[i]);
-        if (last[last.size() - 1] == '.' || last[current.size() - 1] == '!' || last[last.size() - 1] == '?' || (last[last.size() - 1] == '"' && last[last.size() - 2] == '.') || (last[current.size() - 1] == '"' && last[current.size() - 2] == '?') || (last[last.size() - 1] == '"' && last[last.size() - 2] == '!'))
+        
+        // Check the previous word for puncutation
+        if (last[last.length() - 1] == '.' || last[last.length() - 1] == '!' || last[last.length() - 1] == '?' 
+            || (last.length() > 1 && last[last.length() - 1] == '"' && last[last.length() - 2] == '.') 
+            || (last.length() > 1 && last[last.length() - 1] == '"' && last[last.length() - 2] == '?') 
+            || (last.length() > 1 && last[last.length() - 1] == '"' && last[last.length() - 2] == '!'))
         {
+            // If the previous word has punctuation and this word is uppercase
             if (upper)
             {
-                if (last.size() > 1 && (last[last.size() - 2] == 'r' && last[last.size()-3] == 'm')) continue;
-                if (last.size() > 2 && (last[last.size() - 2] == 's' && last[last.size()-3] == 'r' && last[last.size()-4] == 'm')) continue;
-                out << last << ' ';
+                if (last.length() > 1 && (last[last.length() - 2] == 'r' && last[last.length()-3] == 'm')) continue;
+                if (last.length() > 2 && (last[last.length() - 2] == 's' && last[last.length()-3] == 'r' && last[last.length()-4] == 'm')) continue;
+                numOfSentences++;
             }
         }
         last = current;
-    }*/
+    }
+    out<<"There are a total of "<<numOfSentences<<" sentences.";
+    input.close();
+    out.close();
+    cout<<"Check the output file for results. \n";
 }
 
+/**
+ * Create a hashtable for a given occupancyRatio. Test the retrieval speed of  7,650,000 lookups.
+ * @param string& -> The name of the input file.
+ * @param string& -> The name of the output file.
+ * @param double -> The occupancy ratio
+ * @param string[] -> Random words to test on
+ * O(n) because each word must be looped through to create the hashTable.
+ */
 void calculateTimeOccupancy(string &inputFile, ofstream &out, double occupancyRatio, string randomWords[])
 {
     const int UNIQUE_WORDS = 8642;
@@ -224,6 +276,14 @@ void calculateTimeOccupancy(string &inputFile, ofstream &out, double occupancyRa
     out<<"There are "<<hashTable.getCollisionCount()<<" collisions.\n\n";
 }
 
+
+/**
+ * Compare the number of clock ticks and time for hash tables 
+ * with varying occupancy metrics.
+ * @param string& -> The name of the input file.
+ * @param string& -> The name of the output file.
+ * O(n) because each word must be looped through to create the hashTable for each test.
+ */
 void compareTimeOccupancy(string &inputFile, string &outFile)
 {
     ofstream out(outFile);
@@ -234,7 +294,6 @@ void compareTimeOccupancy(string &inputFile, string &outFile)
                             "westaways", "chin", "better", "nutshell", "lovely", "killing", "take","madam", "page", "inquire", "shade", "philadelphia", "duties", "refuse", "keep", "accepted", "turning", "threw", "studies", "to-morrow", "postpone", "oclock", "began", "clouds", "around", "fogs", "them", "vilest", "wickedness", "appeals", "cathedral", "repute", "easy", "dog-cart", "southampton", "rucastle", "lost", "amusement", "appearance", "arrival", "handkerchief", "blind", "relation", "beeches", "conscious", "employer", "almost", "huge", "sentinel", "tresses", "drawer", "suite", "grounds", "instinct", "downstairs", "cord", "waiting", "caressing", "frightened", "curiosity", "lest", "evening", "creature", "gravity", "ask", "matters", "wore", "afterwards", "merely", "public-house", "tried", "basketful", "hunter", "whose", "wheres", "tall", "rights", "worn", "metallic", "free-handed", "mauritius", "ebook", "various", "replace", "trademark", "receive", "works", "terms", "possession", "registered", "agree", "agreement", "literary", "claim", "copying", "copied", "providing", "project", "posted", "unlink", "form", "copy", "paragraph", "gutenberg-tm", "forth", "damages", "disclaim", "indirect", "medium", "merchantibility", "provisions", "distribution", "foundation", "archive", "tax", "permitted", "fairbanks", "north", "information", "b", "widest", "status", "many", "httppglaforg", "international", "united", "originator", "thirty", "copyright"};
     out<<"The following hash tables are created with variable occupancy rates. They are than used to look up 1,530 random words 5,000 times. \nTherefore, there are a total of 7,650,000 lookups. The number of clock ticks and time in seconds are reported. \n\n";
 
-    calculateTimeOccupancy(inputFile, out, .1, randomWords);
     calculateTimeOccupancy(inputFile, out, .5, randomWords);
     calculateTimeOccupancy(inputFile, out, .7, randomWords);
     calculateTimeOccupancy(inputFile, out, .8, randomWords);

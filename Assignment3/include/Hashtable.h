@@ -29,13 +29,9 @@ class Hashtable {
 
 		Word* getWord(string&);
 
-		int oldHash(string&);
-
 		int hash(string&);
 
 		void addWord(string&);
-
-		void addWordCust(string&, int i, int j);
 
 		void createHeap(Heap<Word> &);
 
