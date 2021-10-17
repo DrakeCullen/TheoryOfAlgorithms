@@ -35,11 +35,26 @@ I declare that all material in this assessment task is my work except where ther
 \textbf{ Date:} 10/17/2021
 \end{center} 
 
-\section{Statement a)}
-The statement is \textbf{True}. Start by finding the weight with the minimum value (smallest negative value). Add a constant factor large enough to make that value positive, and add that value to every other weight. Now, every weight is a positive value. We know that Dijkstras algorithm can be run on graphs with all positive values.
+\section*{Statement a)}
+I tested my hashtable with occupancy ratios of 50\%, 70\%, and 80\%. For each occupancy ratio, 7,650,000 lookups were performed with random words so that a discernable time difference could be found. \newline The occupancy ratio of 50\% took 1,072,580 clock cycles and 1.07223 seconds to perform the lookups. There were 1,650 collisions. \newline The occupancy ratio of 70\% took 1,091,944 clock cycles and 1.09161 seconds to perform the lookups. There were 1,898 collisions. \newline The occupancy ratio of 80\% took 1,0122,989 clock cycles and 1.12265 seconds to perform the lookups. There were 2,049 collisions. \newline I decided to use an occupancy ratio of 50\% for the rest of my experiments.
 
-\newpage
-\section{Statement b)}
-The statement is \textbf{False}. Weights with a value of one cause a problem. Other positive integers will grow larger when squared, but one will keep the same value when squared; therefore, the weights won't increase proportionally. The statement would be true if every weight was multiplied by a constant such as 2. The manner in which the statement fails can be seen in the example below. 
+
+\section*{Statement b)}
+I used open hashing, so my hash table could handle variable sizes by adding new elements to the linked list.
+
+\section*{Statement c)}
+I started off with the hash function f(r) = r \% hsize. Next, I incorporated the following hash function from our slides:
+
+\begin{center}
+\includegraphics[keepaspectratio=true,scale=0.5]{slides-hash.png}
+\end{center}
+
+In order to minimize collisions, I created a set of nested loops to change the initial val to numbers in the range from 0 to 10,000. Every time I changed the initial value, the bit shifting variable looped through values of 0 to 25. In the end, I found an initial value of 530 with a left shift of 8 minimized the number of collisions.
+
+\section*{Statement d)}
+If there is a collision, I iterate over the corresponding linked list and insert the new word in alphabetical order.
+
+\section*{Statement e)}
+No, you don't need an interface class for each function. I put my hashtable in a class, so I did use an interface class for the hashtable methods.
 
 \end{document}  

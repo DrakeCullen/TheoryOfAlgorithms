@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.8.23)  17 OCT 2021 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.8.23)  17 OCT 2021 12:29
 entering extended mode
 **./PartA-Questions.tex
 (PartA-Questions.tex
@@ -234,25 +234,30 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 22--26
 []$[]$ 
  []
 
+<slides-hash.png, id=2, 539.01375pt x 348.30125pt>
+File: slides-hash.png Graphic file (type png)
+<use slides-hash.png>
+Package pdftex.def Info: slides-hash.png  used on input line 49.
+(pdftex.def)             Requested size: 269.50621pt x 174.15019pt.
 [1
 
 {/home/drake/.miktex/texmfs/data/pdftex/config/pdftex.map} <./CMU.png (PNG copy
-)>] [2] (PartA-Questions.aux) ) 
+)>] [2 <./slides-hash.png>] (PartA-Questions.aux) ) 
 Here is how much of TeX's memory you used:
- 2973 strings out of 480807
- 44453 string characters out of 2900637
- 335833 words of memory out of 3000000
- 20611 multiletter control sequences out of 15000+600000
+ 2980 strings out of 480807
+ 44589 string characters out of 2900637
+ 337824 words of memory out of 3000000
+ 20617 multiletter control sequences out of 15000+600000
  409596 words of font info for 50 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 57i,7n,66p,443b,192s stack positions out of 5000i,500n,10000p,200000b,80000s
-</home/drake/.miktex/texmfs/install/fonts/type1/
-public/amsfonts/cm/cmbx10.pfb></home/drake/.miktex/texmfs/install/fonts/type1/p
-ublic/amsfonts/cm/cmbx12.pfb></home/drake/.miktex/texmfs/install/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb>
-Output written on PartA-Questions.pdf (2 pages, 64876 bytes).
+ 57i,7n,66p,742b,192s stack positions out of 5000i,500n,10000p,200000b,80000s
+</home/drake/.miktex/texmfs/
+install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/drake/.miktex/texmfs/i
+nstall/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/drake/.miktex/texmfs/in
+stall/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on PartA-Questions.pdf (2 pages, 82788 bytes).
 PDF statistics:
- 25 PDF objects out of 1000 (max. 8388607)
+ 28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
