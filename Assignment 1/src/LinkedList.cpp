@@ -109,7 +109,7 @@ void LinkedList<T>::updateNeighborsForShorterPath(bool visited[], PriorityQueue<
 		if (!visited[curr->index])
 		{
 			int newDistance = distance[index] + curr->weight;
-			if (newDistance < distance[curr->index])
+			if (newDistance <distance[curr->index])
 			{
 				distance[curr->index] = newDistance;
 				prev[curr->index] = index;

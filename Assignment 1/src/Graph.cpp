@@ -86,9 +86,6 @@ void Graph::addEdge(int city1, int city2, string name, int weight)
 	newCity->weight = weight;
 	newCity->from = city1;
 
-	// Make sure there is enough space in the adjacency list. If not, increase the size
-	//adjacencyList.calculateSize();
-
 	// Get a pointer to the linked list that contains the neighbors of city1
     LinkedList<City>* city1Neighbors = adjacencyList.getElement(city1);
     city1Neighbors->push(newCity);
@@ -116,6 +113,7 @@ void Graph::readInput(string filename)
 		readDistances(input, i);
 		currentSize++;
 		i++;
+		//adjacencyList.calculateSize();
 	}
 	input.close();
 }

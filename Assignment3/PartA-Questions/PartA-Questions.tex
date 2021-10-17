@@ -11,7 +11,7 @@
 \usepackage[hyphens]{url}  %% be sure to specify the option 'hyphens'
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
-\title{Drake-Cullen-Part-1-Answers}
+\title{Drake-Cullen-Part-A-Answers}
 \author{Drake Cullen}
 %\date{}                                           % Activate to display a given date or no date
 
@@ -23,7 +23,7 @@
 \centering
 \includegraphics[keepaspectratio=true,scale=0.35]{CMU.png}
 \end{minipage}
-\section*{ \centering Task 1 Solutions}
+\section*{ \centering Part A Answers}
 \subsection*{ \centering By Drake Cullen} 
 
 \vspace{5mm}
@@ -32,7 +32,7 @@ I declare that all material in this assessment task is my work except where ther
 \begin{center}
 \textbf{Author’s Name:} Drake Cullen 
 \textbf{UID(700\#):} 700480375
-\textbf{ Date:} 9/28/2021
+\textbf{ Date:} 10/17/2021
 \end{center} 
 
 \section{Statement a)}
@@ -41,20 +41,5 @@ The statement is \textbf{True}. Start by finding the weight with the minimum val
 \newpage
 \section{Statement b)}
 The statement is \textbf{False}. Weights with a value of one cause a problem. Other positive integers will grow larger when squared, but one will keep the same value when squared; therefore, the weights won't increase proportionally. The statement would be true if every weight was multiplied by a constant such as 2. The manner in which the statement fails can be seen in the example below. 
-
-\begin{center}
-\includegraphics[keepaspectratio=true,scale=0.25]{graph2.jpg}
-\end{center}
-Let us assume that you are looking for the shortest path from A to D using the graph above. There are two different paths that you can take to get from A to D.
-
-\begin{center}
-\includegraphics[keepaspectratio=true,scale=0.25]{original_paths2.jpg}
-\end{center}
-By taking the path from A to B to C to D (call this path1), the combined weight is 3. If you choose to take the path2 from A to D, the combined weight is 2. Therefore, path2 is shorter than path1.
-
-\begin{center}
-\includegraphics[keepaspectratio=true,scale=0.25]{updated_paths2.jpg}
-\end{center}
-After squaring every edge, the updated paths can be seen in the image above. Path1 is now shorter than path2. We know that path2 should be shorter than path1, so by squaring every edge, the shortest path is now innacurate; therefore, this statement is false.
 
 \end{document}  

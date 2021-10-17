@@ -109,7 +109,7 @@ void ResizableArray<T>::swap(int firstIndex, int secondIndex)
 template<typename T> 
 void ResizableArray<T>::freeLL()
 {
-    for (int i = 0; i < 128; i++)
+    for (int i = 0; i < maxSize; i++)
         array[i].deleteAll();
 }
 
