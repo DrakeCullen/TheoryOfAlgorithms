@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Oct 14 08:58:07 2021
+# Make data base, printed on Mon Oct 18 19:26:19 2021
 
 # Variables
 
@@ -17,6 +17,7 @@ GNUMAKEFLAGS :=
 # automatic
 ?F = $(notdir $?)
 # environment
+ 
 DESKTOP_SESSION = ubuntu
 # default
 .SHELLFLAGS := -c
@@ -45,11 +46,11 @@ CURDIR := /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment3
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/76
+SNAP_DATA = /var/snap/code/77
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:49820
+JOURNAL_STREAM = 8:54607
 # makefile (from 'Makefile', line 12)
 CFLAGS = -g -Wall
 # environment
@@ -73,15 +74,15 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-_ = /snap/code/76/usr/share/code/code
+_ = /snap/code/77/usr/share/code/code
 # environment
-MANAGERPID = 1790
+MANAGERPID = 1876
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-6f09cd90-c10f-4c2f-bbb1-61f36c15b15a.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a287d049-016e-47da-bf1b-8e8c9535213b.sock
 # environment
 VSCODE_CWD = /home/drake
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/76/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/77/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -89,15 +90,15 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/2002,unix/drake-pc:/tmp/.ICE-unix/2002
+SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/2090,unix/drake-pc:/tmp/.ICE-unix/2090
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/drake/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/76
+SNAP = /snap/code/77
 # environment
-SNAP_VERSION = ee8c7def
+SNAP_VERSION = c13f1abb
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -107,9 +108,9 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=32aa8a71-a139-453c-827f-a659ca03bb40&iid=32aa8a71-a139-453c-827f-a659ca03bb40&sid=32aa8a71-a139-453c-827f-a659ca03bb40","uploadToServer":true}
 # environment
-INVOCATION_ID = 1da7ad332d8f4f0da872448664976cdc
+INVOCATION_ID = 675487a825f240ff9222517814bb909f
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/76/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/77/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -117,7 +118,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 10623
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4290
 # automatic
 %F = $(notdir $%)
 # environment
@@ -131,7 +132,7 @@ PWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment3
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1967
+SSH_AGENT_PID = 2055
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -143,7 +144,7 @@ HOME = /home/drake
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/drake/.config/Code/CachedData/ee8c7def80afc00dd6e593ef12f37756d8f504ea
+VSCODE_CODE_CACHE_PATH = /home/drake/.config/Code/CachedData/c13f1abb110fc756f9b3a6f16670df9cd9d4cf63
 # environment
 LOGNAME = drake
 # environment
@@ -173,7 +174,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/drake/snap/code/76
+SNAP_USER_DATA = /home/drake/snap/code/77
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 11)
@@ -185,7 +186,7 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = drake
 # environment
-SNAP_REVISION = 76
+SNAP_REVISION = 77
 # makefile
 .DEFAULT_GOAL := all
 # environment
@@ -199,7 +200,7 @@ MAKE_COMMAND := make
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-95a7764f-1.61.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-95a7764f-1.61.1-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -251,7 +252,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 10668
+VSCODE_PID = 4376
 # variable set hash-table stats:
 # Load=121/1024=12%, Rehash=0, Collisions=18/151=12%
 
@@ -261,9 +262,9 @@ VSCODE_PID = 10668
 
 # Directories
 
-# . (device 66306, inode 12738581): 15 files, no impossibilities.
+# . (device 66306, inode 12738581): 16 files, no impossibilities.
 
-# 15 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -274,7 +275,7 @@ VSCODE_PID = 10668
 # Not a target:
 src/Hashtable.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-13 22:22:49.71673124
+#  Last modified 2021-10-17 11:58:55.153187249
 #  File has been updated.
 #  Successfully updated.
 
@@ -304,7 +305,6 @@ all: ass3j
 Makefile:
 #  Implicit rule search has been done.
 #  Last modified 2021-10-10 17:44:08.164505463
- 
 #  File has been updated.
 #  Successfully updated.
 
@@ -317,6 +317,7 @@ src/Heap.cpp:
 
 Word.o: include/Word.h
 #  Implicit rule search has not been done.
+ 
 #  Last modified 2514-05-29 19:53:03.107374182
 #  File has been updated.
 #  Successfully updated.
@@ -332,7 +333,7 @@ include/LinkedList.h:
 
 Hashtable.o: src/Hashtable.cpp include/Hashtable.h LinkedList.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-13 22:26:53.23920174
+#  Last modified 2021-10-17 11:59:04.765800307
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -343,7 +344,7 @@ Hashtable.o: src/Hashtable.cpp include/Hashtable.h LinkedList.o
 # Not a target:
 src/LinkedList.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-13 21:56:17.850109661
+#  Last modified 2021-10-14 09:02:26.412012147
 #  File has been updated.
 #  Successfully updated.
 
@@ -355,7 +356,7 @@ src/LinkedList.cpp:
 
 LinkedList.o: src/LinkedList.cpp include/LinkedList.h Word.o Heap.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-13 22:26:53.043209269
+#  Last modified 2021-10-17 11:59:04.573866851
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -366,7 +367,7 @@ LinkedList.o: src/LinkedList.cpp include/LinkedList.h Word.o Heap.o
 Heap.o: src/Heap.cpp include/Heap.h Word.o
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
-#  Last modified 2021-10-13 22:26:52.867216031
+#  Last modified 2021-10-17 11:59:04.401926462
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -392,7 +393,7 @@ Heap.o: src/Heap.cpp include/Heap.h Word.o
 
 ass3j: ass3j.o Hashtable.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-13 22:26:53.28320005
+#  Last modified 2021-10-17 11:59:04.81378367
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -403,7 +404,7 @@ ass3j: ass3j.o Hashtable.o
 # Not a target:
 ass3j.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-13 22:26:52.691222792
+#  Last modified 2021-10-17 11:59:04.229986075
 #  File has been updated.
 #  Successfully updated.
 
@@ -417,7 +418,7 @@ clean:
 # Not a target:
 include/Hashtable.h:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-13 22:04:19.560873826
+#  Last modified 2021-10-17 11:58:55.153187249
 #  File has been updated.
 #  Successfully updated.
 
@@ -436,12 +437,13 @@ include/Word.h:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 29 / storage = 332 B / avg = 11 B
-# current buf: size = 8162 B / used = 332 B / count = 29 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 30 / storage = 348 B / avg = 11 B
+# current buf: size = 8162 B / used = 348 B / count = 30 / avg = 11 B
 
-# strcache performance: lookups = 53 / hit rate = 45%
+# strcache performance: lookups = 54 / hit rate = 44%
 # hash-table stats:
-# Load=29/8192=0%, Rehash=0, Collisions=1/53=2%
-# Finished Make data base on Thu Oct 14 08:58:07 2021
+# Load=30/8192=0%, Rehash=0, Collisions=1/54=2%
+# Finished Make data base on Mon Oct 18 19:26:19 2021
+ 
 
  
