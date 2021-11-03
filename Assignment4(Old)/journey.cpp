@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
         
         // If both the cities are valid
         g.MST(startIndex);
-        g.dijkstra(startIndex, destinationIndex);
+        g.aStart(startIndex, destinationIndex);
     }
     else
         cout << "Pass in a start and destination city! \n";

@@ -1,0 +1,1 @@
+{"buildTargets":["all","clean","googletest","lib/googletest-1.8.1/download.tar.gz","lib/googletest-1.8.1/googlemock","lib/googletest-1.8.1/googletest","lib/libgooglemock-1.8.1.so","lib/libgoogletest-1.8.1.so","mains","tests"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

@@ -1,0 +1,495 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Tue Nov  2 19:40:17 2021
+
+# Variables
+
+# 'override' directive
+GNUMAKEFLAGS := 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = ubuntu
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_SESSION_CLASS = user
+# environment
+SNAP_COMMON = /var/snap/code/common
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment4(Old)
+# makefile
+SHELL = /bin/sh
+# environment
+SNAP_DATA = /var/snap/code/78
+# environment
+VTE_VERSION = 6003
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+JOURNAL_STREAM = 8:53556
+# makefile (from 'Makefile', line 12)
+CFLAGS = -g -Wall
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# environment
+SNAP_INSTANCE_NAME = code
+# environment
+SNAP_ARCH = amd64
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+IM_CONFIG_PHASE = 1
+# environment
+USERNAME = drake
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+MANAGERPID = 1793
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-82b8e9c6-c52f-498a-8ecc-d91aea6274b5.sock
+# environment
+VSCODE_CWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment4(Old)
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/78/usr/share/glib-2.0/schemas
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/drake/miniconda3/bin:/home/drake/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# environment
+SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/2013,unix/drake-pc:/tmp/.ICE-unix/2013
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/drake/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+SNAP = /snap/code/78
+# environment
+SNAP_VERSION = 6cba118a
+# environment
+CONDA_PREFIX = /home/drake/miniconda3
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+VSCODE_LOG_STACK = false
+# environment
+DISABLE_WAYLAND = 1
+# environment
+VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=32aa8a71-a139-453c-827f-a659ca03bb40&iid=32aa8a71-a139-453c-827f-a659ca03bb40&sid=32aa8a71-a139-453c-827f-a659ca03bb40","uploadToServer":true}
+# environment
+INVOCATION_ID = 177b69bececf48d6b808999a7747f621
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/78/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :1
+# environment
+CONDA_EXE = /home/drake/miniconda3/bin/conda
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+SNAP_INSTANCE_KEY = 
+# environment
+PWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment4(Old)
+# default
+.LOADED := 
+# environment
+SSH_AGENT_PID = 1978
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+GTK_MODULES = gail:atk-bridge
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+HOME = /home/drake
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /home/drake/.config/Code/CachedData/6cba118ac49a1b88332f312a8f67186f7f3c1643
+# environment
+LOGNAME = drake
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+# environment
+SNAP_CONTEXT = f3MKP_784zQ8bauSnggjho7C0CKrWtIGvp-fcBBBQSqN6SzJQP72
+# environment
+CONDA_PROMPT_MODIFIER = (base) 
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+SNAP_USER_COMMON = /home/drake/snap/code/common
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# environment
+SNAP_REAL_HOME = /home/drake
+# environment
+CONDA_DEFAULT_ENV = base
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+QT_IM_MODULE = ibus
+# environment
+SNAP_USER_DATA = /home/drake/snap/code/78
+# environment
+SHLVL = 1
+# makefile (from 'Makefile', line 11)
+CC = g++
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = drake
+# environment
+SNAP_REVISION = 78
+# makefile
+.DEFAULT_GOAL := all
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+CONDA_SHLVL = 1
+# default
+MAKE_COMMAND := make
+# environment
+OLDPWD = /home/drake/projects/Fl21/TheoryOfAlgorithms
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-95a7764f-1.61.2-main.sock
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+BREAKPAD_DUMP_LOCATION = /home/drake/.config/Code/exthost Crash Reports
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+GDK_BACKEND = x11
+# automatic
++F = $(notdir $+)
+# environment
+QT_ACCESSIBILITY = 1
+# default
+MAKEFILES := 
+# environment
+SNAP_COOKIE = f3MKP_784zQ8bauSnggjho7C0CKrWtIGvp-fcBBBQSqN6SzJQP72
+# automatic
+<F = $(notdir $<)
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+SNAP_NAME = code
+# environment
+LC_ALL = C
+# environment
+CONDA_PYTHON_EXE = /home/drake/miniconda3/bin/python
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6465c8e3_00fe_41af_8ec4_7f8fbb3b1289
+# automatic
+^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.85
+# default
+SUFFIXES := 
+# environment
+SNAP_REEXEC = 
+# environment
+_CE_M = 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+WINDOWPATH = 2
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 7105
+# environment
+_CE_CONDA = 
+# variable set hash-table stats:
+# Load=131/1024=13%, Rehash=0, Collisions=16/161=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 66306, inode 13492417): 18 files, no impossibilities.
+
+# 18 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+ 
+# No implicit rules.
+
+# Files
+
+# Not a target:
+MST.o:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-01 20:40:22.949475716
+#  File has been updated.
+#  Successfully updated.
+
+all: MST journey
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+
+City.o: include/City.h
+#  Implicit rule search has not been done.
+#  Last modified 2514-05-29 19:53:03.107374182
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 47):
+	
+
+# Not a target:
+include/Graph.h:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-01 20:14:57.914155914
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-01 18:47:40.471612
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+include/City.h:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-01 19:49:59.525637513
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+include/LinkedList.h:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-01 20:38:11.736134707
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+include/ResizableArray.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+include/PriorityQueue.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Graph.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-01 20:41:37.10004915
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/LinkedList.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-01 20:40:18.9295545
+#  File has been updated.
+#  Successfully updated.
+
+ResizableArray.o: src/ResizableArray.cpp include/ResizableArray.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 42):
+	$(CC) $(CFLAGS) -c ./src/ResizableArray.cpp
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+LinkedList.o: src/LinkedList.cpp include/LinkedList.h City.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  Last modified 2021-11-01 20:41:38.688019121
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := LinkedList.o
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := src/LinkedList.cpp include/LinkedList.h City.o
+# automatic
+# | := 
+# automatic
+# < := src/LinkedList.cpp
+# automatic
+# ^ := src/LinkedList.cpp include/LinkedList.h City.o
+# automatic
+# ? := City.o
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  recipe to execute (from 'Makefile', line 33):
+	$(CC) $(CFLAGS) -c ./src/LinkedList.cpp
+
+# Not a target:
+src/ResizableArray.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 50):
+	$(RM) MST *.o *~
+	$(RM) journey *.o *~
+
+# Not a target:
+src/PriorityQueue.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+Graph.o: src/Graph.cpp include/Graph.h LinkedList.o ResizableArray.o
+#  Implicit rule search has not been done.
+#  Last modified 2021-11-01 20:41:38.980013601
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  recipe to execute (from 'Makefile', line 28):
+	$(CC) $(CFLAGS) -c ./src/Graph.cpp
+
+PriorityQueue.o: src/PriorityQueue.cpp include/PriorityQueue.h ResizableArray.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	$(CC) $(CFLAGS) -c ./src/PriorityQueue.cpp
+
+# Not a target:
+journey.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+MST: MST.o Graph.o
+#  Implicit rule search has not been done.
+#  Last modified 2021-11-01 20:41:39.02401277
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  recipe to execute (from 'Makefile', line 19):
+	$(CC) $(CFLAGS) -o MST MST.o Graph.o
+
+journey: journey.o Graph.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 23):
+	$(CC) $(CFLAGS) -o journey journey.o Graph.o
+
+# files hash-table stats:
+# Load=23/1024=2%, Rehash=0, Collisions=0/60=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 35 / storage = 415 B / avg = 11 B
+# current buf: size = 8162 B / used = 415 B / count = 35 / avg = 11 B
+
+# strcache performance: lookups = 65 / hit rate = 46%
+# hash-table stats:
+# Load=35/8192=0%, Rehash=0, Collisions=1/65=2%
+# Finished Make data base on Tue Nov  2 19:40:17 2021
+
+ 

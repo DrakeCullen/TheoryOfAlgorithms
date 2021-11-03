@@ -1,0 +1,453 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+tmp/ResizableArray.cpp.d:1: *** missing separator.  Stop.
+ 
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Thu Sep 16 19:21:36 2021
+
+# Variables
+
+# environment
+GNUMAKEFLAGS := 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = ubuntu
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_SESSION_CLASS = user
+# environment
+SNAP_COMMON = /var/snap/code/common
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+VSCODE_LOG_NATIVE = false
+# makefile (from 'Makefile.googletest', line 7)
+GOOGLE_TEST_FLAGS = -Ilib/googletest-$(GOOGLE_TEST_VERSION)/googletest/include -Ilib/googletest-$(GOOGLE_TEST_VERSION)/googlemock/include
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /home/drake/projects/Fl21/TheoryOfAlgorithms/Priority_Queue
+# makefile
+SHELL = /bin/sh
+# environment
+SNAP_DATA = /var/snap/code/74
+# makefile (from 'Makefile.googletest', line 11)
+GOOGLE_TEST_LIBS = lib/libgooglemock-$(GOOGLE_TEST_VERSION).so lib/libgoogletest-$(GOOGLE_TEST_VERSION).so
+# environment
+VTE_VERSION = 6003
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+JOURNAL_STREAM = 8:52540
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# environment
+SNAP_INSTANCE_NAME = code
+# environment
+SNAP_ARCH = amd64
+# makefile (from 'tmp/ResizableArray.cpp.d', line 1)
+MAKEFILE_LIST :=  Makefile Makefile.googletest tmp/ResizableArray.cpp.d
+# automatic
+@F = $(notdir $@)
+# environment
+IM_CONFIG_PHASE = 1
+# environment
+USERNAME = drake
+# makefile (from 'Makefile', line 30)
+CXXFLAGS = -pthread -Iinclude -g -O2 -std=c++14 -fPIC
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from 'Makefile', line 49)
+TESTS = $(shell find src -name 'test_*.cpp')
+# environment
+MANAGERPID = 1717
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-88008bf0-4d77-4b6c-8c7c-4c5e25f8bbfb.sock
+# environment
+VSCODE_CWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment 1
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/74/usr/share/glib-2.0/schemas
+# makefile (from 'Makefile', line 43)
+MAINX = $(patsubst src/main_%.cpp,bin/%,$(MAINS))
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/drake/miniconda3/bin:/home/drake/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# environment
+SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/1927,unix/drake-pc:/tmp/.ICE-unix/1927
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/drake/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+SNAP = /snap/code/74
+# makefile (from 'Makefile.googletest', line 4)
+GOOGLE_TEST_VERSION = 1.8.1
+# environment
+SNAP_VERSION = 83bd43bc
+# environment
+CONDA_PREFIX = /home/drake/miniconda3
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+VSCODE_LOG_STACK = false
+# environment
+DISABLE_WAYLAND = 1
+# makefile (from 'Makefile', line 40)
+MAINS = $(shell find src -name 'main_*.cpp')
+# environment
+VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=32aa8a71-a139-453c-827f-a659ca03bb40&iid=32aa8a71-a139-453c-827f-a659ca03bb40&sid=32aa8a71-a139-453c-827f-a659ca03bb40","uploadToServer":true}
+# environment
+INVOCATION_ID = 9a926bccae064996957eb0b0d184823a
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/74/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :1
+# environment
+CONDA_EXE = /home/drake/miniconda3/bin/conda
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+SNAP_INSTANCE_KEY = 
+# environment
+PWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Priority_Queue
+# makefile (from 'Makefile', line 35)
+PARTS = $(shell find src -name '*.cpp' -and -not \( -name '.*' -or -name 'main_*' -or -name 'test_*' \) )
+# default
+.LOADED := 
+# environment
+SSH_AGENT_PID = 1892
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+GTK_MODULES = gail:atk-bridge
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+HOME = /home/drake
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /home/drake/.config/Code/CachedData/83bd43bc519d15e50c4272c6cf5c1479df196a4d
+# makefile (from 'Makefile.googletest', line 3)
+CURL = curl
+# environment
+LOGNAME = drake
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+# environment
+SNAP_CONTEXT = f3MKP_784zQ8bauSnggjho7C0CKrWtIGvp-fcBBBQSqN6SzJQP72
+# environment
+CONDA_PROMPT_MODIFIER = (base) 
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+SNAP_USER_COMMON = /home/drake/snap/code/common
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from 'Makefile', line 53)
+TESTX = $(patsubst src/test_%.cpp,bin/test_%,$(TESTS))
+# environment
+MAKELEVEL := 0
+# environment
+SNAP_REAL_HOME = /home/drake
+# environment
+CONDA_DEFAULT_ENV = base
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+QT_IM_MODULE = ibus
+# environment
+SNAP_USER_DATA = /home/drake/snap/code/74
+# environment
+SHLVL = 1
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = drake
+# environment
+SNAP_REVISION = 74
+# makefile
+.DEFAULT_GOAL := lib/googletest-1.8.1/download.tar.gz
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# makefile (from 'Makefile', line 55)
+ALL = $(MAINX) $(TESTX)
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+CONDA_SHLVL = 1
+# default
+MAKE_COMMAND := make
+# environment
+OLDPWD = /home/drake/projects/Fl21/TheoryOfAlgorithms
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-95a7764f-1.60.1-main.sock
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+BREAKPAD_DUMP_LOCATION = /home/drake/.config/Code/exthost Crash Reports
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+GDK_BACKEND = x11
+# automatic
++F = $(notdir $+)
+# environment
+NO_AT_BRIDGE = 1
+# makefile (from 'Makefile', line 37)
+PARTO = $(patsubst src/%.cpp,tmp/%.cpp.o,$(PARTS))
+# environment
+QT_ACCESSIBILITY = 1
+# 'override' directive
+.SHELLSTATUS := 0
+# default
+MAKEFILES := 
+# environment
+SNAP_COOKIE = f3MKP_784zQ8bauSnggjho7C0CKrWtIGvp-fcBBBQSqN6SzJQP72
+# automatic
+<F = $(notdir $<)
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+SNAP_NAME = code
+# environment
+LC_ALL = C
+# environment
+CONDA_PYTHON_EXE = /home/drake/miniconda3/bin/python
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a10bb96f_6a6b_432a_b906_b83d883e572a
+# automatic
+^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.127
+# default
+SUFFIXES := 
+# environment
+SNAP_REEXEC = 
+# environment
+_CE_M = 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+WINDOWPATH = 2
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+ 
+# environment
+VSCODE_PID = 9739
+# environment
+_CE_CONDA = 
+# variable set hash-table stats:
+# Load=143/1024=14%, Rehash=0, Collisions=22/212=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 66306, inode 12736358): 9 files, no impossibilities.
+
+# 9 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+tmp/test_%.cpp.d: src/test_%.cpp
+#  recipe to execute (from 'Makefile', line 73):
+	mkdir -p `dirname $@`
+	$(CXX) $(CXXFLAGS) $(GOOGLE_TEST_FLAGS) -MM -MT '$(patsubst src/%.cpp,tmp/%.cpp.o,$<)' $< > $@
+
+tmp/%.cpp.d: src/%.cpp
+#  recipe to execute (from 'Makefile', line 78):
+	mkdir -p `dirname $@`
+	$(CXX) $(CXXFLAGS) -MM -MT '$(patsubst src/%.cpp,tmp/%.cpp.o,$<)' $< > $@
+
+# 2 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+lib/googletest-1.8.1/googletest: lib/googletest-1.8.1/download.tar.gz
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile.googletest', line 18):
+	tar -zxf lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz -C lib/googletest-$(GOOGLE_TEST_VERSION) --strip-components 1 googletest-release-$(GOOGLE_TEST_VERSION)/googletest
+
+# Not a target:
+Makefile.googletest:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+lib/googletest-1.8.1/googlemock: lib/googletest-1.8.1/download.tar.gz
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile.googletest', line 24):
+	tar -zxf lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz -C lib/googletest-$(GOOGLE_TEST_VERSION) --strip-components 1 googletest-release-$(GOOGLE_TEST_VERSION)/googlemock
+
+all: mains tests
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: googletest all mains tests clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+tmp/ResizableArray.cpp.d:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+googletest: lib/libgoogletest-1.8.1.so lib/libgooglemock-1.8.1.so
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+tests: googletest bin/test_ResizableArray bin/test_PriorityQueue
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+lib/libgoogletest-1.8.1.so: lib/googletest-1.8.1/googletest
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile.googletest', line 21):
+	$(CXX) -o $@ -shared $(CXXFLAGS) $(GOOGLE_TEST_FLAGS) -Ilib/googletest-$(GOOGLE_TEST_VERSION)/googletest lib/googletest-$(GOOGLE_TEST_VERSION)/googletest/src/gtest-all.cc
+
+# Not a target:
+Makefile:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+lib/libgooglemock-1.8.1.so: lib/googletest-1.8.1/googlemock lib/libgoogletest-1.8.1.so
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile.googletest', line 27):
+	$(CXX) -o $@ -shared $(CXXFLAGS) $(GOOGLE_TEST_FLAGS) -Ilib/googletest-$(GOOGLE_TEST_VERSION)/googlemock lib/googletest-$(GOOGLE_TEST_VERSION)/googlemock/src/gmock-all.cc lib/libgoogletest-$(GOOGLE_TEST_VERSION).so
+
+lib/googletest-1.8.1/download.tar.gz:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile.googletest', line 14):
+	mkdir -p lib/googletest-$(GOOGLE_TEST_VERSION)
+	test -f lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz || $(CURL) -L -o lib/googletest-$(GOOGLE_TEST_VERSION)/download.tar.gz https://github.com/google/googletest/archive/release-$(GOOGLE_TEST_VERSION).tar.gz
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+	/bin/rm -rf tmp/* bin/* lib/*.so
+	find . \( -name '*~' -or -name '*#' -or -name '.#*' \) -print0 | xargs -0 /bin/rm -rf
+
+mains:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+bin/test_PriorityQueue:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+bin/test_ResizableArray:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=18/1024=2%, Rehash=0, Collisions=0/47=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 34 / storage = 527 B / avg = 15 B
+# current buf: size = 8162 B / used = 527 B / count = 34 / avg = 15 B
+
+# strcache performance: lookups = 77 / hit rate = 55%
+# hash-table stats:
+# Load=34/8192=0%, Rehash=0, Collisions=1/77=1%
+# Finished Make data base on Thu Sep 16 19:21:36 2021
+
+ 

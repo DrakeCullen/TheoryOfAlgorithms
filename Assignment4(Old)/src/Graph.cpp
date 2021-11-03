@@ -246,7 +246,7 @@ void Graph::createMST(City ordering[], double timeTaken, string destination)
  * O((V*log(V)) + E*log(V)) where E is the number of edges and V is the number of cities. Simplifying gives 
  * O(log(V)*(E+V))
  */ 
-void Graph::dijkstra(int startIndex, int endIndex)
+void Graph::aStart(int startIndex, int endIndex)
 {
 	// Used to measure the time it takes to run the algorithm
 	auto start = chrono::steady_clock::now();

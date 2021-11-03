@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/drake/projects/Fl21/TheoryOfAlgorithms/Priority_Queue'
+ 
+tmp/ResizableArray.cpp.d:1: *** missing separator.  Stop.
+ 
+make: Leaving directory '/home/drake/projects/Fl21/TheoryOfAlgorithms/Priority_Queue'
+ 

@@ -44,7 +44,7 @@ public:
 
     void MST(int startIndex = 0);
 
-    void dijkstra(int startIndex, int endIndex);
+    void aStart(int startIndex, int endIndex);
 
     void createMST(City ordering[], double timeTaken, string destination);
 
