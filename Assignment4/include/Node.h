@@ -1,8 +1,8 @@
 /**
-    CSCI-480 - Assignment 1
+    CSCI-480 - Assignment 4
     @file City.h
     @author Drake Cullen
-    City is the basic building block for the project. It acts as a node in linked lists, queues, etc.
+    Node is the basic building block for the project. It stores information abot each point
 */
 
 #ifndef NODE_H
@@ -10,6 +10,10 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+#include <queue>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -19,7 +23,7 @@ public:
 	int index;
 	// The cost of traveling to this node
 	double weight;
-	// From stores an integer value of the city that came before this city
+	// From stores an integer value of the node that came before this node
 	int from;
 	// H is the heuristic value
 	double h;

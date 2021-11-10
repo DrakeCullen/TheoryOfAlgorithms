@@ -15,10 +15,35 @@
 
 #include "./include/Graph.h"
 
-
 int main(int argc, char *argv[])
 {
-   Graph g;
-   g.readInput("adjacencyMatrix.txt", "heuristics.txt");
-   g.aStar(0,8);
+    if (argc < 3 || argc > 4)
+    {
+        cout << "Pass an input file with weights and an input file with heuristics as parameters! \n";
+        return 0;
+    }
+    else 
+    {
+        Graph g;
+        g.readInput(argv[1], argv[2]);
+        int startCity, endCity;
+
+        // Clear the console
+        cout << "\x1B[2J\x1B[H";
+        
+        while (true)
+        {
+            cout<<"Enter a start and end city, or enter 0 0 to stop the program: ";
+            cin>>startCity>>endCity;
+            if (startCity == 0 && endCity == 0) break;
+            try {
+                g.aStar(startCity, endCity);
+            } catch (exception e)
+            {
+                cout<<"There was a problem with your input!";
+            }
+            cout<<endl<<endl<<endl<<endl;
+        }
+    }
+    
 }
