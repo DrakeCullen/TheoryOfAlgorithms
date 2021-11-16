@@ -174,6 +174,7 @@ void Graph::aStar(int startIndex, int endIndex)
  */ 
 void Graph::printAStar(double timeTaken, int endIndex, int startIndex, int prev[])
 {	
+
 	int prevIndex = endIndex, totalCost = 0;
 	vector<int> path;
 
@@ -188,7 +189,7 @@ void Graph::printAStar(double timeTaken, int endIndex, int startIndex, int prev[
 	// Use the path and distances arrays to print out directions to get from the start to the end node.
 	for (unsigned int i = 0; i < path.size() - 1; i++)
 	{
-		cerr << i + 1 << ": "<< path[i] << " to " << path[i+1] << " \"distance = " << adjacencyList[path[i]][path[i+1]].weight << "\"" << endl;
+		cerr << i + 1 << ": "<< path[i] << " to " << path[i+1] << " \"distance = " << adjacencyList[path[i]][path[i+1]].weight << "\"" << " using a heuristic of " << adjacencyList[path[i+1]][endIndex].h << " to the destination."<< endl;
 		totalCost += adjacencyList[path[i]][path[i+1]].weight;
 	}
 	cout<<"Total distance: "<<totalCost<<endl;
