@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{sectsty}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[hyphens]{url}  %% be sure to specify the option 'hyphens'
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Drake-Cullen-Assignment5}
+\author{Drake Cullen}
+%\date{}                                           % Activate to display a given date or no date
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+%\maketitle
+%\section{}
+%\subsection{}
+\begin{minipage}{\linewidth}% to keep image and caption on one page
+\centering
+\includegraphics[keepaspectratio=true,scale=0.35]{CMU.png}
+\end{minipage}
+\section*{ \centering Assignment 5}
+\subsection*{ \centering By Drake Cullen} 
+
+\vspace{5mm}
+ 
+I declare that all material in this assessment task is my work except where there is clear acknowledgement or reference to the work of others. I further declare that I have complied and agreed to the CMU Academic Integrity Policy at the University website. http://www.coloradomesa.edu/student-services/documents
+\begin{center}
+\textbf{Author’s Name:} Drake Cullen 
+\textbf{UID(700\#):} 700480375
+\textbf{ Date:} 11/23/2021
+\end{center} 
+
+\section{Chapter 3, Question 1)}
+Topological sorting is an ordering of vertices in the manner that  for every directed edge u v, the vertex u comes before v in the ordering. In figure 3.10, there are a total of 6 unique topological orderings. We know that f will always be the last node, a is always the first node, c relies on b, and e relies on d. Here are the 6 topological orderings:
+
+\begin{align*}
+a, b, c, d, e, f \\
+a, b, d, c, e, f\\
+a, b, d, e, c, f\\
+a, d, e, b, c, f\\
+a, d, b, e, c, f\\
+a, d, b, c, e, f \\
+\end{align*}
+
+\section{Chapter 3, Question 2)}
+In class we learned that a graph contains a cycle if the graph contains a backward edge. The DFS algorithm can be run on the graph to perform edge classification. A backward edge will appear if there is a connection from a node to its ancestor.
+
+
+\begin{algorithm}[H]
+\caption{DFS\_Cycle(graph, vertex, visited, parent)}
+\begin{algorithmic} 
+\STATE // return true if a cycle (backward edge) is found
+\STATE visited[vertex] = true
+\FOR{neighbor in adj[vertex]}
+\IF{neighbor not in visited}
+\IF{DFS\_Cycle(graph, neighbor, visited, vertex}
+\RETURN true
+\ENDIF
+\ELSE
+\IF{neighbor not equal to parent}
+\RETURN true
+\ENDIF
+\ENDIF
+\ENDFOR
+\RETURN false
+\end{algorithmic}
+\end{algorithm}
+
+\section{Chapter 3, Question 3)}
+
+
+
+\end{document}  
