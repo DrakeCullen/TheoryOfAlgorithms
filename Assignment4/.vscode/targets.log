@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Nov 15 18:06:02 2021
+# Make data base, printed on Mon Nov 29 17:54:10 2021
 
 # Variables
 
@@ -30,6 +30,8 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -43,13 +45,11 @@ CURDIR := /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment4
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/81
-# environment
-VTE_VERSION = 6003
+SNAP_DATA = /var/snap/code/82
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:54394
+JOURNAL_STREAM = 8:54429
 # makefile (from 'Makefile', line 12)
 CFLAGS = -g -Wall
 # environment
@@ -63,7 +63,7 @@ MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 1
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
 USERNAME = drake
 # environment
@@ -73,31 +73,31 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 1792
+_ = /snap/code/82/usr/share/code/code
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5d6f1836-148c-4e26-b830-8751f5645437.sock
+MANAGERPID = 1894
 # environment
-VSCODE_CWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment4
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-264588b1-fd78-482e-9939-b14a447a8924.sock
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/81/usr/share/glib-2.0/schemas
+VSCODE_CWD = /home/drake
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/82/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/drake/miniconda3/bin:/home/drake/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/2006,unix/drake-pc:/tmp/.ICE-unix/2006
+SESSION_MANAGER = local/drake-pc:@/tmp/.ICE-unix/2106,unix/drake-pc:/tmp/.ICE-unix/2106
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/drake/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/81
+SNAP = /snap/code/82
 # environment
-SNAP_VERSION = 3a6960b9
-# environment
-CONDA_PREFIX = /home/drake/miniconda3
+SNAP_VERSION = ccbaa2d2
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -107,21 +107,21 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=32aa8a71-a139-453c-827f-a659ca03bb40&iid=32aa8a71-a139-453c-827f-a659ca03bb40&sid=32aa8a71-a139-453c-827f-a659ca03bb40","uploadToServer":true}
 # environment
-INVOCATION_ID = 9ab86d3381514da489ed2baec2b0b0f2
+INVOCATION_ID = 0eea14c09d30466092793ee7f018206f
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/81/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/82/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4396
 # automatic
 %F = $(notdir $%)
 # environment
 DISPLAY = :1
-# environment
-CONDA_EXE = /home/drake/miniconda3/bin/conda
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -131,7 +131,7 @@ PWD = /home/drake/projects/Fl21/TheoryOfAlgorithms/Assignment4
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1970
+SSH_AGENT_PID = 2070
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -143,7 +143,7 @@ HOME = /home/drake
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/drake/.config/Code/CachedData/3a6960b964327f0e3882ce18fcebd07ed191b316
+VSCODE_CODE_CACHE_PATH = /home/drake/.config/Code/CachedData/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247
 # environment
 LOGNAME = drake
 # environment
@@ -152,8 +152,6 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
 SNAP_CONTEXT = f3MKP_784zQ8bauSnggjho7C0CKrWtIGvp-fcBBBQSqN6SzJQP72
-# environment
-CONDA_PROMPT_MODIFIER = (base) 
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
@@ -168,10 +166,6 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 MAKELEVEL := 0
 # environment
 SNAP_REAL_HOME = /home/drake
-# environment
-CONDA_DEFAULT_ENV = base
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -179,9 +173,9 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/drake/snap/code/81
+SNAP_USER_DATA = /home/drake/snap/code/82
 # environment
-SHLVL = 1
+SHLVL = 0
 # makefile (from 'Makefile', line 11)
 CC = g++
 # environment
@@ -191,25 +185,23 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = drake
 # environment
-SNAP_REVISION = 81
+SNAP_REVISION = 82
 # makefile
 .DEFAULT_GOAL := all
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
-# environment
-CONDA_SHLVL = 1
 # default
 MAKE_COMMAND := make
-# environment
-OLDPWD = /home/drake/projects/Fl21/TheoryOfAlgorithms
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-95a7764f-1.62.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-95a7764f-1.62.3-main.sock
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -239,21 +231,13 @@ SNAP_NAME = code
 # environment
 LC_ALL = C
 # environment
-CONDA_PYTHON_EXE = /home/drake/miniconda3/bin/python
-# environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a85172c8_001b_454f_b863_ac6f7b35a197
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.85
 # default
 SUFFIXES := 
 # environment
 SNAP_REEXEC = 
-# environment
-_CE_M = 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
@@ -267,13 +251,9 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 5603
-# environment
-_CE_CONDA = 
+VSCODE_PID = 4446
 # variable set hash-table stats:
-# Load=131/1024=13%, Rehash=0, Collisions=16/161=10%
+# Load=121/1024=12%, Rehash=0, Collisions=18/151=12%
 
 # Pattern-specific Variable Values
 
@@ -281,9 +261,9 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 66306, inode 13492783): 13 files, no impossibilities.
+# . (device 66306, inode 13492783): 12 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -291,7 +271,6 @@ _CE_CONDA =
 
 # Files
 
- 
 all: main
 #  Command line target.
 #  Implicit rule search has been done.
@@ -317,7 +296,7 @@ Makefile:
 # Not a target:
 src/Graph.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-09 21:30:10.347489366
+#  Last modified 2021-11-15 19:24:24.940347106
 #  File has been updated.
 #  Successfully updated.
 
@@ -330,7 +309,7 @@ src/Graph.cpp:
 # Not a target:
 include/Node.h:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-09 21:02:36.223759541
+#  Last modified 2021-11-15 19:13:22.151277781
 #  File has been updated.
 #  Successfully updated.
 
@@ -344,8 +323,9 @@ clean:
 Graph.o: src/Graph.cpp Node.o
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
-#  Last modified 2021-11-09 21:24:04.539153552
+#  Last modified 2021-11-15 19:24:28.17431569
 #  File has been updated.
+ 
 #  Needs to be updated (-q is set).
 # automatic
 # @ := Graph.o
@@ -362,7 +342,7 @@ Graph.o: src/Graph.cpp Node.o
 # automatic
 # ^ := src/Graph.cpp Node.o
 # automatic
-# ? := src/Graph.cpp Node.o
+# ? := Node.o
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/13=8%
 #  recipe to execute (from 'Makefile', line 25):
@@ -370,7 +350,7 @@ Graph.o: src/Graph.cpp Node.o
 
 main: main.o Graph.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-09 21:24:04.583152687
+#  Last modified 2021-11-15 19:24:28.218288438
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -381,7 +361,7 @@ main: main.o Graph.o
 # Not a target:
 main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-09 21:24:04.11116196
+#  Last modified 2021-11-15 18:13:50.44256578
 #  File has been updated.
 #  Successfully updated.
 
@@ -401,12 +381,12 @@ Node.o: include/Node.h
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 22 / storage = 206 B / avg = 9 B
-# current buf: size = 8162 B / used = 206 B / count = 22 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 21 / storage = 195 B / avg = 9 B
+# current buf: size = 8162 B / used = 195 B / count = 21 / avg = 9 B
 
-# strcache performance: lookups = 39 / hit rate = 43%
+# strcache performance: lookups = 38 / hit rate = 44%
 # hash-table stats:
-# Load=22/8192=0%, Rehash=0, Collisions=1/39=3%
-# Finished Make data base on Mon Nov 15 18:06:02 2021
+# Load=21/8192=0%, Rehash=0, Collisions=1/38=3%
+# Finished Make data base on Mon Nov 29 17:54:10 2021
 
  

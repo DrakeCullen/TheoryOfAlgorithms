@@ -86,7 +86,7 @@ void Graph::readInput(string weightFilename, string heuristicFilename)
 */ 
 bool operator<(const Node& firstNode, const Node& secondNode) 
 {
-	return (firstNode.weight + firstNode.h) > (secondNode.weight + secondNode.h);
+	return  firstNode.h >  secondNode.h;
 }
 
 /**
